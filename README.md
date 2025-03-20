@@ -1,0 +1,1 @@
+# naitei_ruby_10_02_2025_hotel_management
