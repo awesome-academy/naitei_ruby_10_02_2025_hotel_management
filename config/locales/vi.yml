@@ -1,0 +1,19 @@
+vi:
+  hello: "Xin chào"
+  language:
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+  login: "Đăng nhập"
+  logo: "🏨 Đặt phòng khách sạn"
+  hotel:
+    name: "Lam Hotel"
+    rating: "⭐ 4.5 (132)"
+    address: "97 Phố Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội"
+    promotion: "🎁 Giảm 50% tối đa 60K, đặt tối thiểu 200K"
+    price:
+      old: "180.000đ"
+      new: "99.000đ"
+    button: "Chọn phòng"
+  time:
+    duration: "02 giờ"
+    period: "08:00 → 10:00, 26/03"

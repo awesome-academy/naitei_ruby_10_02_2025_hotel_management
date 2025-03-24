@@ -1,0 +1,19 @@
+en:
+  hello: "Hello"
+  language:
+    english: "English"
+    vietnamese: "Vietnamese"
+  login: "Login"
+  logo: "🏨 Hotel Booking"
+  hotel:
+    name: "Lam Hotel"
+    rating: "⭐ 4.5 (132)"
+    address: "97 Khuc Thua Du Street, Dich Vong, Cau Giay, Hanoi"
+    promotion: "🎁50% off up to 60K, minimum order 200K"
+    price:
+      old: "180.000đ"
+      new: "99.000đ"
+    button: "Choose room"
+  time:
+    duration: "02 hours"
+    period: "08:00 → 10:00, 26/03"
