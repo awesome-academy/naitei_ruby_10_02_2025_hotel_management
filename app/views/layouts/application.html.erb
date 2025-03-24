@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+<<<<<<< HEAD
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -15,5 +16,13 @@
     <%= yield %>
     <%= link_to "English", locale:"en" %>
     <%= link_to "Vietnamese", locale:"vi" %>
+=======
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= render 'shared/header' %>
+    <%= yield %>
+>>>>>>> 804a852 (static-pages)
   </body>
 </html>
