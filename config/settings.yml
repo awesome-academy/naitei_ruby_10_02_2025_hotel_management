@@ -1,1 +1,7 @@
 app_name: "Hotel Management"
+valid_email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+valid_phone_regex: !ruby/regexp /\A0\d{9}\z/i
+user_email_max_length: 255
+user_name_max_length: 50
+user_password_min_length: 6
+phone_length: 10
