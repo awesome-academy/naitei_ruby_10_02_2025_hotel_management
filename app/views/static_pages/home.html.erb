@@ -1,0 +1,36 @@
+<div class="hotel-card">
+  <div class="images">
+    <img src="<%= asset_path("sheraton_1.jpg") %>" class="main-image" alt="Sheraton Hanoi Hotel">
+    <div class="sub-images">
+      <img src="<%= asset_path("sheraton_2.jpg") %>" alt="Sheraton Hanoi Hotel">
+      <img src="<%= asset_path("sheraton_3.jpg") %>" alt="Sheraton Hanoi Hotel">
+       <img src="<%= asset_path("sheraton_4.jpg") %>" alt="Sheraton Hanoi Hotel">
+    </div>
+  </div>
+
+  <div class="hotel-info">
+    <div class="rating">
+      <%= I18n.t("hotel.rating") %>
+    </div>
+    <h2 class="hotel-name"><%= I18n.t("hotel.name") %></h2>
+    <p class="address"><%= I18n.t("hotel.address") %></p>
+  </div>
+
+  <div class="promotion">
+    <p><%= I18n.t("hotel.promotion") %></p>
+  </div>
+
+  <div class="price-box">
+    <div class="time">
+        <%= I18n.t "time.duration" %> | <%= I18n.t "time.period" %>
+    </div>
+    <div class="price">
+      <span class="old"><%= I18n.t("hotel.price.old") %></span>
+      <span class="new"><%= I18n.t("hotel.price.new") %></span>
+    </div>
+  </div>
+
+  <div class="action">
+    <button class="btn-choose"><%= I18n.t("hotel.button") %></button>
+  </div>
+</div>

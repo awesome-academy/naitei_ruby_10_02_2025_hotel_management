@@ -10,10 +10,9 @@ gem "importmap-rails"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.5"
+gem "sassc"
 gem "sprockets-rails"
 gem "stimulus-rails"
-gem "tailwindcss-rails", "~> 4.2"
-gem "tailwindcss-ruby", "~> 4.0"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 group :development, :test do
@@ -31,3 +30,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "tailwindcss-rails", "~> 4.2"
+gem "tailwindcss-ruby", "~> 4.0"
