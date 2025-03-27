@@ -18,3 +18,29 @@ vi:
   time:
     duration: "02 giờ"
     period: "08:00 → 10:00, 26/03"
+  admin:
+    layouts:
+      admin: "Quản trị viên"
+      dashboard: "Thống kê"
+      user: "Người dùng"
+      room_type: "Loại phòng"
+      room: "Phòng"
+      request: "Yêu cầu đặt phòng"
+      search: "Tìm kiếm"
+  room_types:
+    index:
+      room_type_management: "Quản lý loại phòng"
+      add_room_type: "Thêm loại phòng"
+      name: "Tên"
+      price: "Giá"
+    new:
+      create_room_type: "Tạo loại phòng mới"
+      create: "Tạo"
+      description: "Mô tả"
+      view: "View cửa sổ"
+      devices: "Thiết bị"
+      device_name: "Tên thiết bị"
+      quantity: "Số lượng"
+      add_device: "Thêm thiết bị"
+  msg:
+    room_type_created: "Tạo phòng thành công!"

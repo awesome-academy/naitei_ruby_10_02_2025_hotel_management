@@ -159,3 +159,75 @@
         }
     }
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid $table-border;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: $table-background;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: $table-background-second;
+  }
+  
+  .table tr:hover {
+    background-color: $table-hover;
+  }
+  
+  .breadcrumbs {
+    color: $header-background-color;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $table-border;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: $primary-color;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  }
+
+  .form-actions {
+    padding: 5px 7px;
+    background-color: $header-background-color;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .btn-danger {
+    color: red;
+  }
+  
