@@ -1,0 +1,22 @@
+<% provide :title, t(".room_type_management") %>
+<div class="room-type-management-page">
+  <div>
+    <%= link_to new_room_type_url, class: "add-button" do %>
+      <i class="bi bi-plus"></i>
+      <%= t ".add_room_type" %>
+    <% end %>
+  </div>
+  <table class="table">
+    <thead >
+      <tr>
+        <th>ID</th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".price" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @room_types %>
+    </tbody>
+  </table>
+</div>

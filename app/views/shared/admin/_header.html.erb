@@ -1,0 +1,19 @@
+<header class="admin-header">
+  <%= link_to Settings.app_name, "#", class: "admin-logo" %>
+  <%= form_with(url: "/search", method: :get, local: true) do |f| %>
+    <%= f.text_field :query, placeholder: t("admin.layouts.search") %>
+    <%= f.submit t("admin.layouts.search") %>
+  <% end %>
+  <div class="header-nav">
+    <%= image_tag "https://robohash.org/10.png" %>
+    <div>
+      <p>Test User</P>
+      <p><%= t "admin.layouts.admin" %></p>
+    </div>
+    <ul>
+      <li><%= link_to "Information", "#" %></li>
+      <li><%= link_to "Settings", "#" %></li>
+      <li><%= link_to "Log out", "#" %></li>
+    </ul>
+  </div>
+</header>
