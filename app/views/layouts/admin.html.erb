@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Settings.app_name %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render "shared/admin/header" %>
+    <%= render "shared/admin/sidebar" %>
+    <div class="content">
+      <div class="page-title">
+        <h3><%= yield :title %></h3>
+      </div>
+      <%= yield %>
+      <%= link_to "English", locale:"en" %>
+      <%= link_to "Vietnamese", locale:"vi" %>
+    </div>
+  </body>
+</html>
