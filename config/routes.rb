@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
     get "static_pages/home"
+
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
   end
-=======
->>>>>>> 6c38060d1d370cdd5f80509d69e7acc976ca9631
 end

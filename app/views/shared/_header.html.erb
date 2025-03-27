@@ -8,9 +8,22 @@
         <%= link_to I18n.t('language.vietnamese'), url_for(locale: :vi), class: (I18n.locale == :vi ? 'active' : '') %> |
         <%= link_to I18n.t('language.english'), url_for(locale: :en), class: (I18n.locale == :en ? 'active' : '') %>
       </div>
-      <div class="login-link">
-        <%= link_to I18n.t('login'), "#" %>
-      </div>
+      <% if logged_in? %>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <i class="fa fa-user"></i>
+          </button>
+          <div class="dropdown-content">
+            <%= link_to I18n.t('profile'), "#" %>
+            <%= link_to I18n.t('settings'), "#" %>
+            <%= link_to I18n.t('logout'), logout_path, method: :delete %>
+          </div>
+        </div>
+      <% else %>
+        <div class="login-link">
+          <%= link_to I18n.t('login'), login_path %>
+        </div>
+      <% end %>
     </div>
   </div>
 </header>
