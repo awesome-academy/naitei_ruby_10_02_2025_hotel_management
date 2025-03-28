@@ -17,3 +17,10 @@ en:
   time:
     duration: "02 hours"
     period: "08:00 → 10:00, 26/03"
+  login_successfull: "Login Successfull"
+  remember_me : "Remember me"
+  enter_email : "Enter email"
+  enter_password: "Nhập mật khẩu"
+  profile: "Profile"
+  settings : "Setting"
+  logout : "Log out"

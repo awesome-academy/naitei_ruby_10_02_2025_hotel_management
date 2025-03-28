@@ -18,3 +18,9 @@ vi:
   time:
     duration: "02 giờ"
     period: "08:00 → 10:00, 26/03"
+  remember_me: "Ghi nhớ đăng nhập"
+  enter_email: "Nhập email"
+  enter_password: "Nhập mật khẩu"
+  profile: "Hồ sơ"
+  settings: "Thiết lập"
+  logout: "Đăng xuất"

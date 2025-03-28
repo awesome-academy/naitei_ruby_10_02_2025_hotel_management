@@ -1,0 +1,28 @@
+<%= provide :title, t("login") %>
+<h1><%= t "login" %></h1>
+<div class="image-container">
+  <img src="<%= asset_path('logo.jpg') %>" alt="Login Image" class="login-image" />
+</div>
+<div class="form-wrapper">
+  <div class="login-form">
+    <%= form_for :session, url: login_path, class: "space-y-6" do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.email_field :email, placeholder: t("enter_email"), class: "input-field" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.password_field :password, placeholder: "Password", class: "input-field" %>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <%= f.check_box :remember_me, class: "check-box" %>
+          <%= f.label :remember_me, t("remember_me"), class: "ml-2 text-sm text-gray-700" %>
+        </div>
+        <div>
+          <%= f.submit t("login"), class: "submit-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
