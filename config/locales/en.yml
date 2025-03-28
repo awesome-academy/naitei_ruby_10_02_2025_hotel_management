@@ -1,4 +1,14 @@
 en:
+  activerecord:
+    models:
+      room_type: "Room type"
+    attributes:
+      room_type:
+        name: "Name"
+        view: "View"
+        description: "Description"
+        price: "Price"
+        images: "Images"
   hello: "Hello"
   language:
     english: "English"
@@ -43,16 +53,25 @@ en:
       price: "Price"
     new:
       create_room_type: "Create room type"
-      create: "Create"
       name: "Name"
       price: "Price"
       description: "Description"
       view: "View"
-      devices: "Devices"
-      device_name: "Device Name"
-      quantity: "Quantity"
-      add_device: "Add device"
       remove: "Remove"
+    form:
+      create: "Create"
+      quantity: "Quantity"
+      device_name: "Device Name"
+      devices: "Devices"
+      add_device: "Add device"
+    show:
+      room_type_detail: "Room type's detail"
+      description: "Description:"
+      view: "View:"
+      images: "Images"
+      devices: "Devices"
+      price: "Price"
+      no_image: "No image available"
     view: "View"
     delete: "Delete"
   msg:
@@ -60,8 +79,10 @@ en:
     invalid_image_format: "Invalid image format"
     room_type_deleted: "Room type deleted"
     delete_fail: "Delete failed"
-    you_sure: "Are you sure ?"
+    you_sure: "Are you sure?"
     invalid_room_type: "Room type not found!"
+    room_type_updated: "Room type updated!"
+    image_removed: "Image removed!"
   menu:
     overview: "Overview"
     room_list: "Room List"

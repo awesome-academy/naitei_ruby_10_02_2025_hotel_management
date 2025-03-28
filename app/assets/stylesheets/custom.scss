@@ -573,3 +573,10 @@ a {
 .book-button:hover {
   background-color: $accent-hover;
 }
+
+.img-thumbnail {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}

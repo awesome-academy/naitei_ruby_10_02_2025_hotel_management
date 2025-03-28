@@ -1,12 +1,10 @@
 <% provide :title, t(".room_type_management") %>
-<div class="create-room-type-page">
+<div class="room_type_edit_page">
   <div class="breadcrumbs">
-    <%= link_to room_types_url do %>
+    <%= link_to @room_type do %>
       <%= bootstrap_icon "arrow-return-left", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
     <% end %>
-    <span><%= t ".create_room_type" %></span> 
+    <span><%= t ".room_type_detail" %></span> 
   </div>
-
   <%= render "form" %>
-
 </div>

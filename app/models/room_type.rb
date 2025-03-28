@@ -17,5 +17,4 @@ class RoomType < ApplicationRecord
   validates :price, presence: true, numericality:
             {greater_than_or_equal_to: Settings.zero,
              less_than: Settings.max_price_value}
-
 end
