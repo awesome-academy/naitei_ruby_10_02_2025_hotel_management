@@ -24,3 +24,6 @@ vi:
   profile: "Hồ sơ"
   settings: "Thiết lập"
   logout: "Đăng xuất"
+  logout_success : "Đăng xuất thành công"
+  login_blank : "Email or mật khẩu không được bỏ trống"
+  login_success: "Đăng nhập thành công"

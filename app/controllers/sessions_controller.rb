@@ -3,14 +3,22 @@ class SessionsController < ApplicationController
   before_action :authenticate_user, only: [:create]
 
   def create
-    if @user
-      session[:user_id] = @user.id
-      flash[:success] = t "login_success"
-      redirect_to root_path
-    else
-      flash.now[:alert] = t "login_fail"
-      render "new"
+    if missing_params?
+      flash.now[:danger] = t("login_blank")
+      render :new, status: :unprocessable_entity and return
     end
+
+    if @user
+      successful_login
+    else
+      failed_login
+    end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:success] = t("logout_success")
+    redirect_to login_path
   end
 
   private
@@ -23,5 +31,20 @@ class SessionsController < ApplicationController
     return if @user&.authenticate(params[:session][:password])
 
     @user = nil
+  end
+
+  def missing_params?
+    params[:session][:email].blank? || params[:session][:password].blank?
+  end
+
+  def successful_login
+    session[:user_id] = @user.id
+    flash[:success] = t("login_success")
+    redirect_to root_path
+  end
+
+  def failed_login
+    flash.now[:danger] = t("login_fail")
+    render :new, status: :unprocessable_entity
   end
 end
