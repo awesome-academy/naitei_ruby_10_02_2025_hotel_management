@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :phone, presence: true,
                     length: {is: Settings.phone_length},
                     format: {with: Settings.valid_phone_regex}
-  validates :name,  presence: true,
+  validates :usename,  presence: true,
                     length: {maximum: Settings.user_name_max_length}
   validates :password, presence: true,
                        length: {minimum: Settings.user_password_min_length},

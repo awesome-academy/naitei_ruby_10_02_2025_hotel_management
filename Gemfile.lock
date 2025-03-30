@@ -166,6 +166,8 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.1)
     parallel (1.23.0)
+    paranoia (3.0.1)
+      activerecord (>= 6, < 8.1)
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
@@ -315,6 +317,7 @@ DEPENDENCIES
   image_processing
   importmap-rails
   mysql2 (~> 0.5)
+  paranoia
   puma (~> 5.0)
   rails (~> 7.0.5)
   rspec-rails (~> 4.0.1)
