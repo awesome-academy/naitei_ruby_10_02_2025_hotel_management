@@ -2,7 +2,7 @@
 <div class="room-type-management-page">
   <div>
     <%= link_to new_room_type_url, class: "add-button" do %>
-      <i class="bi bi-plus"></i>
+      <%= bootstrap_icon "plus", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
       <%= t ".add_room_type" %>
     <% end %>
   </div>

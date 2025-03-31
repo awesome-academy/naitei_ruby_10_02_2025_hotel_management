@@ -17,7 +17,7 @@ class RoomTypesController < ApplicationController
       redirect_to room_types_path
     else
       @room_type.devices.build if @room_type.devices.empty?
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

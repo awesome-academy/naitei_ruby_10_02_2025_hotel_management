@@ -5,3 +5,12 @@ user_email_max_length: 255
 user_name_max_length: 50
 user_password_min_length: 6
 phone_length: 10
+allowed_image_file_type: ["image/jpeg", "image/gif", "image/png"]
+digit_50: 50
+digit_500: 500
+zero: 0
+max_price_value: 20000000
+default:
+  view:
+    sidebar:
+      icon_size: 20
