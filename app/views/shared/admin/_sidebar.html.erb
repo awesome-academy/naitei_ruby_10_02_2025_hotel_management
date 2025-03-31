@@ -2,32 +2,32 @@
   <ul>
     <li>
       <%= link_to "#" do %>
-        <i class="bi bi-speedometer"></i>
+        <%= bootstrap_icon "speedometer", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.dashboard" %>
       <% end %>
     </li>
     <li>
       <%= link_to "#" do %>
-      <i class="bi bi-people-fill"></i>
-       <%= t "admin.layouts.user" %>
+        <%= bootstrap_icon "people-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.user" %>
       <% end %>
     </li>
     <li>
-      <%= link_to "#", class: (request.path.split('/')[2] == "room_type" ? "active" : "") do %>
-        <i class="bi bi-houses-fill"></i>
-         <%= t "admin.layouts.room_type" %>
+      <%= link_to room_types_url, class: (request.path.split('/')[3] == "room_types" ? "active" : "") do %>
+        <%= bootstrap_icon "houses-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.room_type" %>
       <% end %>
     </li>
      <li>
       <%= link_to "#" do %>
-        <i class="bi bi-house-fill"></i>
-         <%= t "admin.layouts.room" %>
+        <%= bootstrap_icon "house-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.room" %>
       <% end %>
     </li>
       <li>
       <%= link_to "#" do %>
-        <i class="bi bi-calendar-fill"></i>
-         <%= t "admin.layouts.request" %>
+        <%= bootstrap_icon "calendar-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.request" %>
       <% end %>
     </li>
   </ul>

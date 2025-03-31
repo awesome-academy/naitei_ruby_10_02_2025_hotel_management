@@ -26,3 +26,34 @@ en:
   logout : "Log out"
   logout_success : "Log out Successfull"
   login_blank : "Email or password blank"
+  admin:
+    layouts:
+      admin: "Admin"
+      dashboard: "Dashboard"
+      user: "User"
+      room_type: "Room Type"
+      room: "Room"
+      request: "Request"
+      search: "Search"
+  room_types:
+    index:
+      room_type_management: "Room type managment"
+      add_room_type: "Add room type"
+      name: "Name"
+      price: "Price"
+    new:
+      create_room_type: "Create room type"
+      create: "Create"
+      name: "Name"
+      price: "Price"
+      description: "Description"
+      view: "View"
+      devices: "Devices"
+      device_name: "Device Name"
+      quantity: "Quantity"
+      add_device: "Add device"
+      remove: "Remove"
+    view: "View"
+  msg:
+    room_type_created: "Room type created successfully!"
+    invalid_image_format: "Invalid image format"
