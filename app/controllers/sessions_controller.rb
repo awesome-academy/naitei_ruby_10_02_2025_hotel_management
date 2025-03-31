@@ -40,7 +40,8 @@ class SessionsController < ApplicationController
   def successful_login
     session[:user_id] = @user.id
     flash[:success] = t("login_success")
-    redirect_to root_path
+    forwarding_url = session[:forwarding_url]
+    redirect_to forwarding_url || root_path
   end
 
   def failed_login

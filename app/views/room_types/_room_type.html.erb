@@ -3,9 +3,15 @@
   <td><%= room_type.name%></td>
   <td><%= room_type.price %> VND</td>
   <td>
-    <%= link_to room_type_path(room_type) do %>
-      <%= bootstrap_icon "eye-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
-      <%= t "room_type.view" %>
-    <% end %>
+    <div class="action-cell">
+      <%= link_to room_type_path(room_type), class: "view-link" do %>
+        <%= bootstrap_icon "eye-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "room_types.view" %>
+      <% end %>
+      <%= link_to room_type_path(room_type), data: {turbo_method: :delete, turbo_confirm: t("msg.you_sure")}, class: "delete-link" do %>
+        <%= bootstrap_icon "trash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "room_types.delete" %>
+      <% end %>
+    </div>
   </td>
 <tr>

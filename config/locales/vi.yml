@@ -53,6 +53,11 @@ vi:
       add_device: "Thêm thiết bị"
       remove: "Xóa"
     view: "Xem"
+    delete: "Xóa"
   msg:
     room_type_created: "Tạo phòng thành công!"
     invalid_image_format: "Ảnh không đúng định dạng"
+    room_type_deleted: "Xóa loại phòng thành công!"
+    delete_fail: "Xóa thất bại"
+    you_sure: "Bạn có chắc không?"
+    invalid_room_type: "Không tìm thấy loại phòng!"

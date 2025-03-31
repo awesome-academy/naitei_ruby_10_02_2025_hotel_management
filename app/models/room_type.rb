@@ -13,5 +13,9 @@ class RoomType < ApplicationRecord
   validates :images, content_type: {in: Settings.allowed_image_file_type,
                                     message: I18n.t("msg.invalid_image_format")}
   validates :description, length: {maximum: Settings.digit_500}
-  validates :price, presence: true, numericality: {greater_than_or_equal_to: Settings.zero, less_than: Settings.max_price_value}
+  validates :price, presence: true, numericality:
+            {greater_than_or_equal_to: Settings.zero,
+             less_than: Settings.max_price_value}
+
+  acts_as_paranoid
 end

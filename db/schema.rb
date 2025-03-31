@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_03_28_041231) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_31_091824) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -89,6 +89,15 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_28_041231) do
     t.index ["room_type_id"], name: "index_requests_room_types_on_room_type_id"
   end
 
+  create_table "requests_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "request_id", null: false
+    t.bigint "rooms_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_requests_rooms_on_request_id"
+    t.index ["rooms_id"], name: "index_requests_rooms_on_rooms_id"
+  end
+
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "content"
@@ -105,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_28_041231) do
     t.string "view"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_room_types_on_deleted_at"
   end
 
   create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -155,6 +166,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_28_041231) do
   add_foreign_key "requests", "users"
   add_foreign_key "requests_room_types", "requests"
   add_foreign_key "requests_room_types", "room_types"
+  add_foreign_key "requests_rooms", "requests"
+  add_foreign_key "requests_rooms", "rooms", column: "rooms_id"
   add_foreign_key "reviews", "users"
   add_foreign_key "rooms", "room_types"
   add_foreign_key "stay_ats", "requests"

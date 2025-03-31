@@ -54,6 +54,11 @@ en:
       add_device: "Add device"
       remove: "Remove"
     view: "View"
+    delete: "Delete"
   msg:
     room_type_created: "Room type created successfully!"
     invalid_image_format: "Invalid image format"
+    room_type_deleted: "Room type deleted"
+    delete_fail: "Delete failed"
+    you_sure: "Are you sure ?"
+    invalid_room_type: "Room type not found!"
