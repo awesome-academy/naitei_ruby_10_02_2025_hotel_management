@@ -1,0 +1,11 @@
+<tr>
+  <td><%= room_type.id %></td>
+  <td><%= room_type.name%></td>
+  <td><%= room_type.price %> VND</td>
+  <td>
+    <%= link_to room_type_path(room_type) do %>
+      <i class="bi bi-eye-fill"></i>
+      <%= t "room_type.view" %>
+    <% end %>
+  </td>
+<tr>

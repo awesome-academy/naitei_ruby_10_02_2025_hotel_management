@@ -1,0 +1,34 @@
+<aside class="admin-sidebar">
+  <ul>
+    <li>
+      <%= link_to "#" do %>
+        <i class="bi bi-speedometer"></i>
+        <%= t "admin.layouts.dashboard" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#" do %>
+      <i class="bi bi-people-fill"></i>
+       <%= t "admin.layouts.user" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#", class: (request.path.split('/')[2] == "room_type" ? "active" : "") do %>
+        <i class="bi bi-houses-fill"></i>
+         <%= t "admin.layouts.room_type" %>
+      <% end %>
+    </li>
+     <li>
+      <%= link_to "#" do %>
+        <i class="bi bi-house-fill"></i>
+         <%= t "admin.layouts.room" %>
+      <% end %>
+    </li>
+      <li>
+      <%= link_to "#" do %>
+        <i class="bi bi-calendar-fill"></i>
+         <%= t "admin.layouts.request" %>
+      <% end %>
+    </li>
+  </ul>
+</aside>
