@@ -61,3 +61,28 @@ vi:
     delete_fail: "Xóa thất bại"
     you_sure: "Bạn có chắc không?"
     invalid_room_type: "Không tìm thấy loại phòng!"
+  menu:
+    overview: "Tổng quan"
+    room_list: "Danh sách phòng"
+    amenities: "Tiện ích"
+    reviews: "Đánh giá"
+    hotel_policy: "Chính sách khách sạn"
+    cancellation_policy: "Chính sách hủy phòng" 
+  intro:
+    title: "Giới thiệu"
+    description: "Với chúng tôi, đem lại sự thoải mái cho khách hàng là yếu tố quyết định tất cả."
+    note: "Lưu ý"
+    late_arrival: "Khách hàng đến trễ hơn 15 phút so với thời gian đặt phòng, khách sạn có quyền hủy phòng."
+    payment_policy: "Đối với khách hàng thanh toán trước, vui lòng liên hệ với khách sạn nếu đến trễ để tránh hủy phòng."
+    customer_requirements: "Yêu cầu đối với khách hàng"
+    id_required: "CMND/CCCD/giấy tờ tùy thân (BLX, Passport) 2 người khi lưu trú."
+    age_requirement: "Khách sạn chỉ nhận khách từ 18 tuổi trở lên."
+    show_more: "Hiển thị thêm"
+  
+  room_list:
+    title: "Danh sách phòng"
+    default_image: "Ảnh mặc định"
+    view_details: "Xem chi tiết phòng"
+    per_day: "/1 ngày"
+    book_room: "Đặt phòng"
+  room_type_not_found : "Không tìm thấy loại phòng"

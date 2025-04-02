@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     scope "admin" do
       resources :room_types
     end
+    scope :user do
+      get "room_types", to: "user/room_types#index", as: "user_room_types"
+      get "room_types/:id", to: "user/room_types#show", as: "user_room_type"
+    end
   end
 end

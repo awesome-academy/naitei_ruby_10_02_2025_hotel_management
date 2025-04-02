@@ -1,4 +1,5 @@
 class RoomType < ApplicationRecord
+  acts_as_paranoid
   PERMITTED_PARAMS = %i(name description price view).freeze + [{images: []},
   {devices_attributes: Device::PERMITTED_PARAMS}].freeze
 
@@ -17,5 +18,4 @@ class RoomType < ApplicationRecord
             {greater_than_or_equal_to: Settings.zero,
              less_than: Settings.max_price_value}
 
-  acts_as_paranoid
 end

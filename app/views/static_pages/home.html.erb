@@ -9,24 +9,26 @@
   </div>
   <div class="hotel-info">
     <div class="rating">
-      <%= I18n.t("hotel.rating") %>
+      <%= t("hotel.rating") %>
     </div>
-    <h2 class="hotel-name"><%= I18n.t("hotel.name") %></h2>
-    <p class="address"><%= I18n.t("hotel.address") %></p>
+    <h2 class="hotel-name"><%= t("hotel.name") %></h2>
+    <p class="address"><%= t("hotel.address") %></p>
   </div>
   <div class="promotion">
-    <p><%= I18n.t("hotel.promotion") %></p>
+    <p><%= t("hotel.promotion") %></p>
   </div>
   <div class="price-box">
     <div class="time">
-      <%= I18n.t "time.duration" %> | <%= I18n.t "time.period" %>
+      <%= t "time.duration" %> | <%= t "time.period" %>
     </div>
     <div class="price">
-      <span class="old"><%= I18n.t("hotel.price.old") %></span>
-      <span class="new"><%= I18n.t("hotel.price.new") %></span>
+      <span class="old"><%= t("hotel.price.old") %></span>
+      <span class="new"><%= t("hotel.price.new") %></span>
     </div>
   </div>
   <div class="action">
-    <button class="btn-choose"><%= I18n.t("hotel.button") %></button>
+    <%= link_to user_room_types_path, class: "btn-choose" do %>
+      <%= t("hotel.button") %>
+    <% end %>
   </div>
 </div>

@@ -353,7 +353,7 @@ h1 {
 .form-actions {
   padding: 5px 7px;
   background-color: $header-background-color;
-  color: white;
+  color: $white-color;
   font-weight: 600;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
@@ -382,4 +382,194 @@ a {
 
 .btn-danger {
   color: red;
+}
+.room-list-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: $basic-black;
+  margin-bottom: 20px;
+  margin-left: 420px;
+}
+
+.tab-menu {
+  background-color: $white-color;
+  border-bottom: 2px solid $border-white;
+  margin-bottom: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.tab-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-menu li {
+  font-size: 18px;
+  padding: 15px;
+  color: $text-light;
+}
+
+.tab-menu li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tab-menu li.active {
+  border-bottom: 3px solid $border-bottom;
+  font-weight: bold;
+  color: $basic-black;
+}
+
+.intro-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-light;
+  border-radius: 8px;
+  border: 1px solid $border-white;
+  margin-top: 20px;
+}
+
+.intro-section h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: $basic-black;
+}
+
+.intro-section p {
+  font-size: 16px;
+  color: $text-muted;
+  line-height: 1.6;
+}
+
+.intro-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.intro-section hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+.show-more {
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.show-more:hover {
+  background-color: $primary-hover;
+}
+
+.room-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+  margin-left: 420px;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border: 1px solid $border-white;
+  border-radius: 10px;
+  padding: 15px;
+  align-items: center;
+  width: 70%;
+}
+
+.room-image-container {
+  flex-shrink: 0;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.room-info {
+  flex: 1;
+}
+
+.room-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.room-size {
+  font-size: 14px;
+  color: $text-muted;
+  margin-bottom: 10px;
+}
+
+.room-link {
+  font-size: 14px;
+  color: $primary-color;
+  text-decoration: underline;
+}
+
+.room-devices {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.device-item {
+  background-color: $basic-white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.room-price-action {
+  flex: 1;
+  text-align: right;
+}
+
+.room-price {
+  font-size: 18px;
+  color: $price-new;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.book-button {
+  padding: 8px 14px;
+  background-color: $accent-color;
+  color: $white-color;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 120px;
+}
+
+.book-button:hover {
+  background-color: $accent-hover;
 }
