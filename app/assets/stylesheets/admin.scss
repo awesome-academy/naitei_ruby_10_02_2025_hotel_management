@@ -142,3 +142,27 @@
   display: flex;
   gap: 5px;
 }
+
+.room-type-detail-page {
+  padding: 20px;
+}
+
+.room_type_edit_page {
+  padding: 20px;
+}
+
+.delete-link {
+  color: red;
+}
+
+.room-type-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.room-type-image img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}

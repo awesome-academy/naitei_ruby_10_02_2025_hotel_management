@@ -1,5 +1,15 @@
 
 vi:
+  activerecord:
+    models:
+      room_type: "Room type"
+    attributes:
+      room_type:
+        name: "Tên loại phòng"
+        view: "View cửa sổ"
+        description: "Mô tả"
+        price: "Giá"
+        images: "Hình ảnh phòng"
   hello: "Xin chào"
   language:
     english: "Tiếng Anh"
@@ -44,16 +54,28 @@ vi:
       price: "Giá"
     new:
       create_room_type: "Tạo loại phòng mới"
-      create: "Tạo"
       description: "Mô tả"
       view: "View cửa sổ"
       devices: "Thiết bị"
       device_name: "Tên thiết bị"
       quantity: "Số lượng"
-      add_device: "Thêm thiết bị"
       remove: "Xóa"
+    form:
+      create: "Tạo"
+      quantity: "Số lượng"
+      device_name: "Tên thiết bị"
+      devices: "Thiết bị"
+      add_device: "Thêm thiết bị"
     view: "Xem"
     delete: "Xóa"
+    show:
+      room_type_detail: "Chi tiết loại phòng"
+      description: "Mô tả:"
+      view: "View cửa sổ:"
+      images: "Hình ảnh"
+      devices: "Thiết bị"
+      price: "Giá"
+      no_image: "Chưa có hình ảnh"
   msg:
     room_type_created: "Tạo phòng thành công!"
     invalid_image_format: "Ảnh không đúng định dạng"
@@ -61,6 +83,8 @@ vi:
     delete_fail: "Xóa thất bại"
     you_sure: "Bạn có chắc không?"
     invalid_room_type: "Không tìm thấy loại phòng!"
+    room_type_updated: "Đã cập nhật loại phòng"
+    image_removed: "Đã xóa ảnh!"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"

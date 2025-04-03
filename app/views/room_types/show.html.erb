@@ -1,1 +1,52 @@
 <% provide :title, t("room_types.index.room_type_management") %>
+<div class="room-type-detail-page">
+  <div class="breadcrumbs">
+    <%= link_to room_types_url do %>
+      <%= bootstrap_icon "arrow-return-left", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+    <% end %>
+    <span><%= t ".room_type_detail" %></span> 
+  </div>
+
+  <h1><%= @room_type.name %></h1>
+  <p>
+    <strong><%= t ".description" %></strong>
+    <%= @room_type.description %>
+  </p>
+  <p>
+    <strong><%= t ".price" %>:</strong>
+    <%= @room_type.price %> VND
+  </p>
+  <p>
+    <strong><%= t ".view" %>:</strong>
+    <%= @room_type.view %>
+  </p>
+
+  <h2><%= t ".images" %></h2>
+  <div class="room-type-images">
+    <% if @room_type.images.attached? %>
+      <% @room_type.images.each do |image| %>
+        <div class="room-type-image">
+          <%= image_tag image %>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= t ".no_image" %></p>
+    <% end %>
+  </div>
+
+  <h2><%= t ".devices" %></h2>
+  <table class="table">
+    
+    <% @room_type.devices.each do |device| %>
+      <tr>
+        <td><%= device.name %></td>
+        <td><%= device.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to edit_room_type_url(@room_type) do %>
+    <%= bootstrap_icon "pencil-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+    Edit
+  <% end %> 
+</div>
