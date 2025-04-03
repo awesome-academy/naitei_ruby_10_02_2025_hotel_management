@@ -1,0 +1,22 @@
+<tr>
+  <td><%= request.id %></td>
+  <td><%= request.user.usename %></td>
+  <td><%= request.checkin_date %></td>
+  <td><%= request.checkout_date %></td>
+  <td>
+    <ul>
+      <% request.requests_room_types.each do |r_room_type| %>
+        <li>
+          <%= r_room_type.room_type.name %> - <%= r_room_type.quantity %> <%= t "room" %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+  <td><%= status_chip request.status %></td>
+  <td>
+    <%= link_to request_path(request) do %>
+      <%= bootstrap_icon "eye-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t "room_types.view" %>
+    <% end %>
+  </td>
+</tr>

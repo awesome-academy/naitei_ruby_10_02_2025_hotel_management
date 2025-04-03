@@ -580,3 +580,99 @@ a {
   object-fit: contain;
   margin-bottom: 10px;
 }
+
+.room-manage-page {
+  padding: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.room_list_table {
+  border: 1.5px solid $table-border;
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+
+}
+
+.room_list_table .room_type_name {
+  border: 1.5px solid $table-border;
+  font-weight: 800;
+  padding: 8px;
+}
+
+.room-table-header {
+  border-bottom: 1.5px solid $table-border;
+}
+
+.month_year_cell {
+  font-weight: 800;
+  padding: 5px;
+}
+
+.day-cell {
+  padding: 5px;
+}
+
+.day-cell div {
+  background-color: #F3F5F7;
+  border-radius: 5px;
+  padding: 5px 7px;
+  font-weight: 600;
+}
+
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background: white; 
+  border: 1.5px solid $table-border;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  z-index: 10; 
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.room-cell {
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.room-row {
+  border-bottom: 1px solid $table-border;
+}
+
+.request-management-page {
+  padding: 20px;
+}
+
+.status-chip {
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.status-chip.pending {
+  background-color: $pending-bg; 
+  color: $pending-text;
+}
+
+.status-chip.deposited {
+  background-color: $deposited-bg;
+  color: $deposited-text;
+}
+
+.status-chip.checkined {
+  background-color: $checkined-bg; 
+  color: $checkined-text;
+}
+
+.status-chip.finished {
+  background-color: $finished-bg;
+  color: $finished-text; 
+}

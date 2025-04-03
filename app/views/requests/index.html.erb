@@ -1,0 +1,15 @@
+<% provide :title, t(".request_management") %>
+<div class="request-management-page">
+  <table class="table">
+    <tr>
+      <th><%= t ".booking_id" %></th>
+      <th><%= t ".guest_name" %></th>
+      <th><%= t ".checkin_date" %></th>
+      <th><%= t ".checkout_date" %></th>
+      <th><%= t ".order" %></th>
+      <th><%= t ".status" %></th>
+      <th></th>
+    </tr>
+    <%= render @requests %>
+  </table>
+</div>

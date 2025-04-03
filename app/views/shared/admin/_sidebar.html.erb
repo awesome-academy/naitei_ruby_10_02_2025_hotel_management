@@ -19,13 +19,13 @@
       <% end %>
     </li>
      <li>
-      <%= link_to "#" do %>
+      <%= link_to rooms_url, class: (request.path.split('/')[3] == "rooms" ? "active" : "") do %>
         <%= bootstrap_icon "house-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.room" %>
       <% end %>
     </li>
       <li>
-      <%= link_to "#" do %>
+      <%= link_to requests_url, class: (request.path.split('/')[3] == "requests" ? "active" : "") do %>
         <%= bootstrap_icon "calendar-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.request" %>
       <% end %>

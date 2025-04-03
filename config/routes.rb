@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         delete "images/:image_id", to: "room_types#destroy_image", as: "image"
       end
       resources :rooms
+      resources :requests
     end
     scope :user do
       get "room_types", to: "user/room_types#index", as: "user_room_types"

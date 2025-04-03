@@ -107,3 +107,16 @@ en:
     per_day: "/ per day"
     book_room: "Book Room"
   room_type_not_found : "Room type not found"
+  requests:
+    index:
+      booking_id: "Booking id"
+      guest_name: "Guest name"
+      checkin_date: "Checkin date"
+      checkout_date: "Checkout date"
+      order: "Order"
+      status: "Status"
+  room: "Room"
+  pending: "Pending"
+  deposited: "Deposited"
+  checkined-in: "Checked in"
+  finished: "Finished"

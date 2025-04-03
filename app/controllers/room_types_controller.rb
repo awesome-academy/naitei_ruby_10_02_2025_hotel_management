@@ -1,6 +1,5 @@
-class RoomTypesController < ApplicationController
+class RoomTypesController < BaseAdminController
   include ApplicationHelper
-  layout "admin"
   before_action :logged_in_user
   before_action :admin_user, only: %i(create destroy)
   before_action :get_room_type, only: %i(show edit update destroy)
@@ -66,9 +65,5 @@ class RoomTypesController < ApplicationController
 
     flash[:error] = t "msg.invalid_room_type"
     redirect_to room_types_path
-  end
-
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end
