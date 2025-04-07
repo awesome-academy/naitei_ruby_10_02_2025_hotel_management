@@ -134,6 +134,11 @@ en:
       enter_reason: "Enter reason"
       submit: "Submit"
   room: "Room"
+  rooms:
+    room_management: "Room Management"
+    index:
+      current: "Current"
+      new: "New"
   pending: "Pending"
   deposited: "Deposited"
   checkined-in: "Checked in"

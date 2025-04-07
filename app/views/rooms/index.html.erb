@@ -1,0 +1,22 @@
+<% provide :title, t(".room_management") %>
+<div class="room-manage-page">
+  <div class="room-manage-header">
+    <div class="calendar-navigator">
+      <%= link_to rooms_url(month: (@month - 1) % 12 == 0 ? 12 : @month - 1, year: (@month - 1) % 12 == 0 ? @year - 1 : @year) do %>
+        <%= bootstrap_icon "chevron-left", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <% end %>
+      <%= link_to rooms_url(month: (@month + 1) % 12 == 1 ? 1 : @month + 1, year: (@month + 1) % 12 == 0 ? @year + 1 : @year) do %>
+        <%= bootstrap_icon "chevron-right", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <% end %>
+      <%= link_to t(".current"), rooms_url %>
+      <input type="month" id="month-picker" value="<%= "#{@year}-#{@month.to_s.rjust(2, '0')}" %>" />
+    </div>
+    <%= link_to new_room_url do %>
+      <%= bootstrap_icon "plus", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".new" %>
+    <% end %>
+  </div>
+  <% @room_types.each do |room_type| %>
+    <%= render partial: "room_list", locals: { room_type: room_type, day_in_month: @day_in_month } %>
+  <% end %>
+</div>

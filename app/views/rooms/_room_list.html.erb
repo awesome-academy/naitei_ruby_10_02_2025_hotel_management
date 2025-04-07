@@ -1,0 +1,35 @@
+<div class="table-container">
+  <table class="room_list_table">
+    <tr>
+      <td class="room_type_name sticky-column" rowspan="2"><%= room_type.name %></td>
+      <td class="month_year_cell" colspan="<%= day_in_month %>">
+        <%= Date::MONTHNAMES[@month] %> <%= @year %>
+      </td>
+    </tr> 
+    <tr class="room-table-header">
+      <% day_in_month.times do |n| %>
+        <td class="day-cell">
+          <div>
+            <%= n + 1 %>
+          </div>
+        </td> 
+      <% end %>
+    </tr>
+    <% room_type.rooms.each do |room| %>
+      <tr class="room-row">
+        <td class="room-cell sticky-column">
+           <%= room_type.name %> - <%= room.room_number %>
+        </td>
+        <% day_in_month.times do |n| %>
+          <% if room.booked_days_in_month(@year,@month).include?(n+1) %>
+            <td>
+              <div class="booked-cell"></div>
+            </td>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% end %>
+      <tr>
+    <% end %>
+  </table>
+</div>
