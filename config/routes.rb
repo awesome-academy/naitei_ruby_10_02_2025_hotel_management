@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         member do
           get "checkin"
           post "checkin/submit", to: "requests#checkin_submit"
+          get "deny"
+          post "deny/submit", to: "requests#deny_submit"
         end
       end
     end

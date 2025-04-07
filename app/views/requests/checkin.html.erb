@@ -36,9 +36,15 @@
       <p><%= t "requests.index.status" %></P>
       <p><%= status_chip @request.status %></p>
     </div>
+    <% if @request.status == Settings.requests.status.denied %>
+      <div class="infor">
+        <p><%= t "requests.index.reason" %></P>
+        <p><%= @request.reason %></p>
+      </div>
+    <% end %>
   </div>
 
-  <%= form_with url: checkin_submit_request_url(@request), method: :post do %>
+  <%= form_with url: checkin_submit_request_url(@request), method: :post, id: "checkin-form" do %>
     <table class="table">
       <tr>
         <th><%= t "admin.layouts.room_type" %></th>
@@ -64,6 +70,7 @@
     </table>
     <div class="action">
         <%= submit_tag t("checkin"), class: "btn btn-primary" %>
+         <%= link_to "Deny", deny_request_url(@request), data: { turbo_stream: true } %>
     </div>
   <% end %>
 </div>

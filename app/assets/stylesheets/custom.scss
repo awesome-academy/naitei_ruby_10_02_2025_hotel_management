@@ -678,6 +678,11 @@ a {
   color: $finished-text; 
 }
 
+.status-chip.denied {
+  background-color: $denied-bg;
+  color: $denied-text; 
+}
+
 .checkin-page {
   padding: 20px;
 

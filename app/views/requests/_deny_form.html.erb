@@ -1,0 +1,12 @@
+<div id="deny-form">
+  <h3><%= t "requests.deny.deny_request" %></h3>
+  <%= form_with url: deny_submit_request_url(@request), method: :post do %>
+    <div class="form-group">
+      <%= label_tag :reason, t("requests.deny.deny_reason") %>
+      <%= text_area_tag :reason, nil, class: 'form-control', placeholder: t("requests.deny.enter_reason") %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag t("requests.deny.submit"), class: "btn" %>
+    </div>
+  <% end %>
+</div>

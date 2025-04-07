@@ -88,6 +88,8 @@ vi:
     request_checkined: "Đã checkin đơn!"
     no_room_selected: "Không có phòng nào được chọn."
     invalid_request_status: "Đơn đặt phòng không đúng trạng thái"
+    request_denied: "Đã từ chối yêu cầu!"
+    deny_failed: "Từ chối thất bại"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -122,12 +124,18 @@ vi:
       checkout_date: "Ngày checkout"
       order: "Thông tin đơn"
       status: "Trạng thái"
+      reason: "Lí do"
     checkin:
       guest_infor: "Thông tin khách đặt"
       fullname: "Họ và tên"
       phone: "Số điện thoại"
       Email: "Email"
       request_infor: "Thông tin yêu cầu đặt phòng"
+    deny:
+      deny_request: "Từ chối yêu cầu đặt phòng"
+      deny_reason: "Lí do từ chối"
+      enter_reason: "Nhập Lí do"
+      submit: "Gửi"
   room: "Phòng"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
