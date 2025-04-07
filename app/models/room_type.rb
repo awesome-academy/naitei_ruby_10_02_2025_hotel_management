@@ -17,4 +17,22 @@ class RoomType < ApplicationRecord
   validates :price, presence: true, numericality:
             {greater_than_or_equal_to: Settings.zero,
              less_than: Settings.max_price_value}
+
+  def get_avaliable_room checkin_date, checkout_date
+    all_rooms = rooms
+    avaiable_rooms = all_rooms
+
+    (checkin_date...checkout_date).each do |date|
+      requests = Request.where("requests.checkin_date <= ?
+                                AND requests.checkout_date > ?",
+                               date, date)
+      booked_rooms = []
+      requests.each do |request|
+        booked_rooms += request.rooms
+      end
+      booked_rooms.uniq!
+      avaiable_rooms -= booked_rooms
+    end
+    avaiable_rooms
+  end
 end

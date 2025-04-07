@@ -1,0 +1,69 @@
+<% provide :title, t("requests.request_management") %>
+<div class="checkin-page">
+  <div class="guest-infor-col">
+    <h3>
+      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".guest_infor" %>
+    </h3>
+    <div class="infor">
+      <p><%= t ".fullname" %></P>
+      <p><%= @request.user.usename %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".phone" %></P>
+      <p><%= @request.user.phone %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".email" %></P>
+      <p><%= @request.user.email %></p>
+    </div>
+  </div>
+
+  <div>
+    <h3>
+      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".request_infor" %>
+    </h3>
+    <div class="infor">
+      <p><%= t "requests.index.checkin_date" %></P>
+      <p><%= @request.checkin_date %></p>
+    </div>
+     <div class="infor">
+      <p><%= t "requests.index.checkout_date" %></P>
+      <p><%= @request.checkout_date %></p>
+    </div>
+     <div class="infor">
+      <p><%= t "requests.index.status" %></P>
+      <p><%= status_chip @request.status %></p>
+    </div>
+  </div>
+
+  <%= form_with url: checkin_submit_request_url(@request), method: :post do %>
+    <table class="table">
+      <tr>
+        <th><%= t "admin.layouts.room_type" %></th>
+        <th><%= t "room_types.form.quantity" %></th>
+        <th></th>
+      </tr>
+      <% @request.requests_room_types.each do |r_room_type| %>
+        <tr>
+          <td><%= r_room_type.room_type.name %></td>
+          <td><%= r_room_type.quantity %></td>
+          <td>
+            <% @avaiable_rooms.each do |room| %>
+              <div>
+                <label>
+                  <%= check_box_tag "room_ids[]", room.id %>
+                  <%= room.room_number %>
+                </label>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="action">
+        <%= submit_tag t("checkin"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

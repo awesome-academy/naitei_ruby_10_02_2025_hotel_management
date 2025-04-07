@@ -5,6 +5,6 @@ class Request < ApplicationRecord
   has_many :requests_room_types, dependent: :destroy
   has_many :room_types, through: :requests_room_types
   has_many :stay_ats, dependent: :destroy
-  has_many :rooms, through: :stay_at
+  has_many :rooms, through: :stay_ats
   has_one :bill, dependent: :destroy
 end

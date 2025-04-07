@@ -295,6 +295,7 @@ h1 {
 }
 
 .table {
+  margin-top: 5px;
   width: 100%;
   border-collapse: collapse;
 }
@@ -675,4 +676,30 @@ a {
 .status-chip.finished {
   background-color: $finished-bg;
   color: $finished-text; 
+}
+
+.checkin-page {
+  padding: 20px;
+
+  .guest-infor-col {
+    width: 50%;
+  }
+
+  h3 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid $table-border;
+  }
+
+  .infor {
+    display: flex;
+    gap: 10px;
+  }
+
+  .infor p:first-child {
+    font-weight: 600;
+  }
+}
+
+.action {
+  margin-top: 20px;
 }
