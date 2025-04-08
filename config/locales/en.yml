@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       room_type: "Room type"
+      room: "Room"
     attributes:
       room_type:
         name: "Name"
@@ -9,6 +10,10 @@ en:
         description: "Description"
         price: "Price"
         images: "Images"
+      room:
+        room_number: "Room number"
+        room_type: "Room type"
+        floor: "Floor"
   hello: "Hello"
   language:
     english: "English"
@@ -88,6 +93,8 @@ en:
     invalid_request_status: "Request is not in valid status"
     request_denied: "Request denied!"
     deny_failed: "Deny failed"
+    room_created: "Room created successfully!"
+    room_created_failed: "Room created failed"
   menu:
     overview: "Overview"
     room_list: "Room List"
@@ -139,6 +146,12 @@ en:
     index:
       current: "Current"
       new: "New"
+    new:
+      new_room: "New room"
+      create_room: "Create room"
+      room_type: "Room type"
+      room_number: "Room number"
+      room_type_placeholder: "Select room type"
   pending: "Pending"
   deposited: "Deposited"
   checkined-in: "Checked in"

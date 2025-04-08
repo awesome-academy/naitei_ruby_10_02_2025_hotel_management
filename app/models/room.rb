@@ -1,7 +1,14 @@
 class Room < ApplicationRecord
+  PERMITTED_PARAMS = %i(room_number floor room_type_id).freeze
+
   belongs_to :room_type
   has_many :stay_ats, dependent: :destroy
   has_many :requests, through: :stay_ats
+
+  validates :room_number, presence: true, uniqueness: true
+  validates :floor, presence: true, numericality:
+          {greater_than_or_equal_to: Settings.zero,
+           less_than: Settings.max_floor_value}
 
   def booked_days_in_month year, month
     start_of_month = Date.new(year, month, 1)
