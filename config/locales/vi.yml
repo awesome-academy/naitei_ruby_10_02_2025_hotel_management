@@ -137,6 +137,11 @@ vi:
       enter_reason: "Nhập Lí do"
       submit: "Gửi"
   room: "Phòng"
+  rooms:
+    room_management: "Quản lý phòng"
+    index:
+      current: "Hiện tại"
+      new: "Mới"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"
