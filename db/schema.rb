@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "room_type_id"
+    t.integer "quantity"
     t.text "reason"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
@@ -115,8 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
     t.string "view"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
     t.integer "size"
+    t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_room_types_on_deleted_at"
   end
 

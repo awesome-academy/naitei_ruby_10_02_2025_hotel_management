@@ -1,3 +1,24 @@
+<div class="date-selection">
+  <div class="date-info">
+    <span class="date-label"><%= t("date_selection.location") %></span>
+    <span class="location"><%= t("hotel.name") %></span>
+  </div>
+
+  <div class="date-info">
+    <span class="date-label"><%= t("date_selection.checkin") %></span>
+    <input type="date" id="check-in-date" name="checkin_date" class="date-picker" value="<%= params[:checkin_date] %>" />
+    <input type="time" id="check-in-time" class="time-picker" value="14:00" disabled />
+  </div>
+
+  <div class="date-info">
+    <span class="date-label"><%= t("date_selection.checkout") %></span>
+    <input type="date" id="check-out-date" name="checkout_date" class="date-picker" value="<%= params[:checkout_date] %>" />
+    <input type="time" id="check-out-time" class="time-picker" value="12:00" disabled />
+  </div>
+
+  <%= link_to t("date_selection.apply"), "#", id: "apply-dates", class: "update-btn", data: { turbolinks: false } %>
+</div>
+
 <div class="tab-menu">
   <ul>
     <li class="active"><a href="#"><%= t("menu.overview") %></a></li>
@@ -8,29 +29,12 @@
     <li><a href="#"><%= t("menu.cancellation_policy") %></a></li>
   </ul>
 </div>
-<div class="intro-section">
-  <h2><%= t("intro.title") %></h2>
-  <p>
-    <%= t("intro.description") %>
-  </p>
-  <p><strong><%= t("intro.note") %>:</strong></p>
-  <ul>
-    <li><%= t("intro.late_arrival") %></li>
-    <li><%= t("intro.payment_policy") %></li>
-  </ul>
-  <hr>
-  <p><strong><%= t("intro.customer_requirements") %>:</strong></p>
-  <ul>
-    <li><%= t("intro.id_required") %></li>
-    <li><%= t("intro.age_requirement") %></li>
-  </ul>
-  <button class="show-more"><%= t("intro.show_more") %></button>
-</div>
+
 <h2 class="room-list-title"><%= t("room_list.title") %></h2>
+
 <div class="room-list-container">
   <% @room_types.each do |room_type| %>
     <div class="room-card">
-      <!-- Ảnh -->
       <div class="room-image-container">
         <% if room_type.images.attached? %>
           <%= image_tag url_for(room_type.images.first), alt: room_type.name, class: "room-image" %>
@@ -38,11 +42,12 @@
           <%= image_tag "logo.jpg", alt: t("room_list.default_image"), class: "room-image" %>
         <% end %>
       </div>
+
       <div class="room-details">
         <div class="room-info">
           <p class="room-name"><%= room_type.name %></p>
           <p class="room-size"><%= room_type.size %> m²</p>
-          <%= link_to t("room_list.view_details"), room_type_path(room_type), class: "room-link" %>
+          <%= link_to t("room_list.view_details"), user_room_type_path(room_type), class: "room-link" %>
         </div>
 
         <div class="room-devices">
@@ -50,9 +55,38 @@
             <span class="device-item"><%= device.name %></span>
           <% end %>
         </div>
+
         <div class="room-price-action">
-         <p class="room-price"><%= number_to_currency(room_type.price, unit: "", format: "%n đ") %> <span><%= t("room_list.per_day") %></span></p>
-         <%= link_to t("room_list.book_room"), room_type_path(room_type), class: "book-button" %>
+          <p class="room-price">
+            <%= number_to_currency(room_type.price, unit: "", format: "%n đ") %>
+            <span><%= t("room_list.per_day") %></span>
+          </p>
+
+          <p class="room-available">
+            <%= t("room_list.available_quantity", count: @available_rooms[room_type.id]) %>
+          </p>
+
+          <% if @available_rooms[room_type.id] > 0 %>
+            <div class="room-booking">
+              <label for="quantity_<%= room_type.id %>">
+                <%= t("room_list.quantity") %>:
+              </label>
+              <input type="number"
+                     id="quantity_<%= room_type.id %>"
+                     name="quantity"
+                     min="1"
+                     max="<%= @available_rooms[room_type.id] %>"
+                     value="1" />
+
+              <%= link_to t("room_list.book_room"), "#",
+                          class: "book-button",
+                          data: {
+                            room_type_id: room_type.id,
+                            checkin: params[:checkin_date],
+                            checkout: params[:checkout_date]
+                          } %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

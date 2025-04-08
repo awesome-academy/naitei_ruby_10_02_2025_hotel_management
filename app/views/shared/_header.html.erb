@@ -4,10 +4,11 @@
       <%= link_to t("logo"), root_path %>
     </div>
     <div class="right-menu">
-      <div class="language-switch">
-        <%= link_to t("language.vietnamese"), url_for(locale: :vi), class: (locale == :vi ? "active" : "") %> |
-        <%= link_to t("language.english"), url_for(locale: :en), class: (locale == :en ? "active" : "") %>
+     <div class="language-switch">
+      <%= link_to t("language.vietnamese"), url_for(locale: :vi, checkin_date: params[:checkin_date], checkout_date: params[:checkout_date], room_type_id: params[:room_type_id]), class: (I18n.locale == :vi ? "active" : "") %> |
+      <%= link_to t("language.english"), url_for(locale: :en, checkin_date: params[:checkin_date], checkout_date: params[:checkout_date], room_type_id: params[:room_type_id]), class: (I18n.locale == :en ? "active" : "") %>
       </div>
+
       <% if logged_in? %>
         <div class="dropdown">
           <button class="dropbtn">

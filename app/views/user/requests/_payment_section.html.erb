@@ -1,0 +1,60 @@
+<%= form_with model: @request, url: user_requests_path, method: :post, local: true, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :checkin_date, value: @checkin_date %>
+  <%= f.hidden_field :checkout_date, value: @checkout_date %>
+  <%= f.hidden_field :room_type_id, value: params[:room_type_id] %>
+  <%= f.hidden_field :quantity, value: @quantity %>
+
+  <div class="payment-container">
+    <div class="payment-info">
+      <h3><%= t "payment.details" %></h3>
+
+      <div class="payment-item">
+        <p>
+          <strong><%= t "payment.room_fee" %></strong><br>
+          <span class="price">
+            <%= number_to_currency(@room_type.price, unit: "", format: "%n đ") %> / <%= t("room_list.per_day") %>
+          </span>
+        </p>
+      </div>
+
+      <div class="total">
+        <p><strong><%= t "payment.total" %></strong></p>
+        <p class="price">
+          <%= number_to_currency(@total_price, unit: "", format: "%n đ") %>
+        </p>
+      </div>
+    </div>
+
+    <div class="payment-method">
+      <h3><%= t "payment.select_method" %></h3>
+      <p class="payment-warning"><%= t "payment.select_method_warning" %></p>
+
+      <label>
+        <%= radio_button_tag :payment_method, "momo" %>
+        <%= image_tag("momo-icon.png", alt: "MoMo", size: "20x20") %>
+        <%= t "payment.momo" %>
+      </label>
+
+      <label>
+        <%= radio_button_tag :payment_method, "zalopay" %>
+        <%= image_tag("zalopay-icon.png", alt: "ZaloPay", size: "20x20") %>
+        <%= t "payment.zalopay" %>
+      </label>
+
+      <label>
+        <%= radio_button_tag :payment_method, "cash" %>
+        <%= image_tag("hotel-icon.png", alt: "Cash", size: "20x20") %>
+        <%= t "payment.cash" %>
+      </label>
+    </div>
+
+    <div class="room-quantity">
+      <label><%= t("room_list.quantity") %>:</label>
+      <span><%= @quantity %></span>
+    </div>
+
+    <div class="footer">
+      <%= f.submit t("payment.book_now"), class: "book-now-btn" %>
+    </div>
+  </div>
+<% end %>

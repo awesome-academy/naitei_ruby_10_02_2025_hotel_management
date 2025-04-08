@@ -1,0 +1,11 @@
+<div class="request-summary-card">
+  <h2><%= t("request.details_title") %></h2>
+
+  <div class="request-info">
+    <p><strong><%= t("request.checkin_date") %>:</strong> <%= l(@request.checkin_date, format: :long) %></p>
+    <p><strong><%= t("request.checkout_date") %>:</strong> <%= l(@request.checkout_date, format: :long) %></p>
+    <p><strong><%= t("request.room_type") %>:</strong> <%= @request.room_type&.name || "-" %></p>
+    <p><strong><%= t("request.quantity") %>:</strong> <%= @request.quantity %></p>
+    <p><strong><%= t("request.status") %>:</strong> <%= t("request.statuses.#{@request.status}") %></p>
+  </div>
+</div>

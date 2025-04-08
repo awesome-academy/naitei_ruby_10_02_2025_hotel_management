@@ -1,0 +1,39 @@
+<% @room_type = RoomType.find_by(id: params[:room_type_id]) %> 
+
+<div class="room-section">
+  <div class="room-details-container">
+  <div class="room-img">
+  <% if @room_type&.images&.attached? %>
+    <%= image_tag url_for(@room_type.images.first), alt: @room_type.name, class: "room-image" %>
+  <% else %>
+    <%= image_tag "default-room.jpg", alt: "Default Room Image", class: "room-image" %>
+  <% end %>
+</div>
+    <div class="room-info">
+      <h3><%= t "hotel.name" %></h3>
+      <% if @room_type %>
+        <h3><%= @room_type.name %></h3>
+        <p><%= t "hotel.address" %></p>
+      <% else %>
+        <p><%= t("hotel.room_type_not_found") %></p>
+      <% end %>
+    </div>
+
+    <div class="check-in-out">
+      <div class="check-in-time">
+        <span class="icon"><i class="fas fa-clock"></i></span>
+        <p><strong><%= t "check_in" %>:</strong> <%= @checkin_date %></p>
+      </div>
+
+      <div class="check-out-time">
+        <span class="icon"><i class="fas fa-clock"></i></span>
+        <p><strong><%= t "check_out" %>:</strong> <%= @checkout_date %></p>
+      </div>
+    </div>
+
+    <div class="stay-duration">
+      <span class="duration-icon"><i class="fas fa-heart"></i></span>
+      <p><strong><%= @stay_duration %> <%= t "day" %></strong></p>
+    </div>
+  </div>
+</div>

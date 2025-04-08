@@ -24,9 +24,13 @@ Rails.application.routes.draw do
         end
       end
     end
-    scope :user do
-      get "room_types", to: "user/room_types#index", as: "user_room_types"
-      get "room_types/:id", to: "user/room_types#show", as: "user_room_type"
+    scope :user, module: :user, as: :user do
+      get "room_types", to: "room_types#index", as: "room_types"
+      get "room_types/:id", to: "room_types#show", as: "room_type"
+    
+      resources :requests, only: [:new, :create, :show, :index] do
+        get "check_availability", to: "requests#check_availability", as: "check_availability"
+      end
     end
   end
 end
