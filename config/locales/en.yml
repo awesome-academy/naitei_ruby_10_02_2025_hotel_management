@@ -86,6 +86,8 @@ en:
     request_checkined: "Request checkined!"
     no_room_selected: "No rooms selected."
     invalid_request_status: "Request is not in valid status"
+    request_denied: "Request denied!"
+    deny_failed: "Deny failed"
   menu:
     overview: "Overview"
     room_list: "Room List"
@@ -119,12 +121,18 @@ en:
       checkout_date: "Checkout date"
       order: "Order"
       status: "Status"
+      reason: "Reason"
     checkin:
       guest_infor: "Guest's information"
       fullname: "Full name"
       phone: "Phone"
       Email: "Email"
       request_infor: "Request's information"
+    deny:
+      deny_request: "Deny request"
+      deny_reason: "Deny reason"
+      enter_reason: "Enter reason"
+      submit: "Submit"
   room: "Room"
   pending: "Pending"
   deposited: "Deposited"

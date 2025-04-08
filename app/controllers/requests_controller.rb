@@ -2,7 +2,7 @@ class RequestsController < BaseAdminController
   include ApplicationHelper
   before_action :logged_in_user
   before_action :admin_user
-  before_action :get_request, only: %i(checkin checkin_submit)
+  before_action :get_request, except: %i(index)
   def index
     @requests = Request.includes(:user, requests_room_types: :room_type)
   end
@@ -35,6 +35,24 @@ class RequestsController < BaseAdminController
     @request.update(status: :checkined)
     flash[:success] = t "msg.request_checkined"
     redirect_to :requests
+  end
+
+  def deny
+    respond_to do |format|
+      format.html{redirect_to :checkin_request}
+      format.turbo_stream
+    end
+  end
+
+  def deny_submit
+    if @request.update(status: Settings.requests.status.denied,
+                       reason: params[:reason])
+      flash[:success] = t "msg.request_denied"
+      redirect_to :requests
+    else
+      flash[:error] = t "msg.deny_failed"
+      redirect_to :checkin_request
+    end
   end
 
   private

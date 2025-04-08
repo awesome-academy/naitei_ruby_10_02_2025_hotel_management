@@ -4,7 +4,8 @@ module BaseAdminHelper
       pending: "status-chip pending",
       deposited: "status-chip deposited",
       checkined: "status-chip checkined",
-      finished: "status-chip finished"
+      finished: "status-chip finished",
+      denied: "status-chip denied"
     }
 
     content_tag(:span, t(status.to_s), class: status_classes[status.to_sym])

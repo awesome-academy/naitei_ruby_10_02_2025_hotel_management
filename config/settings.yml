@@ -16,6 +16,7 @@ requests:
     deposited: "deposited"
     checkined: "checkined"
     finished: "finished"
+    denied: "denied"
 default:
   view:
     sidebar:
