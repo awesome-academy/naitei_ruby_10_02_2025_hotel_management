@@ -85,6 +85,9 @@ vi:
     invalid_room_type: "Không tìm thấy loại phòng!"
     room_type_updated: "Đã cập nhật loại phòng"
     image_removed: "Đã xóa ảnh!"
+    request_checkined: "Đã checkin đơn!"
+    no_room_selected: "Không có phòng nào được chọn."
+    invalid_request_status: "Đơn đặt phòng không đúng trạng thái"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -111,6 +114,7 @@ vi:
     book_room: "Đặt phòng"
   room_type_not_found : "Không tìm thấy loại phòng"
   requests:
+    request_management: "Quản lý đơn đặt phòng"
     index:
       booking_id: "Mã đơn"
       guest_name: "Tên khách"
@@ -118,8 +122,15 @@ vi:
       checkout_date: "Ngày checkout"
       order: "Thông tin đơn"
       status: "Trạng thái"
+    checkin:
+      guest_infor: "Thông tin khách đặt"
+      fullname: "Họ và tên"
+      phone: "Số điện thoại"
+      Email: "Email"
+      request_infor: "Thông tin yêu cầu đặt phòng"
   room: "Phòng"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"
   finished: "Đã xong"
+  checkin: "Checkin"

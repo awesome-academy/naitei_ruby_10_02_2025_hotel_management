@@ -1,5 +1,5 @@
 module BaseAdminHelper
-  def status_chip(status)
+  def status_chip status
     status_classes = {
       pending: "status-chip pending",
       deposited: "status-chip deposited",

@@ -14,7 +14,7 @@
   </td>
   <td><%= status_chip request.status %></td>
   <td>
-    <%= link_to request_path(request) do %>
+    <%= link_to checkin_request_path(request) do %>
       <%= bootstrap_icon "eye-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
       <%= t "room_types.view" %>
     <% end %>
