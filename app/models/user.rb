@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_create :set_last_activity
+
   has_many :reviews, dependent: :destroy
   has_many :requests, dependent: :destroy
 
@@ -15,5 +17,34 @@ class User < ApplicationRecord
                        length: {minimum: Settings.user_password_min_length},
                        allow_nil: true
 
+  scope :search_by_all, ->search {where("email LIKE :q OR usename LIKE :q OR phone LIKE :q", q: "%#{search}%")}
+  scope :filter_by_role, ->admin {where("admin = ?", ActiveModel::Type::Boolean.new.cast(admin)) if admin.present?}
+  scope :filter_by_status, ->status {where("activated = ?", ActiveModel::Type::Boolean.new.cast(status)) if status.present?}
+
   has_secure_password
+
+  def update_last_activity
+    update(last_activity: Time.current)
+  end
+
+  def role
+    admin ? :admin : :user
+  end
+
+  def status
+    activated ? :activated : :deactivated
+  end
+
+  def activate
+    update(activated: true)
+  end
+
+  def deactivate
+    update(activated: false)
+  end
+
+  private
+  def set_last_activity
+    self.last_activity = Time.current
+  end
 end

@@ -41,6 +41,7 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     flash[:success] = t("login_success")
     forwarding_url = session[:forwarding_url]
+    @user.update_last_activity
     redirect_to forwarding_url || root_path
   end
 

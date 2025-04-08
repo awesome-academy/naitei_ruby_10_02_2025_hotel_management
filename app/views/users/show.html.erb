@@ -1,0 +1,55 @@
+<% provide :title, t("users.users_management") %>
+<div class="container">
+  <div class="user-infor">
+    <h3>
+      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".user_infor" %>
+    </h3>
+    <div class="infor">
+      <p><%= t ".name" %></P>
+      <p><%= @user.usename %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".phone" %></P>
+      <p><%= @user.phone %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".email" %></P>
+      <p><%= @user.email %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".role" %></P>
+      <p><%= @user.role %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".status" %></P>
+      <p class="badge"><%= t @user.status %></p>
+    </div>
+  </div>
+
+  <div class="user-appointments-list">
+    <h3><%= t ".appointments_list" %></h3>
+    <% if @user.requests.empty? %>
+      <p><%= t ".no_appointments" %></p>
+    <% else %>
+      <table class="table">
+        <tr>
+          <th><%= t ".checkin_date" %></th>
+          <th><%= t ".checkout_date" %></th>
+          <th><%= t ".status" %></th>
+          <th></th>
+        </tr>
+        <% @user.requests.each do |request| %>
+          <tr>
+            <td><%= request.checkin_date %></td>
+            <td><%= request.checkout_date %></td>
+            <td><%= status_chip request.status %></td>
+            <td>
+              <%= link_to t(".view_details"),  checkin_request_path(request) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div

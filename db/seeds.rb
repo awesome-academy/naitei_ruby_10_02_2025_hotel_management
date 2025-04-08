@@ -10,15 +10,15 @@ image_path = Rails.root.join("app/assets/images")
 
 User.create!(usename: "Example User",email: "example@railstutorial.org",password: "foobar",
             password_confirmation: "foobar", admin: true,
-            activated: true, phone: Faker::Number.leading_zero_number(digits: 10))
+            phone: Faker::Number.leading_zero_number(digits: 10))
 10.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@gmail.com"
   phone = Faker::Number.leading_zero_number(digits: 10)
   password = "password"
   User.create!(usename: name,email: email,password: password,
-              password_confirmation: password,
-              activated: true, phone: phone)
+               password_confirmation: password,
+               phone: phone)
 end
 
 room_types = [
@@ -46,7 +46,7 @@ room_types.each do |room_type|
     Room.create!(
       room_type: room_type,
       room_number: "#{room_type.name[0..2]}-#{i + 1}",
-      floor: (i % 5) + 1 # Giả sử có 5 tầng, luân phiên từ tầng 1 đến 5
+      floor: (i % 5) + 1 
     )
   end
 end
@@ -55,6 +55,13 @@ end
   user = User.find n + 2
   room_type = RoomType.find n + 1
   request = Request.create!(checkin_date: Date.today, checkout_date: Date.today + 3, user: user, status: 1, room_type: room_type, quantity: 2)
+end
+
+10.times  do |n|
+  Service.create!(
+    name: "Service #{n + 1}",
+    price: (n + 1) * 10000
+  )
 end
 
 10.times  do |n|

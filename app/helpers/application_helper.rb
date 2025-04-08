@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def admin_user
-    redirect_to root_path unless current_user.admin?
+    redirect_to login_url unless current_user.admin?
   end
 
   def pagy_index index, pagy
