@@ -1,0 +1,26 @@
+<% provide :title, t("rooms.room_management") %>
+<div class="new-room-page">
+  <h3><%= t(".new_room") %></h3>
+  <%= form_with(model: @room, local: true) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <div class="field">
+      <%= f.label :room_number %>
+      <%= f.text_field :room_number, id: :room_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :floor %>
+      <%= f.number_field :floor, id: :floor, min: 1, max: 100 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :room_type_id, t(".room_type") %>
+      <%= f.collection_select :room_type_id, RoomType.all, :id, :name, prompt: t(".room_type_placeholder") %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t(".create_room"), class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

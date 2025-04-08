@@ -3,6 +3,7 @@ vi:
   activerecord:
     models:
       room_type: "Room type"
+      room: "Phòng"
     attributes:
       room_type:
         name: "Tên loại phòng"
@@ -10,6 +11,10 @@ vi:
         description: "Mô tả"
         price: "Giá"
         images: "Hình ảnh phòng"
+      room:
+        room_number: "Số phòng"
+        room_type: "Loại phòng"
+        floor: "Tầng"
   hello: "Xin chào"
   language:
     english: "Tiếng Anh"
@@ -90,6 +95,8 @@ vi:
     invalid_request_status: "Đơn đặt phòng không đúng trạng thái"
     request_denied: "Đã từ chối yêu cầu!"
     deny_failed: "Từ chối thất bại"
+    room_created: "Tạo phòng thành công!"
+    room_created_failed: "Tạo phòng thất bại"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -142,6 +149,12 @@ vi:
     index:
       current: "Hiện tại"
       new: "Mới"
+    new:
+      new_room: "Tạo phòng mới"
+      create_room: "Tạo phòng mới"
+      room_type: "Loại phòng"
+      room_number: "Số phòng"
+      room_type_placeholder: "Chọn loại phòng"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"

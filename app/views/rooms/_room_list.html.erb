@@ -16,12 +16,13 @@
       <% end %>
     </tr>
     <% room_type.rooms.each do |room| %>
+      <% booked_days = room.booked_days_in_month(@year, @month) %>
       <tr class="room-row">
         <td class="room-cell sticky-column">
            <%= room_type.name %> - <%= room.room_number %>
         </td>
         <% day_in_month.times do |n| %>
-          <% if room.booked_days_in_month(@year,@month).include?(n+1) %>
+          <% if booked_days.include?(n+1) %>
             <td>
               <div class="booked-cell"></div>
             </td>
@@ -29,7 +30,7 @@
             <td></td>
           <% end %>
         <% end %>
-      <tr>
+      </tr>
     <% end %>
   </table>
 </div>

@@ -750,3 +750,20 @@ a {
   gap: 10px;
   align-items: center;
 }
+
+.new-room-page {
+  padding: 20px;
+  h1 {
+    font-weight: 700;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .field label {
+    width: 200px;
+  }
+}
