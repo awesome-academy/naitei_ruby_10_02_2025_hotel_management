@@ -1,0 +1,40 @@
+<% provide :title, t("rooms.room_management") %>
+<div class="room-page">
+  <div class="room-infor">
+    <h3>
+      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".room_infor" %>
+      <%= link_to edit_room_path(@room), class: "btn btn-primary flex-btn" do %>
+        <%= bootstrap_icon "pencil-square", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t ".edit" %>
+      <% end %>
+      <%= link_to  room_path(@room), data: {turbo_method: :delete, turbo_confirm: t("msg.you_sure")}, class: "btn btn-danger flex-btn" do %>
+        <%= bootstrap_icon "trash", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t ".delete" %>
+      <% end %>
+    </h3>
+    <div class="infor">
+      <p><%= t ".room_number" %></P>
+      <p><%= @room.room_number %></p>
+    </div>
+    <div class="infor">
+      <p><%= t ".floor" %></P>
+      <p>
+        <%= @room.floor %>
+      </p>
+    </div>
+    <div class="infor">
+      <p><%= t ".room_type" %></P>
+      <p class="room-type">
+        <%= link_to room_type_path(@room.room_type) do %>
+          <%= @room.room_type.name %>
+        <% end %>
+        <span class="room-type-price">
+          <%= number_to_currency @room.room_type.price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+        </span>
+      </p>
+    </div>
+  </div>
+  <%= render "upcoming_booking_table", room: @room %>
+  <%= render "history_booking_table", room: @room %>
+</div>

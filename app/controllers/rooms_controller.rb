@@ -2,6 +2,7 @@ class RoomsController < BaseAdminController
   include ApplicationHelper
   before_action :logged_in_user
   before_action :admin_user
+  before_action :get_room, only: %i(show destroy)
 
   def index
     @month = params[:month]&.to_i || Time.zone.today.month
@@ -26,8 +27,33 @@ class RoomsController < BaseAdminController
     end
   end
 
+  def show; end
+
+  def destroy
+    unless @room.modifiable?
+      flash[:error] = t "msg.room_has_upcoming_bookings"
+      return redirect_to rooms_path
+    end
+
+    if @room.destroy
+      flash[:success] = t "msg.room_deleted"
+      redirect_to rooms_path
+    else
+      flash[:error] = t "msg.room_deleted_failed"
+      redirect_to rooms_path, status: :unprocessable_entity
+    end
+  end
+
   private
   def room_params
     params.require(:room).permit(Room::PERMITTED_PARAMS)
+  end
+
+  def get_room
+    @room = Room.find_by id: params[:id]
+    return if @room
+
+    flash[:error] = t "msg.room_not_found"
+    redirect_to rooms_path
   end
 end

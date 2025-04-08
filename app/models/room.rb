@@ -27,4 +27,16 @@ class Room < ApplicationRecord
 
     booked_days.uniq.sort
   end
+
+  def upcoming_bookings
+    requests.where("checkin_date >= ?", Time.zone.today)
+  end
+
+  def history_bookings
+    requests.where("checkout_date < ?", Time.zone.today)
+  end
+
+  def modifiable?
+    upcoming_bookings.blank?
+  end
 end
