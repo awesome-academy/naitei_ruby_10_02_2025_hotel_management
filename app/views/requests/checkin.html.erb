@@ -51,22 +51,20 @@
         <th><%= t "room_types.form.quantity" %></th>
         <th></th>
       </tr>
-      <% @request.requests_room_types.each do |r_room_type| %>
-        <tr>
-          <td><%= r_room_type.room_type.name %></td>
-          <td><%= r_room_type.quantity %></td>
-          <td>
-            <% @avaiable_rooms.each do |room| %>
-              <div>
-                <label>
-                  <%= check_box_tag "room_ids[]", room.id %>
-                  <%= room.room_number %>
-                </label>
-              </div>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= @request.room_type.name %></td>
+        <td><%= @request.quantity %></td>
+        <td>
+          <% @avaiable_rooms.each do |room| %>
+            <div>
+              <label>
+                <%= check_box_tag "room_ids[]", room.id %>
+                <%= room.room_number %>
+              </label>
+            </div>
+          <% end %>
+        </td>
+      </tr>
     </table>
     <div class="action">
         <%= submit_tag t("checkin"), class: "btn btn-primary" %>

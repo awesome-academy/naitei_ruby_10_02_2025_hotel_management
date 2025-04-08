@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
+ActiveRecord::Schema[7.0].define(version: 2025_04_08_175025) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -76,9 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "reason"
     t.bigint "room_type_id"
     t.integer "quantity"
-    t.text "reason"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -117,8 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
     t.string "view"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "size"
     t.datetime "deleted_at"
+    t.integer "size"
     t.index ["deleted_at"], name: "index_room_types_on_deleted_at"
   end
 
@@ -158,6 +158,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_08_074804) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
+    t.datetime "last_activity"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

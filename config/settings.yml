@@ -18,6 +18,8 @@ requests:
     checkined: "checkined"
     finished: "finished"
     denied: "denied"
+services:
+  items_per_page: 10
 default:
   view:
     sidebar:

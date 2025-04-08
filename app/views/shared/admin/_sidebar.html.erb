@@ -13,21 +13,27 @@
       <% end %>
     </li>
     <li>
-      <%= link_to room_types_url, class: (request.path.split('/')[3] == "room_types" ? "active" : "") do %>
+      <%= link_to room_types_url, class: sidebar_highlight_check("room_types") do %>
         <%= bootstrap_icon "houses-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.room_type" %>
       <% end %>
     </li>
-     <li>
-      <%= link_to rooms_url, class: (request.path.split('/')[3] == "rooms" ? "active" : "") do %>
+    <li>
+      <%= link_to rooms_url, class: sidebar_highlight_check("rooms") do %>
         <%= bootstrap_icon "house-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.room" %>
       <% end %>
     </li>
-      <li>
-      <%= link_to requests_url, class: (request.path.split('/')[3] == "requests" ? "active" : "") do %>
+    <li>
+      <%= link_to requests_url, class: sidebar_highlight_check("requests") do %>
         <%= bootstrap_icon "calendar-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.request" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to services_url, class: sidebar_highlight_check("services") do %>
+        <%= bootstrap_icon "tools", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.service" %>
       <% end %>
     </li>
   </ul>

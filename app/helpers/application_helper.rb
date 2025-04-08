@@ -1,5 +1,6 @@
 module ApplicationHelper
   include SessionsHelper
+  include Pagy::Frontend
 
   def logged_in_user
     return if logged_in?
@@ -11,5 +12,13 @@ module ApplicationHelper
 
   def admin_user
     redirect_to root_path unless current_user.admin?
+  end
+
+  def pagy_index index, pagy
+    index + 1 + (pagy.page - 1) * pagy.limit
+  end
+
+  def sidebar_highlight_check keyword
+    request.path.split("/")[3] == keyword ? "active" : ""
   end
 end

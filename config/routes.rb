@@ -23,6 +23,7 @@ Rails.application.routes.draw do
           post "deny/submit", to: "requests#deny_submit"
         end
       end
+      resources :services
     end
     scope :user, module: :user, as: :user do
       get "room_types", to: "room_types#index", as: "room_types"

@@ -33,4 +33,11 @@ class RoomType < ApplicationRecord
 
     min_available
   end
+
+  def get_available_rooms checkin_date, checkout_date
+    booked_rooms = (checkin_date...checkout_date).flat_map do |date|
+      Request.overlapping_date(date).flat_map(&:rooms)
+    end.uniq
+    rooms - booked_rooms
+  end
 end

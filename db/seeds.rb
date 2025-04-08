@@ -54,6 +54,12 @@ end
 3.times do |n|
   user = User.find n + 2
   room_type = RoomType.find n + 1
-  request = Request.create!(checkin_date: Date.today, checkout_date: Date.today + 3, user: user, status: 1)
-  RequestsRoomType.create(request: request, room_type: room_type, quantity: n + 1)
+  request = Request.create!(checkin_date: Date.today, checkout_date: Date.today + 3, user: user, status: 1, room_type: room_type, quantity: 2)
+end
+
+10.times  do |n|
+  Service.create!(
+    name: "Service #{n + 1}",
+    price: (n + 1) * 10000
+  )
 end

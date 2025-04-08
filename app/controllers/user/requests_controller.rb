@@ -21,7 +21,7 @@ class User::RequestsController < ApplicationController
     if @request.save
       redirect_to user_request_path(@request),
                   status: :see_other,
-                  flash: { success: t("request_successfull") }
+                  flash: {success: t("request_successfull")}
     else
       flash.now[:danger] = t("request_error")
       handle_failed_create
@@ -33,7 +33,7 @@ class User::RequestsController < ApplicationController
 
   private
 
-  def safe_parse_date(date_string)
+  def safe_parse_date date_string
     Date.parse(date_string)
   rescue ArgumentError, TypeError
     nil
@@ -41,7 +41,8 @@ class User::RequestsController < ApplicationController
 
   def assign_dates
     @checkin_date = safe_parse_date(params[:checkin_date]) || Time.zone.today
-    @checkout_date = safe_parse_date(params[:checkout_date]) || Time.zone.today + 1.day
+    @checkout_date = safe_parse_date(params[:checkout_date]) ||
+                     Time.zone.today + 1.day
     @stay_duration = (@checkout_date - @checkin_date).to_i
   end
 

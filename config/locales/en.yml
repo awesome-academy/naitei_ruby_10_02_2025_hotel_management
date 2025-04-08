@@ -49,6 +49,7 @@ en:
       room_type: "Room Type"
       room: "Room"
       request: "Request"
+      service: "Service"
       search: "Search"
   room_types:
     index:
@@ -99,6 +100,10 @@ en:
     room_has_upcoming_bookings: "Room has upcoming bookings!"
     room_deleted: "Room deleted successfully!"
     room_deleted_failed: "Room deletion failed"
+    service_not_found: "Service not found"
+    service_deleted: "Service deleted successfully!"
+    service_deleted_failed: "Service deletion failed"
+    invalid_room_selected: "Invalid room selected"
   menu:
     overview: "Overview"
     room_list: "Room List"
@@ -171,6 +176,13 @@ en:
       upcoming_booking: "Upcoming booking"
       no_upcoming_bookings: "No upcoming bookings"
       no_history_bookings: "No history bookings"
+  services:
+    services_management: "Service Management"
+    index:
+      services_list: "Services list"
+      service_name: "Service name"
+      price: "Price"
+      add_service: "Add Service"
   pending: "Pending"
   deposited: "Deposited"
   checkined-in: "Checked in"
@@ -216,3 +228,4 @@ en:
   request_error : "Booking error"
   request_not_found: "Not found request"
   room_type_not_found: "Not found room type"
+  actions: "Actions"
