@@ -1,7 +1,7 @@
 <tr>
   <td><%= room_type.id %></td>
   <td><%= room_type.name%></td>
-  <td><%= room_type.price %> VND</td>
+  <td><%= number_to_currency room_type.price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %> VND</td>
   <td>
     <div class="action-cell">
       <%= link_to room_type_path(room_type), class: "view-link" do %>

@@ -23,6 +23,12 @@
   background: #888;
 }
 
+.flex-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .hotel-card {
   max-width: 1100px;
   margin: 2rem auto;
@@ -766,4 +772,38 @@ a {
   .field label {
     width: 200px;
   }
+}
+
+.room-infor {
+  h3 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $table-border;
+  }
+
+  .infor {
+    display: flex;
+    gap: 10px;
+  }
+
+  .infor p:first-child {
+    font-weight: 600;
+    width: 100px;
+  }
+
+  .room-type {
+    display: flex;
+    gap: 10px;
+  }
+
+  .room-type-price {
+    font-style: italic;
+    color: $text-light;
+  }
+}
+
+.room-page {
+  padding: 20px;
 }

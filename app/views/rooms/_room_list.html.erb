@@ -19,7 +19,9 @@
       <% booked_days = room.booked_days_in_month(@year, @month) %>
       <tr class="room-row">
         <td class="room-cell sticky-column">
+          <%= link_to room_path(room) do %>
            <%= room_type.name %> - <%= room.room_number %>
+          <% end %>
         </td>
         <% day_in_month.times do |n| %>
           <% if booked_days.include?(n+1) %>
