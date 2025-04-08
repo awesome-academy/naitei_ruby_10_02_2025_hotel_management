@@ -4,6 +4,7 @@ vi:
     models:
       room_type: "Room type"
       room: "Phòng"
+      service: "Dịch vụ"
     attributes:
       room_type:
         name: "Tên loại phòng"
@@ -15,6 +16,9 @@ vi:
         room_number: "Số phòng"
         room_type: "Loại phòng"
         floor: "Tầng"
+      service:
+        name: "Tên dịch vụ"
+        price: "Giá"
   hello: "Xin chào"
   language:
     english: "Tiếng Anh"
@@ -106,6 +110,8 @@ vi:
     service_deleted: "Xóa dịch vụ thành công!"
     service_deleted_failed: "Xóa dịch vụ thất bại"
     invalid_room_selected: "Số lượng phòng không hợp lệ"
+    service_created: "Tạo dịch vụ thành công!"
+    service_updated: "Cập nhật dịch vụ thành công!"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -200,6 +206,9 @@ vi:
       price: "Giá"
       description: "Mô tả"
       action: "Hành động"
+      search: "Tìm kiếm"
+    new:
+      create_service: "Tạo dịch vụ mới"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"
@@ -237,3 +246,7 @@ vi:
   request_not_found: "Không tìm thấy yêu cầu"
   room_type_not_found: "Không tìm thấy loại phòng"
   actions: "Hành động"
+  edit: "Chỉnh sửa"
+  delete: "Xóa"
+  create: "Tạo"
+  save: "Lưu"

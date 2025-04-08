@@ -3,6 +3,7 @@ en:
     models:
       room_type: "Room type"
       room: "Room"
+      service: "Service"
     attributes:
       room_type:
         name: "Name"
@@ -14,6 +15,9 @@ en:
         room_number: "Room number"
         room_type: "Room type"
         floor: "Floor"
+      service:
+        name: "Name"
+        price: "Price"
   hello: "Hello"
   language:
     english: "English"
@@ -104,6 +108,8 @@ en:
     service_deleted: "Service deleted successfully!"
     service_deleted_failed: "Service deletion failed"
     invalid_room_selected: "Invalid room selected"
+    service_created: "Service created successfully!"
+    service_updated: "Service updated successfully!"
   menu:
     overview: "Overview"
     room_list: "Room List"
@@ -183,6 +189,9 @@ en:
       service_name: "Service name"
       price: "Price"
       add_service: "Add Service"
+      search: "Search"
+    new:
+      create_service: "Create service"
   pending: "Pending"
   deposited: "Deposited"
   checkined-in: "Checked in"
@@ -229,3 +238,7 @@ en:
   request_not_found: "Not found request"
   room_type_not_found: "Not found room type"
   actions: "Actions"
+  edit: "Edit"
+  delete: "Delete"
+  create: "Create"
+  save: "Save"
