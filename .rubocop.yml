@@ -6,6 +6,7 @@ require: rubocop-rails
 
 # Put the following files into the same directory as this file.
 inherit_from:
+  - .rubocop_todo.yml
   - .rubocop_enabled.yml
   - .rubocop_disabled.yml
 
@@ -282,7 +283,7 @@ Style/LambdaCall:
     - call
     - braces
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 80
   AllowURI: true
   Exclude:

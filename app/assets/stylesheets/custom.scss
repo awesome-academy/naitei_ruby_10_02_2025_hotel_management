@@ -418,6 +418,45 @@ a {
   margin-bottom: 20px;
   margin-left: 420px;
 }
+.date-selection {
+  display: flex;
+  justify-content: space-between;
+  background-color: $white-color;
+  padding: 10px 20px;
+  border-bottom: 1px solid $table-border;
+  margin-bottom: 20px;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.date-label {
+  font-size: 14px;
+  color: $text-muted;
+}
+
+.location, .check-in, .check-out {
+  font-size: 16px;
+  font-weight: bold;
+  color: $basic-black;
+}
+
+.update-btn {
+  background-color: $update-btn;
+  color: $white-color;
+  padding: 6px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.update-btn:hover {
+  background-color: $update-btn-hover;
+}
 
 .tab-menu {
   background-color: $white-color;
@@ -806,4 +845,264 @@ a {
 
 .room-page {
   padding: 20px;
+}
+.reservation-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $white-color;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px; 
+}
+
+.room-details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.room-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.room-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.room-info p {
+  font-size: 14px;
+  color: $text-muted;
+  margin: 5px 0;
+}
+
+.check-in-out {
+  margin-top: 15px;
+}
+
+.check-in-time, .check-out-time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.check-in-time .icon, .check-out-time .icon {
+  margin-right: 10px;
+  color: $book-btn;
+}
+
+.check-in-time p, .check-out-time p {
+  font-size: 14px;
+  color: $basic-black;
+}
+
+.stay-duration {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.stay-duration .duration-icon {
+  margin-right: 10px;
+  color: $book-btn;
+}
+
+.stay-duration p {
+  font-size: 14px;
+  color: $basic-black;
+}
+
+.payment-container {
+  justify-content: space-between; 
+  gap: 30px; 
+}
+
+.payment-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.total p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.room-details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.room-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.room-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.room-info p {
+  font-size: 14px;
+  color: $text-muted;
+  margin: 5px 0;
+}
+
+.check-in-out {
+  margin-top: 15px;
+}
+
+.check-in-time, .check-out-time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.check-in-time .icon, .check-out-time .icon {
+  margin-right: 10px;
+  color: $book-btn;
+}
+
+.check-in-time p, .check-out-time p {
+  font-size: 14px;
+  color: $basic-black;
+}
+.stay-duration {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.stay-duration .duration-icon {
+  margin-right: 10px;
+  color: $book-btn;
+}
+
+.stay-duration p {
+  font-size: 14px;
+  color: $basic-black;
+}
+.payment-info, .payment-method {
+  flex: 1; 
+  padding: 20px;
+  background-color: $white-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+}
+
+.payment-info h3, .payment-method h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.payment-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.payment-item img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.payment-item p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: $book-btn;
+}
+
+.payment-method label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.payment-method input {
+  margin-right: 10px;
+}
+
+.payment-method img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.payment-warning {
+  font-size: 14px;
+  color: $book-btn;
+  margin-bottom: 15px;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.book-now-btn {
+  background-color: $book-btn;
+  color: $white-color;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 200px;
+  margin-left: -140px;
+}
+
+.book-now-btn:hover {
+  background-color: $btn-hover;
+}
+.request-summary-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: $background-white;
+  border: 1px solid $basic-white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.request-info p {
+  margin-bottom: 12px;
+  font-size: 16px;
 }
