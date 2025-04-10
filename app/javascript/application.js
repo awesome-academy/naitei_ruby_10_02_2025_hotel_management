@@ -4,6 +4,8 @@ import 'custom/room_type_form'
 import 'custom/upload_images'
 import 'custom/month_picker'
 import './book_button'
+import 'custom/qr_countdown'
+import './flash_session'
 document.addEventListener('turbo:load', function () {
     document.getElementById('apply-dates').addEventListener('click', function (event) {
         event.preventDefault();

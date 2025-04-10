@@ -1,11 +1,25 @@
-<div class="request-summary-card">
-  <h2><%= t("request.details_title") %></h2>
+<div class="qr-payment-box">
+  <div class="qr-info-left">
+    <h3><%= t("payment.expire_notice") %></h3><p class="qr-expire" id="countdown-timer" data-request-id="<%= @request.id %>">
+  <%= Settings.time_limit %>
+</p>
+    <hr>
 
-  <div class="request-info">
-    <p><strong><%= t("request.checkin_date") %>:</strong> <%= l(@request.checkin_date, format: :long) %></p>
-    <p><strong><%= t("request.checkout_date") %>:</strong> <%= l(@request.checkout_date, format: :long) %></p>
-    <p><strong><%= t("request.room_type") %>:</strong> <%= @request.room_type&.name || "-" %></p>
-    <p><strong><%= t("request.quantity") %>:</strong> <%= @request.quantity %></p>
-    <p><strong><%= t("request.status") %>:</strong> <%= t("request.statuses.#{@request.status}") %></p>
+    <p><strong><%= t("request.checkin_date") %>:</strong><br><%= l(@request.checkin_date, format: :long) %></p>
+    <p><strong><%= t("request.checkout_date") %>:</strong><br><%= l(@request.checkout_date, format: :long) %></p>
+    <p><strong><%= t("request.room_type") %>:</strong><br><%= @request.room_type&.name || "-" %></p>
+    <p><strong><%= t("request.quantity") %>:</strong><br><%= @request.quantity %></p>
+    <p><strong><%= t("request.status") %>:</strong><br><%= t("request.statuses.#{@request.status}") %></p>
+
+    <hr>
+
+   <%= deposit_amount_display(@request) %>
+
+    <%= link_to t("payment.back"), @back_url, class: "qr-back-btn" %>
+  </div>
+
+  <div class="qr-code-right">
+    <%= image_tag("qr_sample.png", alt: "QR Code", class: "qr-image") %>
+    <p class="qr-scan-title"><%= t("payment.scan_to_pay") %></p>
   </div>
 </div>

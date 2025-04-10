@@ -1,0 +1,86 @@
+@import 'variables';
+.qr-payment-box {
+    display: flex;
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid $qr-border;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px $qr-box-shadow;
+  }
+  
+  .qr-info-left {
+    background-color: $qr-primary;
+    color: $white-color;
+    padding: 20px;
+    width: 40%;
+  
+    h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+  
+    .qr-expire {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+  
+    hr {
+      border: 0.5px solid rgba(255, 255, 255, 0.4);
+      margin: 16px 0;
+    }
+  
+    p {
+      margin: 8px 0;
+      font-size: 14px;
+      line-height: 1.5;
+  
+      strong {
+        font-weight: bold;
+      }
+    }
+  
+    .qr-back {
+      margin-top: 20px;
+      font-size: 14px;
+  
+      a {
+        color: $white-color;
+        text-decoration: underline;
+  
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .qr-code-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 30px;
+    width: 60%;
+    text-align: center;
+  
+    .qr-image {
+      width: 220px;
+      height: 220px;
+      margin-bottom: 16px;
+    }
+  
+    .qr-scan-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: $qr-primary;
+    }
+  
+    .qr-scan-desc {
+      font-size: 14px;
+      color: $qr-text;
+    }
+  }

@@ -218,6 +218,10 @@ en:
     zalopay: "ZaloPay Wallet"
     cash: "Pay at hotel"
     book_now: "Book a room"
+    deposit amount: "Amount to pay (50%)"
+    scan_to_pay: "Scan code to pay"
+    deposit_success: "Deposit successfull"
+    expired: "Payment timeout"
   request:
     details_title: "Booking Details"
     checkin_date: "Check-in Date"

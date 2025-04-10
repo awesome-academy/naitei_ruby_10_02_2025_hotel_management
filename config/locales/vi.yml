@@ -139,6 +139,10 @@ vi:
    zalopay: "Ví ZaloPay"
    cash: "Trả tại khách sạn"
    book_now: "Đặt phòng"
+   deposit_amount: "Số tiền cần thanh toán (50%)"
+   scan_to_pay: "Quét mã để thanh toán"
+   deposit_success: "Đặt cọc thành công"
+   expired: "Hết thời gian thanh toán"
   room_list:
     title: "Danh sách phòng"
     default_image: "Ảnh mặc định"

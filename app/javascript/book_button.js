@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".book-button").forEach((btn) => {
+document.addEventListener('turbo:load', () => {
+    document.querySelectorAll('.book-button').forEach((btn) => {
         btn.addEventListener("click", (e) => {
             e.preventDefault();
             const id = btn.dataset.roomTypeId;

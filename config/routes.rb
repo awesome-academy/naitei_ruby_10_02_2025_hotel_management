@@ -30,7 +30,14 @@ Rails.application.routes.draw do
       get "room_types/:id", to: "room_types#show", as: "room_type"
     
       resources :requests, only: [:new, :create, :show, :index] do
-        get "check_availability", to: "requests#check_availability", as: "check_availability"
+        member do
+          post "expire"           
+          get  "status_check"     
+        end
+
+        collection do
+          get "check_availability" 
+        end
       end
     end
   end
