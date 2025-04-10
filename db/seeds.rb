@@ -63,3 +63,10 @@ end
     price: (n + 1) * 10000
   )
 end
+
+10.times  do |n|
+  Service.create!(
+    name: "Service #{n + 1}",
+    price: (n + 1) * 10000
+  )
+end

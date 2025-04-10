@@ -1,5 +1,5 @@
 class User::RequestsController < ApplicationController
-  before_action :find_request, only: :show
+  before_action :find_request, only: [:show, :expire, :status_check]
   before_action :find_room_type, only: :show
 
   def new
@@ -19,7 +19,7 @@ class User::RequestsController < ApplicationController
     build_request_from_params
 
     if @request.save
-      redirect_to user_request_path(@request),
+      redirect_to user_request_path(@request, back_url: params[:back_url]),
                   status: :see_other,
                   flash: {success: t("request_successfull")}
     else
@@ -29,7 +29,37 @@ class User::RequestsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @back_url = params[:back_url] || user_room_types_path
+    return unless @request.deposited?
+
+    redirect_to root_path,
+                flash: {success: t("payment.deposit_success")}
+  end
+
+  def expire
+    if @request.pending? && @request.update(status: :denied,
+                                            reason: Settings.expired)
+      flash[:danger] = t "payment.expired"
+    end
+
+    render json: {
+      redirect: root_path,
+      flash: {danger: flash[:danger]}
+    }
+  end
+
+  def status_check
+    if @request.deposited?
+      render json: {
+        deposited: true,
+        redirect: root_path,
+        flash: {success: t("payment.deposit_success")}
+      }
+    else
+      render json: {deposited: false}
+    end
+  end
 
   private
 

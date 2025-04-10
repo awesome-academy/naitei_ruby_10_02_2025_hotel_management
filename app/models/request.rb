@@ -13,11 +13,14 @@ class Request < ApplicationRecord
   validates :checkin_date, :checkout_date, :room_type_id, :quantity,
             presence: true
 
-  scope :with_room_type, lambda {|room_type_id|
+  scope :with_room_type, (lambda do |room_type_id|
     where(room_type_id: room_type_id)
-  }
+  end)
 
-  scope :active_statuses, ->{where(status: %i(deposited checkined finished))}
+  scope :active_statuses, (lambda do
+    where(status: %i(deposited checkined finished))
+  end)
+
   scope :overlapping_date, lambda {|date|
     where("checkin_date <= ? AND checkout_date > ?", date, date)
   }
