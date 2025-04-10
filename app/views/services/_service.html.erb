@@ -1,0 +1,18 @@
+<tr>
+  <td><%= pagy_index service_counter, pagy %></td>
+  <td>
+    <div>
+      <% if service.image.attached? %>
+        <%= image_tag service.image, class: "service-img", alt: service.name %>
+      <% else %>
+        <img src="<%= asset_path("default-thumbnail.jpg") %>" alt="Service" class="service-img">
+      <% end %>
+      <%= service.name %>
+    </div>
+  </td>
+  <td><%= number_to_currency service.price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %></td>
+  <td>
+    <%= link_to t("edit"), edit_service_path(service), class: 'btn btn-primary btn-sm' %>
+    <%= link_to t("delete"), service, data: {turbo_method: :delete, turbo_confirm: t("msg.you_sure")}, class: 'btn btn-danger btn-sm' %>
+  </td>
+</tr>

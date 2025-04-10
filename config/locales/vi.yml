@@ -50,6 +50,7 @@ vi:
       room_type: "Loại phòng"
       room: "Phòng"
       request: "Yêu cầu đặt phòng"
+      service: "Dịch vụ"
       search: "Tìm kiếm"
   room_types:
     index:
@@ -101,6 +102,10 @@ vi:
     room_has_upcoming_bookings: "Phòng này có đơn đặt phòng sắp tới hoặc đang checkin, không thể xóa."
     room_deleted: "Xóa phòng thành công!"
     room_deleted_failed: "Xóa phòng thất bại"
+    service_not_found: "Không tìm thấy dịch vụ"
+    service_deleted: "Xóa dịch vụ thành công!"
+    service_deleted_failed: "Xóa dịch vụ thất bại"
+    invalid_room_selected: "Số lượng phòng không hợp lệ"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -186,6 +191,15 @@ vi:
       upcoming_booking: "Đơn đặt phòng sắp tới"
       no_upcoming_bookings: "Không có đơn đặt phòng sắp tới"
       no_history_bookings: "Không có đơn đặt phòng trong quá khứ"
+  services:
+    services_management: "Quản lý dịch vụ"
+    index:
+      services_list: "Danh sách dịch vụ"
+      add_service: "Thêm dịch vụ"
+      service_name: "Tên dịch vụ"
+      price: "Giá"
+      description: "Mô tả"
+      action: "Hành động"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"
@@ -222,3 +236,4 @@ vi:
    finished: "Hoàn tất"
   request_not_found: "Không tìm thấy yêu cầu"
   room_type_not_found: "Không tìm thấy loại phòng"
+  actions: "Hành động"

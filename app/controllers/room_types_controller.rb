@@ -1,7 +1,4 @@
 class RoomTypesController < BaseAdminController
-  include ApplicationHelper
-  before_action :logged_in_user
-  before_action :admin_user, only: %i(create destroy)
   before_action :get_room_type, only: %i(show edit update destroy)
 
   def index

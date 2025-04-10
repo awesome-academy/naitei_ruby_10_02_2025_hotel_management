@@ -16,10 +16,8 @@ class Request < ApplicationRecord
   scope :with_room_type, lambda {|room_type_id|
     where(room_type_id: room_type_id)
   }
-	
-	scope :active_statuses, -> {
-    where(status: %i[deposited checkined finished])
-  }
+
+  scope :active_statuses, ->{where(status: %i(deposited checkined finished))}
   scope :overlapping_date, lambda {|date|
     where("checkin_date <= ? AND checkout_date > ?", date, date)
   }

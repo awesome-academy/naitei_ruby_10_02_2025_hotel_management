@@ -4,13 +4,7 @@
   <td><%= request.checkin_date %></td>
   <td><%= request.checkout_date %></td>
   <td>
-    <ul>
-      <% request.requests_room_types.each do |r_room_type| %>
-        <li>
-          <%= r_room_type.room_type.name %> - <%= r_room_type.quantity %> <%= t "room" %>
-        </li>
-      <% end %>
-    </ul>
+    <%= request.room_type.name %> - <%= request.quantity %>
   </td>
   <td><%= status_chip request.status %></td>
   <td>

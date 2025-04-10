@@ -1,7 +1,4 @@
 class RoomsController < BaseAdminController
-  include ApplicationHelper
-  before_action :logged_in_user
-  before_action :admin_user
   before_action :get_room, only: %i(show destroy)
 
   def index
