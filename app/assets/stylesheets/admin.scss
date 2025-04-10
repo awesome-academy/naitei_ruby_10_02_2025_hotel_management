@@ -170,6 +170,15 @@
 
 .service-img {
   height: 50px;
-  width: auto;
+  width: 50px;
   object-fit: contain;
+}
+
+.service-img-preview {
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid $text-light;
 }
