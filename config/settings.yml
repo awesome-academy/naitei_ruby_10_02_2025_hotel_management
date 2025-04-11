@@ -27,3 +27,5 @@ default:
   view:
     sidebar:
       icon_size: 20
+users:
+  items_per_page: 10

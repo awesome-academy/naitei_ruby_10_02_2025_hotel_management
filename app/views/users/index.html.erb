@@ -1,0 +1,57 @@
+<% provide :title, t("users.users_management") %>
+<div class="container">
+  <div class="header-row">
+    <h3><%= t(".users_list") %></h3>
+    <%= link_to new_user_path do %>
+      <%= bootstrap_icon "plus", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <span><%= t(".add_user") %></span>
+    <% end %>
+  </div>
+  <%= form_with url: users_path, method: :get, local: true do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.text_field :search, value: params[:search], placeholder: t(".search_placeholder"), class: "form-control" %>
+      </div>
+      <%= f.submit t(".search"), class: "btn btn-primary" %>
+    </div>
+    <div class="filter">
+      <div class="form-group mb-2 user-filter-group">
+        <%= f.radio_button :status, "true", checked: params[:status] == "true" %>
+        <%= f.label :status_activated, t("activated") %>
+        <%= f.radio_button :status, "false", checked: params[:status] == "false" %>
+        <%= f.label :status_deactivated, t("deactivated") %>
+        <%= f.radio_button :status, "", checked: params[:status].blank? %>
+        <%= f.label :status_deactivated, t(".all") %>
+      </div>
+
+      <div class="form-group mb-2 user-filter-group">
+        <%= f.radio_button :admin, "true", checked: params[:admin] == "true" %>
+        <%= f.label :role_admin, t(".admin") %>
+        <%= f.radio_button :admin, "false", checked: params[:admin] == "false" %>
+        <%= f.label :role_user, t(".user") %>
+        <%= f.radio_button :admin, "", checked: params[:admin].blank? %>
+        <%= f.label :role_user, t(".all") %>
+      </div>
+    </div>
+  <% end %>
+  <p>
+    <%= t ".total_users" %>: <%= @pagy.count %>
+  </p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t(".usename") %></th>
+        <th><%= t(".email") %></th>
+        <th><%= t(".phone") %></th>
+        <th><%= t(".role") %></th>
+        <th><%= t(".last_activity") %></th>
+        <th><%= t(".status") %></th>
+        <th><%= t(".actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

@@ -24,6 +24,12 @@ Rails.application.routes.draw do
         end
       end
       resources :services
+      resources :users do
+        member do
+          put "activate"
+          put "deactivate"
+        end
+      end
     end
     scope :user, module: :user, as: :user do
       get "room_types", to: "room_types#index", as: "room_types"

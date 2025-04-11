@@ -7,7 +7,7 @@
       <% end %>
     </li>
     <li>
-      <%= link_to "#" do %>
+      <%= link_to users_url, class: sidebar_highlight_check("users") do %>
         <%= bootstrap_icon "people-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.user" %>
       <% end %>
