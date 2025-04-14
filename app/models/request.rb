@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  before_save :set_deposit_amount_if_deposited
   enum status: {pending: 0, deposited: 1, checkined: 2, finished: 3,
                 denied: 4}
 
@@ -28,4 +29,10 @@ class Request < ApplicationRecord
   scope :booked_in_range, lambda {|room_type_id, date|
     with_room_type(room_type_id).active_statuses.overlapping_date(date)
   }
+
+  private
+
+  def set_deposit_amount_if_deposited
+    self.deposit_amount = deposited? ? total_price.to_f * 0.5 : 0
+  end
 end

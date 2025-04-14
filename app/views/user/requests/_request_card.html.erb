@@ -1,0 +1,11 @@
+<div class="booking-card">
+  <div class="booking-image">
+    <% if request.room_type&.images&.attached? && request.room_type.images.first.present? %>
+      <%= image_tag url_for(request.room_type.images.first), alt: request.room_type.name, class: "room-image" %>
+    <% else %>
+      <div class="no-image"><%= t("request.room_type") %></div>
+    <% end %>
+  </div>
+
+  <%= render partial: "booking_info", locals: { request: request } %>
+</div>

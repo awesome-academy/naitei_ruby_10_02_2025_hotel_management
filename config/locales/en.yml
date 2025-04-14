@@ -260,6 +260,8 @@ en:
     room_type: "Room Type"
     quantity: "Number of Rooms"
     status: "Status"
+    no booking: "You do not have any bookings."
+    all_requests: "My Bookings"
     statuses:
       pending: "Waiting for confirmation"
       deposited: "Deposit paid"
@@ -282,3 +284,10 @@ en:
   role:
     admin: "Admin"
     user: "User"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%H:%M %d/%m/%Y"
+
