@@ -1,48 +1,6 @@
 <% provide :title, t("requests.request_management") %>
 <div class="checkin-page">
-  <div class="guest-infor-col">
-    <h3>
-      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
-      <%= t ".guest_infor" %>
-    </h3>
-    <div class="infor">
-      <p><%= t ".fullname" %></P>
-      <p><%= @request.user.usename %></p>
-    </div>
-    <div class="infor">
-      <p><%= t ".phone" %></P>
-      <p><%= @request.user.phone %></p>
-    </div>
-    <div class="infor">
-      <p><%= t ".email" %></P>
-      <p><%= @request.user.email %></p>
-    </div>
-  </div>
-
-  <div>
-    <h3>
-      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
-      <%= t ".request_infor" %>
-    </h3>
-    <div class="infor">
-      <p><%= t "requests.index.checkin_date" %></P>
-      <p><%= @request.checkin_date %></p>
-    </div>
-     <div class="infor">
-      <p><%= t "requests.index.checkout_date" %></P>
-      <p><%= @request.checkout_date %></p>
-    </div>
-     <div class="infor">
-      <p><%= t "requests.index.status" %></P>
-      <p><%= status_chip @request.status %></p>
-    </div>
-    <% if @request.status == Settings.requests.status.denied %>
-      <div class="infor">
-        <p><%= t "requests.index.reason" %></P>
-        <p><%= @request.reason %></p>
-      </div>
-    <% end %>
-  </div>
+  <%= render "infor" %>
 
   <%= form_with url: checkin_submit_request_url(@request), method: :post, id: "checkin-form" do %>
     <table class="table">

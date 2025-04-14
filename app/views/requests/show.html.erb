@@ -1,0 +1,40 @@
+<% provide :title, t("requests.request_management") %>
+<div class="container">
+  <%= render "infor" %>
+  <% if @request.finished? || @request.checkouted? %>
+    <h3>
+      <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+      <%= t ".bill_infor" %>
+    </h3>
+    <table class="table">
+        <tr>
+          <th><%= t ".service_name" %></th>
+          <th><%= t ".service_quantity" %></th>
+           <th><%= t ".total_price" %></th>
+        </tr>
+        <% @request.bill.bills_services.each do |bill_service| %>
+          <tr>
+            <td><%= bill_service.service.name %></td>
+            <td><%= bill_service.quanity %></td>
+            <td>
+              <%= number_to_currency bill_service.service.price * bill_service.quanity, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td colspan="2">
+            <strong><%= t ".room_total_price" %></strong>
+          </td>
+          <td>
+            <strong><%= number_to_currency @request.room_total_price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %></strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= t ".total" %></td>
+          <td>
+            <%= number_to_currency @request.bill.total, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+          </td>
+        </tr>
+    </table>
+  <% end %>
+</div>

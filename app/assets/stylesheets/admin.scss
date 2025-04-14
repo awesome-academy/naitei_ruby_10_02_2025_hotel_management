@@ -228,3 +228,40 @@
     margin-top: 0;
   }
 }
+
+.checkout-request-page {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+
+  .service-form {
+    min-height: 300px;
+  }
+
+  .request-infor-col {
+    width: 30%;
+    
+    div {
+      display: flex;
+    }
+  }
+
+  .bill-service-form {
+    width: 70%;
+  }
+  
+  .service-fields {
+    margin-bottom: 10px;
+  }
+
+  .bill-summary {
+    div {
+      display: flex;
+      gap: 10px;
+    }
+
+    div p:last-child {
+      font-weight: 600;
+    }
+  }
+}

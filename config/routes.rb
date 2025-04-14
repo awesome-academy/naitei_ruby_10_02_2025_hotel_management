@@ -15,12 +15,14 @@ Rails.application.routes.draw do
         delete "images/:image_id", to: "room_types#destroy_image", as: "image"
       end
       resources :rooms
-      resources :requests, only: :index do
+      resources :requests, only: %i(index show) do
         member do
           get "checkin"
           post "checkin/submit", to: "requests#checkin_submit"
           get "deny"
           post "deny/submit", to: "requests#deny_submit"
+          get "checkout"
+          post "checkout/submit", to: "requests#checkout_submit"
         end
       end
       resources :services

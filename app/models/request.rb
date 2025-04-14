@@ -1,7 +1,7 @@
 class Request < ApplicationRecord
   before_save :set_deposit_amount_if_deposited
-  enum status: {pending: 0, deposited: 1, checkined: 2, finished: 3,
-                denied: 4}
+  enum status: {pending: 0, deposited: 1, checkined: 2, checkouted: 3,
+                finished: 4, denied: 5}
 
   belongs_to :user
   belongs_to :room_type
@@ -34,5 +34,7 @@ class Request < ApplicationRecord
 
   def set_deposit_amount_if_deposited
     self.deposit_amount = deposited? ? total_price.to_f * 0.5 : 0
+  def room_total_price
+    quantity * room_type.price * (checkout_date - checkin_date).to_i
   end
 end

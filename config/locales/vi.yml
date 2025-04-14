@@ -87,6 +87,7 @@ vi:
       price: "Giá"
       no_image: "Chưa có hình ảnh"
   msg:
+    please_log_in: "Hãy đăng nhập, bạn chưa đăng nhập"
     room_type_created: "Tạo phòng thành công!"
     invalid_image_format: "Ảnh không đúng định dạng"
     room_type_deleted: "Xóa loại phòng thành công!"
@@ -117,6 +118,8 @@ vi:
     user_activated_failed: "Kích hoạt người dùng thất bại!"
     user_deactivated: "Người dùng đã bị vô hiệu hóa!"
     user_deactivated_failed: "Vô hiệu hóa người dùng thất bại!"
+    checkout_success: "Trả phòng thành công!"
+    checkout_failed: "Trả phòng thất bại!"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -160,6 +163,11 @@ vi:
   room_type_not_found : "Không tìm thấy loại phòng"
   requests:
     request_management: "Quản lý đơn đặt phòng"
+    guest_infor: "Thông tin khách đặt"
+    fullname: "Họ và tên"
+    phone: "Số điện thoại"
+    Email: "Email"
+    request_infor: "Thông tin yêu cầu đặt phòng"
     index:
       booking_id: "Mã đơn"
       guest_name: "Tên khách"
@@ -168,17 +176,35 @@ vi:
       order: "Thông tin đơn"
       status: "Trạng thái"
       reason: "Lí do"
-    checkin:
-      guest_infor: "Thông tin khách đặt"
-      fullname: "Họ và tên"
-      phone: "Số điện thoại"
-      Email: "Email"
-      request_infor: "Thông tin yêu cầu đặt phòng"
+    checkout:
+      checkout_request: "Yêu cầu trả phòng"
+      request_date: "Ngày yêu cầu"
+      checkin_date: "Ngày nhận phòng"
+      checkout_date: "Ngày trả phòng"
+      room_type: "Loại phòng"
+      room_type_price: "Giá loại phòng"
+      stay_at: "Phòng đã lưu trú"
+      room_total_price: "Tổng tiền phòng"
+      service_name: "Tên dịch vụ"
+      add_serive: "Thêm dịch vụ"
+      service_select_placeholder: "Chọn dịch vụ"
+      total_price: "Giá dịch vụ"
+      total: "Tổng cộng"
+      total_service_price: "Tổng tiền dịch vụ"
+      total_room_price: "Tổng tiền phòng"
+      submit: "Gửi"
     deny:
       deny_request: "Từ chối yêu cầu đặt phòng"
       deny_reason: "Lí do từ chối"
       enter_reason: "Nhập Lí do"
       submit: "Gửi"
+    show:
+      bill_infor: "Thông tin hóa đơn"
+      service_name: "Tên dịch vụ"
+      service_quantity: "Số lượng dịch vụ"
+      total_price: "Tổng tiền"
+      room_total_price: "Tổng tiền phòng"
+      total: "Tổng cộng"
   room: "Phòng"
   rooms:
     room_management: "Quản lý phòng"
@@ -292,6 +318,7 @@ vi:
   delete: "Xóa"
   activated: "Đã kích hoạt"
   deactivated: "Đã vô hiệu hóa"
+  quantity: "Số lượng"
   role:
     admin: "Quản trị viên"
     user: "Người dùng"

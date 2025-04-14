@@ -1,0 +1,49 @@
+<div data-controller="checkout">
+  <div class="service-form">
+    <%= f.fields_for :bills_services do |bill_service| %>
+      <div class="row service-fields" data-controller="service-field" data-checkout-target="row">
+        <div class="col-md-6">
+          <%= bill_service.select :service_id, 
+              options_for_select(Service.all.map {|s| [s.name, s.id, {data: { price: s.price }}]}),
+              {prompt: t(".service_select_placeholder")},
+              {class: "form-control", data: { action: "change->service-field#update", service_field_target: "select" }} %>
+        </div>
+        <div class="col-md-2" data-service-field-target="price">
+        
+        </div>
+        <div class="col-md-2">
+          <%= bill_service.number_field :quanity,
+              min: 1,
+              class: "form-control",
+              data: { action: "change->service-field#calculateTotal", service_field_target: "quantity" } %>
+        </div>
+        <div class="col-md-2" data-service-field-target="total">
+
+        </div>
+      </div>
+    <% end %>
+    <button type="button" data-checkout-target="addButton" data-action="click->checkout#addRow"  class="btn btn-primary">
+      <%= t ".add_serive" %>
+    </button>
+  </div>
+  <div class="bill-summary">
+    <div>
+      <p><%= t ".room_total_price" %></p>
+      <p data-checkout-target="roomTotalPrice">
+        <%= number_to_currency @request.room_total_price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+      </p>
+    </div>
+
+    <div class="total-price">
+      <p><%= t ".total_service_price" %></p>
+      <p data-checkout-target="totalServicePrice">0</p>
+    </div>
+
+    <div class="total-price">
+      <p><%= t ".total" %></p>
+      <p data-checkout-target="totalPrice">
+        <%= number_to_currency @request.room_total_price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+      </p>
+    </div>
+  </div>
+</div>

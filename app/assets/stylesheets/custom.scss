@@ -749,26 +749,22 @@ a {
   color: $denied-text; 
 }
 
+.status-chip.checkouted {
+  background-color: $checkout-bg;
+  color: $checkout-text; 
+}
+
 .checkin-page {
   padding: 20px;
+}
 
-  .guest-infor-col {
-    width: 50%;
-  }
+.infor {
+  display: flex;
+  gap: 10px;
+}
 
-  h3 {
-    padding-bottom: 5px;
-    border-bottom: 1px solid $table-border;
-  }
-
-  .infor {
-    display: flex;
-    gap: 10px;
-  }
-
-  .infor p:first-child {
-    font-weight: 600;
-  }
+.infor p:first-child {
+  font-weight: 600;
 }
 
 .action {
