@@ -275,6 +275,8 @@ vi:
    room_type: "Loại phòng"
    quantity: "Số phòng"
    status: "Trạng thái"
+   all_requests: "Đơn của tôi"
+   no_booking: "Bạn chưa có đặt phòng nào."
   statuses:
    pending: "Đang chờ xác nhận"
    deposited: "Đã thanh toán tiền đặt cọc"
@@ -294,3 +296,9 @@ vi:
     admin: "Quản trị viên"
     user: "Người dùng"
   
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%H:%M %d/%m/%Y"

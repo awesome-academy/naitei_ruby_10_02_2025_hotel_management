@@ -1,0 +1,13 @@
+<div class="booking-info">
+  <div class="room-name">
+    <%= request.room_type&.name || t("request.room_type") %>
+  </div>
+
+  <div class="details">
+    <%= t("request.checkin_date") %>: <%= l(request.checkin_date) %> → <%= l(request.checkout_date) %><br>
+    <%= t("request.quantity") %>: <%= request.quantity %><br>
+    <%= t("request.status") %>: <%= t("request.statuses.#{request.status}") %><br>
+    <%= t("request.total_price") %>: <%= number_to_currency(request.total_price, unit: "₫", precision: 0) %><br>
+    <%= t("request.deposit_amount") %>: <%= number_to_currency(request.deposit_amount, unit: "₫", precision: 0) %>
+  </div>
+</div>

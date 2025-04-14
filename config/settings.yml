@@ -20,6 +20,7 @@ requests:
     checkined: "checkined"
     finished: "finished"
     denied: "denied"
+  limit : 5
 services:
   items_per_page: 10
   name_max_length: 50

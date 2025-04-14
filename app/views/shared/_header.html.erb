@@ -12,12 +12,13 @@
       <% if logged_in? %>
         <div class="dropdown">
           <button class="dropbtn">
-            <i class="fa fa-user"></i>
+          <%= image_tag("default-avatar.png", alt: "Avatar", class: "avatar") %>
           </button>
           <div class="dropdown-content">
             <%= link_to t("profile"), "#" %>
             <%= link_to t("settings"), "#" %>
             <%= link_to t("logout"), logout_path, method: :delete %>
+            <%= link_to t("request.all_requests"), user_requests_path %>
           </div>
         </div>
       <% else %>
