@@ -322,6 +322,21 @@ vi:
   role:
     admin: "Quản trị viên"
     user: "Người dùng"
+  request_mailer:
+    checkin_request:
+      subject: "Đã checkin đơn đặt phòng"
+      greeting: "Xin chào %{name},"
+      body: "Chúng tôi đã xác nhận yêu cầu đặt phòng của bạn. Vui lòng kiểm tra thông tin bên dưới:"
+      checkin_date: "Ngày nhận phòng"
+      checkout_date: "Ngày trả phòng"
+      room_type: "Loại phòng"
+      quantity: "Số lượng"
+      stay_at: "Phòng được chọn"
+    deny_request:
+      subject: "Từ chối yêu cầu đặt phòng"
+      greeting: "Xin chào %{name},"
+      body: "Chúng tôi rất tiếc phải thông báo rằng yêu cầu đặt phòng của bạn đã bị từ chối. Vui lòng kiểm tra thông tin bên dưới:"
+      reason: "Lí do từ chối"
   
   date:
     formats:

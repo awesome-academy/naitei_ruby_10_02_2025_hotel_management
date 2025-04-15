@@ -318,4 +318,17 @@ en:
   time:
     formats:
       default: "%H:%M %d/%m/%Y"
-
+  request_mailer:
+    checkin_request:
+      subject: "Booking confirmation"
+      greeting: "Dear %{name},"
+      body: "Your booking has been confirmed. Thank you for choosing our hotel. Please check booking details."
+      checkin_date: "Check-in date"
+      checkout_date: "Check-out date"
+      room_type: "Room type"
+      quantity: "Number of rooms"
+      stay_at: "Stay at"
+    deny_request:
+      subject: "Booking cancellation"
+      body: "Your booking has been cancelled. Thank you for choosing our hotel."
+      reason: "Reason"

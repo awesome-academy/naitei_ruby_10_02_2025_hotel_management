@@ -1,0 +1,16 @@
+<h1><%= t ".subject" %></h1>
+
+<p>
+  <%= t ".greeting", name: @request.user.usename %>
+  <%= t ".body" %>
+</p>
+<p><%= t ".checkin_date" %>: <%= @request.checkin_date %></p>
+<p><%= t ".checkout_date" %>: <%= @request.checkout_date %></p>
+<p><%= t ".room_type" %>: <%= @request.room_type.name %></p>
+<p><%= t ".quantity" %>: <%= @request.quantity %></p>
+<%= t ".stay_at" %>:
+<ul>
+  <% @request.rooms.each do |room| %>
+    <li><%= room.room_number %></li>
+  <% end %>
+</ul>
