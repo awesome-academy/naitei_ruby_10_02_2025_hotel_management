@@ -34,7 +34,17 @@ class Request < ApplicationRecord
 
   def set_deposit_amount_if_deposited
     self.deposit_amount = deposited? ? total_price.to_f * 0.5 : 0
+  end
+
   def room_total_price
     quantity * room_type.price * (checkout_date - checkin_date).to_i
+  end
+
+  def send_request_checkined_mail
+    RequestMailer.checkin_request(self).deliver_now
+  end
+
+  def send_request_denied_mail
+    RequestMailer.deny_request(self).deliver_now
   end
 end

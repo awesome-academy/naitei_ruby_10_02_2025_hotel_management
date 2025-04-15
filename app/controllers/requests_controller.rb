@@ -28,6 +28,7 @@ class RequestsController < BaseAdminController
     end
 
     @request.update(status: :checkined)
+    @request.send_request_checkined_mail
     flash[:success] = t "msg.request_checkined"
     redirect_to :requests
   end
@@ -42,6 +43,7 @@ class RequestsController < BaseAdminController
   def deny_submit
     if @request.update(status: Settings.requests.status.denied,
                        reason: params[:reason])
+      @request.send_request_denied_mail
       flash[:success] = t "msg.request_denied"
       redirect_to :requests
     else

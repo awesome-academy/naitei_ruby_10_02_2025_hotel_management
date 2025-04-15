@@ -1,0 +1,7 @@
+<h1><%= t ".subject" %></h1>
+
+<p>
+  <%= t ".greeting", name: @request.user.usename %>
+  <%= t ".body" %>
+</p>
+<%= t ".reason" %>: <%= @request.reason %> 
