@@ -26,7 +26,7 @@ en:
   logo: "🏨 Hotel Booking"
   hotel:
     name: "Lam Hotel"
-    rating: "⭐ 4.5 (132)"
+    rating: "⭐"
     address: "97 Khuc Thua Du Street, Dich Vong, Cau Giay, Hanoi"
     promotion: "🎁50% off up to 60K, minimum order 200K"
     price:
@@ -332,3 +332,15 @@ en:
       subject: "Booking cancellation"
       body: "Your booking has been cancelled. Thank you for choosing our hotel."
       reason: "Reason"
+  reviews:
+    title: "Đánh giá"
+    score: "Điểm đánh giá"
+    content: "Nội dung đánh giá"
+    submit: "Gửi đánh giá"
+    review: "đánh giá"
+    anonymous: "Khách hàng ẩn danh"
+    ago: "trước"
+    stars_text: "%{count} đánh giá"
+    star_label:
+      one: "%{count} ★"
+      other: "%{count} ★"

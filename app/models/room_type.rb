@@ -22,6 +22,8 @@ class RoomType < ApplicationRecord
   }
 
   def available_rooms checkin_date, checkout_date
+    return 0 unless checkin_date.present? && checkout_date.present?
+
     total_rooms = rooms.count
     min_available = total_rooms
 

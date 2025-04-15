@@ -15,10 +15,8 @@
     <input type="date" id="check-out-date" name="checkout_date" class="date-picker" value="<%= params[:checkout_date] %>" />
     <input type="time" id="check-out-time" class="time-picker" value="12:00" disabled />
   </div>
-
   <%= link_to t("date_selection.apply"), "#", id: "apply-dates", class: "update-btn", data: { turbolinks: false } %>
 </div>
-
 <div class="tab-menu">
   <ul>
     <li class="active"><a href="#"><%= t("menu.overview") %></a></li>
@@ -65,7 +63,6 @@
           <p class="room-available">
             <%= t("room_list.available_quantity", count: @available_rooms[room_type.id]) %>
           </p>
-
           <% if @available_rooms[room_type.id] > 0 %>
             <div class="room-booking">
               <label for="quantity_<%= room_type.id %>">
@@ -77,18 +74,30 @@
                      min="1"
                      max="<%= @available_rooms[room_type.id] %>"
                      value="1" />
-
-              <%= link_to t("room_list.book_room"), "#",
-                          class: "book-button",
-                          data: {
-                            room_type_id: room_type.id,
-                            checkin: params[:checkin_date],
-                            checkout: params[:checkout_date]
-                          } %>
+              <% if logged_in? %>
+                <% if params[:checkin_date].present? && params[:checkout_date].present? %>
+                  <%= link_to t("room_list.book_room"), "#",
+                              class: "book-button",
+                              data: {
+                                room_type_id: room_type.id,
+                                checkin: params[:checkin_date],
+                                checkout: params[:checkout_date]
+                              } %>
+                <% else %>
+                  <%= link_to t("room_list.book_room"), "#",
+                              class: "book-button disabled",
+                              data: { turbo: false } %>
+                <% end %>
+              <% else %>
+                <%= link_to t("room_list.book_room"), login_path, class: "login-button", data: { turbo: false } %>
+              <% end %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
+
+  <hr>
+  <%= render "user/reviews/section" %>
 </div>

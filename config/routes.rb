@@ -47,6 +47,7 @@ Rails.application.routes.draw do
           get "check_availability" 
         end
       end
+      resources :reviews, only: [:index, :new, :create]
     end
   end
 end
