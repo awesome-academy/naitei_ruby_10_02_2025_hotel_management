@@ -17,9 +17,19 @@ class User < ApplicationRecord
                        length: {minimum: Settings.user_password_min_length},
                        allow_nil: true
 
-  scope :search_by_all, ->search {where("email LIKE :q OR usename LIKE :q OR phone LIKE :q", q: "%#{search}%")}
-  scope :filter_by_role, ->admin {where("admin = ?", ActiveModel::Type::Boolean.new.cast(admin)) if admin.present?}
-  scope :filter_by_status, ->status {where("activated = ?", ActiveModel::Type::Boolean.new.cast(status)) if status.present?}
+  scope :search_by_all, lambda {|search|
+    where("email LIKE :q OR usename LIKE :q OR phone LIKE :q", q: "%#{search}%")
+  }
+  scope :filter_by_role, lambda {|admin|
+    if admin.present?
+      where("admin = ?", ActiveModel::Type::Boolean.new.cast(admin))
+    end
+  }
+  scope :filter_by_status, lambda {|status|
+    if status.present?
+      where("activated = ?", ActiveModel::Type::Boolean.new.cast(status))
+    end
+  }
 
   has_secure_password
 

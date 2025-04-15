@@ -4,6 +4,7 @@ module BaseAdminHelper
       pending: "status-chip pending",
       deposited: "status-chip deposited",
       checkined: "status-chip checkined",
+      checkouted: "status-chip checkouted",
       finished: "status-chip finished",
       denied: "status-chip denied"
     }

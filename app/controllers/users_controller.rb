@@ -2,7 +2,9 @@ class UsersController < BaseAdminController
   before_action :get_user, except: %i(index)
 
   def index
-    @pagy, @users = pagy User.search_by_all(params[:search]).filter_by_role(params[:admin]).filter_by_status(params[:status]),
+    @pagy, @users = pagy User.search_by_all(params[:search])
+                             .filter_by_role(params[:admin])
+                             .filter_by_status(params[:status]),
                          limit: Settings.users.items_per_page
   end
 

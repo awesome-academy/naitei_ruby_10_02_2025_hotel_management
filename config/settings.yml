@@ -18,6 +18,7 @@ requests:
     pending: "pending"
     deposited: "deposited"
     checkined: "checkined"
+    checkouted: "checkouted"
     finished: "finished"
     denied: "denied"
   limit : 5

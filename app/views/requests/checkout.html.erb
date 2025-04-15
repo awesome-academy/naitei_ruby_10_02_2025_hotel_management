@@ -1,0 +1,41 @@
+<% provide :title, t("requests.request_management") %>
+<div class="container checkout-request-page">
+  <div class="request-infor-col">
+    <h3><%= t ".checkout_request" %></h3>
+    <p><%= t ".request_date" %>: <%= @request.created_at.strftime("%Y-%m-%d") %></p>
+    <p><%= t ".checkin_date" %>: <%= @request.checkin_date %></p>
+    <p><%= t ".checkout_date" %>: <%= @request.checkout_date %></p>
+    <p><%= t ".room_type" %>: <%= @request.room_type.name %></p>
+    <p><%= t ".room_type_price" %>: <%= @request.room_type.price %></p>
+    <div>
+      <p><%= t ".stay_at" %>:</p>
+      <ul>
+        <% @request.rooms.each do |room| %>
+          <li><%= room.room_number %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p>
+      <%= t ".room_total_price" %>:
+      <%= number_to_currency @request.room_total_price, unit: "₫", separator: ",", delimiter: ".", precision: 0 %>
+    </p>
+  </div>
+  <%= form_with model: @bill, url: checkout_submit_request_path(@request), class:"bill-service-form" do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= t ".service_name" %>
+      </div>
+      <div class="col-md-2">
+        <%= t ".price" %>
+      </div>
+      <div class="col-md-2">
+        <%= t "quantity" %>
+      </div>
+      <div class="col-md-2">
+        <%= t ".total_price" %>
+      </div>         
+    </div>
+    <%= render "service_form", f: f %>
+    <%= f.submit t(".submit") %>
+  <% end %>
+</div>
