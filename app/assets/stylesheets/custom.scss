@@ -157,6 +157,7 @@
     font-weight: bold;
     font-size: 1.6rem;
     color: $basic-black;
+    margin-right:600px;
   }
 
   .right-menu {
@@ -637,7 +638,23 @@ a {
 .book-button:hover {
   background-color: $accent-hover;
 }
+.book-button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.login-button {
+  padding: 8px 14px;
+  background-color: $accent-color;
+  color: $white-color;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 120px;
+}
 
+.login-button:hover {
+  background-color: $accent-hover;
+}
 .img-thumbnail {
   height: 200px;
   width: 200px;

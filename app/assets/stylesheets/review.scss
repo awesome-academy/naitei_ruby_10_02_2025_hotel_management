@@ -1,0 +1,135 @@
+@import 'variables';
+.reviews-section {
+  margin-top: 32px;
+  font-family: Arial, sans-serif;
+}
+
+.reviews-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.review-summary {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.summary-score {
+  min-width: 100px;
+  text-align: center;
+}
+
+.average-score {
+  font-size: 36px;
+  font-weight: bold;
+  color: $warning-color; 
+}
+
+.stars-text {
+  font-size: 14px;
+  color: $text-muted; 
+}
+
+.score-breakdown {
+  flex: 1;
+  min-width: 200px;
+}
+
+.score-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.star-label {
+  width: 50px;
+  font-size: 14px;
+  color: $basic-black;
+}
+
+.bar-container {
+  flex: 1;
+  background: $border-color;
+  height: 10px;
+  border-radius: 4px;
+  margin-left: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: $warning-color; 
+  border-radius: 4px;
+}
+
+.review-form {
+  margin-bottom: 32px;
+  border-top: 1px solid $border-white; 
+  padding-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.rating-select,
+.form-control {
+  padding: 8px;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid $border-color; 
+  border-radius: 4px;
+}
+
+.btn-submit {
+  background-color: $primary-color; 
+  border: none;
+  color: $white-color; 
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: $primary-hover;
+}
+
+.review-list {
+  margin-top: 16px;
+}
+
+.review-card {
+  border-bottom: 1px solid $border-color; 
+  padding: 16px 0;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.user-meta strong {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.user-meta small {
+  font-size: 13px;
+  color: $text-light; 
+}
+
+.score-display {
+  font-weight: bold;
+  font-size: 14px;
+  color: $warning-color; 
+}
+
+.review-content {
+  font-size: 15px;
+  line-height: 1.5;
+}

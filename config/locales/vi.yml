@@ -344,3 +344,15 @@ vi:
   time:
     formats:
       default: "%H:%M %d/%m/%Y"
+  reviews:
+    title: "Đánh giá"
+    score: "Điểm đánh giá"
+    content: "Nội dung đánh giá"
+    submit: "Gửi đánh giá"
+    review: "đánh giá"
+    anonymous: "Khách hàng ẩn danh"
+    ago: "trước"
+    stars_text: "%{count} đánh giá"
+    star_label:
+      one: "%{count} ★"
+      other: "%{count} ★"

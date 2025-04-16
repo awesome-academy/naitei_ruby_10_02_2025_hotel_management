@@ -1,19 +1,9 @@
 class User::RoomTypesController < ApplicationController
   def index
-    @room_types = RoomType.all
-    checkin_date = Date.parse(params[:checkin_date] || "2025-04-04")
-    checkout_date = Date.parse(params[:checkout_date] || "2025-04-05")
-
-    @available_rooms = {}
-
-    @room_types.each do |room_type|
-      available_rooms = available_quantity_for_range(
-        room_type,
-        checkin_date,
-        checkout_date
-      )
-      @available_rooms[room_type.id] = available_rooms
-    end
+    assign_room_types
+    assign_reviews
+    assign_dates
+    assign_available_rooms
   end
 
   def show
@@ -26,7 +16,41 @@ class User::RoomTypesController < ApplicationController
 
   private
 
+  def assign_room_types
+    @room_types = RoomType.all
+  end
+
+  def assign_reviews
+    @reviews = Review
+               .order(created_at: :desc)
+               .limit(Settings.limit)
+    @review = Review.new
+    @average_score = @reviews.average(:score) || 0
+    @star_counts = Review.group(:score).count
+  end
+
+  def assign_dates
+    if params[:checkin_date].present?
+      @checkin_date = Date.parse(params[:checkin_date])
+    end
+    return if params[:checkout_date].blank?
+
+    @checkout_date = Date.parse(params[:checkout_date])
+  end
+
+  def assign_available_rooms
+    @available_rooms = {}
+
+    @room_types.each do |room_type|
+      available_rooms = available_quantity_for_range(room_type, @checkin_date,
+                                                     @checkout_date)
+      @available_rooms[room_type.id] = available_rooms
+    end
+  end
+
   def available_quantity_for_range room_type, checkin_date, checkout_date
+    return 0 unless checkin_date.present? && checkout_date.present?
+
     total_rooms = room_type.rooms.count
     min_available = total_rooms
 
