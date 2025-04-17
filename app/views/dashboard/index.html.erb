@@ -1,0 +1,47 @@
+<% provide :title, t(".dashboard") %>
+<div class="container">
+  <div class="static-group">
+    <div class="static-item">
+      <p><%= t "activerecord.models.user" %></p>
+      <h2><%= @user_count %></h2>
+      <%= link_to t(".view_all"), users_path, class: "btn btn-primary" %>
+    </div>
+    <div class="static-item">
+      <p><%= t "activerecord.models.room" %></p>
+      <h2><%= @room_count %></h2>
+      <%= link_to t(".view_all"), rooms_path, class: "btn btn-primary" %>
+    </div>
+    <div class="static-item">
+      <p><%= t "activerecord.models.room_type" %></p>
+      <h2><%= @room_type_count %></h2>
+      <%= link_to t(".view_all"), room_types_path, class: "btn btn-primary" %>
+    </div>
+    <div class="static-item">
+      <p><%= t "activerecord.models.service" %></p>
+      <h2><%= @service_count %></h2>
+      <%= link_to t(".view_all"), services_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="dashboard-row">
+    <div class="chart-container col-md-9" data-controller="chart">
+      <div class="filter">
+        <input type="month" id="month-picker" value="<%= "#{@year}-#{@month.to_s.rjust(2, '0')}" %>" />
+        <%= select_tag "room_type", options_from_collection_for_select(RoomType.all, :id, :name, @room_type_id),
+            include_blank: true,
+            data: { action: "change->chart#update", chart_target: "roomTypeSelect" }
+            %>
+      </div>
+      <%= line_chart @bills.group_by_day(:pay_at).sum(:total) %>
+    </div>
+    <div class="static-col">
+      <div>
+        <p><%= t "activerecord.models.request" %></p>
+        <h2><%= @request_count %></h2>
+      </div>
+      <div>
+        <p><%= t "activerecord.models.bill" %></p>
+        <h2><%= @bill_count %></h2>
+      </div>
+    </div>
+  </div>
+</div>

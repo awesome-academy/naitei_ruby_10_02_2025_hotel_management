@@ -6,6 +6,8 @@ import 'custom/month_picker'
 import './book_button'
 import 'custom/qr_countdown'
 import './flash_session'
+import 'chartkick'
+import 'Chart.bundle'
 document.addEventListener('turbo:load', function () {
     const applyDate = document.getElementById('apply-dates');
     if (!applyDate) return;

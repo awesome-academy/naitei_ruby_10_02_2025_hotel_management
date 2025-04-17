@@ -42,7 +42,11 @@ class SessionsController < ApplicationController
     flash[:success] = t("login_success")
     forwarding_url = session[:forwarding_url]
     @user.update_last_activity
-    redirect_to forwarding_url || root_path
+    return redirect_to forwarding_url if forwarding_url.nil?
+
+    return redirect_to dashboard_path if @user.admin?
+
+    redirect_to root_path
   end
 
   def failed_login

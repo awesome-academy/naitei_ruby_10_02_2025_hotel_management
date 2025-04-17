@@ -1,9 +1,12 @@
 en:
   activerecord:
     models:
+      user: "User"
       room_type: "Room type"
       room: "Room"
       service: "Service"
+      request: "Request"
+      bill: "Bill"
     attributes:
       room_type:
         name: "Name"
@@ -294,6 +297,10 @@ en:
       deposited: "Deposit paid"
       checkined: "Checked in"
       finished: "Completed"
+  dashboard:
+    index:
+      dashboard: "Dashboard"
+      view_all: "View all"
   check_in: "Check in"
   check_out: "Check out"
   day: "day"
