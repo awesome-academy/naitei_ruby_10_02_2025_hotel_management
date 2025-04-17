@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  before_validation :generate_token, on: :create
   before_save :set_deposit_amount_if_deposited
   enum status: {pending: 0, deposited: 1, checkined: 2, checkouted: 3,
                 finished: 4, denied: 5}
@@ -46,5 +47,9 @@ class Request < ApplicationRecord
 
   def send_request_denied_mail
     RequestMailer.deny_request(self).deliver_now
+  end
+
+  def generate_token
+    self.token ||= SecureRandom.hex(10)
   end
 end

@@ -1,8 +1,15 @@
 <div class="qr-payment-box">
   <div class="qr-info-left">
-    <h3><%= t("payment.expire_notice") %></h3><p class="qr-expire" id="countdown-timer" data-request-id="<%= @request.id %>">
-  <%= Settings.time_limit %>
-</p>
+    <% if params[:success] %>
+      <div class="alert alert-success" style="color: green; font-weight: bold;">
+        <%= t "confirm_success" %>
+      </div>
+    <% end %>
+
+    <h3><%= t "payment.expire_notice" %></h3>
+    <p class="qr-expire" id="countdown-timer" data-request-id="<%= @request.id %>">
+      <%= Settings.time_limit %>
+    </p>
     <hr>
 
     <p><strong><%= t("request.checkin_date") %>:</strong><br><%= l(@request.checkin_date, format: :long) %></p>
@@ -12,14 +19,19 @@
     <p><strong><%= t("request.status") %>:</strong><br><%= t("request.statuses.#{@request.status}") %></p>
 
     <hr>
-
-   <%= deposit_amount_display(@request) %>
+    <%= deposit_amount_display(@request) %>
 
     <%= link_to t("payment.back"), @back_url, class: "qr-back-btn" %>
   </div>
 
   <div class="qr-code-right">
-    <%= image_tag("qr_sample.png", alt: "QR Code", class: "qr-image") %>
-    <p class="qr-scan-title"><%= t("payment.scan_to_pay") %></p>
+    <% if @svg_qr.present? %>
+      <div class="qr-image-wrapper">
+        <%= raw @svg_qr %>
+      </div>
+      </div>
+    <% else %>
+      <%= image_tag("qr_sample.png", alt: "QR Code fallback", class: "qr-image") %>
+    <% end %>
   </div>
 </div>

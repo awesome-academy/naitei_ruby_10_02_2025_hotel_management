@@ -17,6 +17,14 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+if Settings.ngrok.present?
+  begin
+    host = URI(Settings.ngrok).host
+    config.hosts << host if host.present?
+  rescue URI::InvalidURIError => e
+    puts "#{e.message}"
+  end
+end
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp/caching-dev.txt').exist?

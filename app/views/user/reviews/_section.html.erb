@@ -48,5 +48,8 @@
         <div class="review-content"><%= review.content %></div>
       </div>
     <% end %>
+     <div class="pagination-controls mt-4">
+      <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
   </div>
 </section>
