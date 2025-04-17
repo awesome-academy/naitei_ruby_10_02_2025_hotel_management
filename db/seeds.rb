@@ -77,3 +77,11 @@ end
     price: (n + 1) * 10000
   )
 end
+
+10.times do |n|
+  Review.create!(
+    user: User.find((n % 10) + 1),
+    score: rand(1..5),
+    content: Faker::Lorem.sentence(word_count: 10)
+  )
+end

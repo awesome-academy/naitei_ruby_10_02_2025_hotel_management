@@ -2,6 +2,7 @@ class RequestsController < BaseAdminController
   before_action :get_request, except: %i(index)
   before_action :check_checkinable, only: %i(checkin checkin_submit)
   before_action :check_checkoutable, only: %i(checkout checkout_submit)
+  before_action :check_payable_request, only: %i(bill_pay)
 
   def index
     @requests = Request.includes(:user, :room_type)
@@ -58,15 +59,31 @@ class RequestsController < BaseAdminController
   end
 
   def checkout_submit
-    @bill = @request.build_bill(bill_params)
-    @bill.assign_attributes(user: @request.user, pay_at: Time.current)
-    @bill.total = calculate_total @bill
+    services_fields = bill_params[:bills_services_attributes].values
+    @bill = @request.build_bill(
+      user: @request.user,
+      total: calculate_total(services_fields),
+      bills_services_attributes: services_fields.reject do |s|
+        s[:service_id].blank?
+      end
+    )
     if @bill.save
       on_checkout_success
     else
       flash[:error] = t "msg.checkout_failed"
       render :checkout
     end
+  end
+
+  def bill_pay
+    @request.bill.pay_at = Time.zone.now
+    if @request.bill.save
+      @request.update(status: Settings.requests.status.finished)
+      flash[:success] = t "msg.bill_paid"
+    else
+      flash[:error] = t "msg.bill_pay_failed"
+    end
+    redirect_to :requests
   end
 
   private
@@ -115,13 +132,20 @@ class RequestsController < BaseAdminController
     redirect_to requests_path
   end
 
-  def calculate_total bill
-    services = Service.where(id: bill.bills_services.map(&:service_id))
-    service_total = bill.bills_services.sum do |bs|
-      service = services.find_by id: bs.service_id
+  def check_payable_request
+    return if @request.checkouted?
+
+    flash[:error] = t "msg.invalid_request_status"
+    redirect_to requests_path
+  end
+
+  def calculate_total services_fields
+    services = Service.where(id: services_fields.map{|s| s[:service_id]})
+    service_total = services_fields.sum do |sf|
+      service = services.find_by id: sf[:service_id]
       next 0 unless service
 
-      service.price * bs.quanity
+      service.price * sf[:quanity].to_i
     end
     service_total + @request.room_total_price
   end

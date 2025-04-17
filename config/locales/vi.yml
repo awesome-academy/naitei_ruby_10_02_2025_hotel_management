@@ -59,6 +59,7 @@ vi:
       request: "Yêu cầu đặt phòng"
       service: "Dịch vụ"
       search: "Tìm kiếm"
+      reviews: "Đánh giá"
   room_types:
     index:
       room_type_management: "Quản lý loại phòng"
@@ -123,6 +124,8 @@ vi:
     user_deactivated_failed: "Vô hiệu hóa người dùng thất bại!"
     checkout_success: "Trả phòng thành công!"
     checkout_failed: "Trả phòng thất bại!"
+    bill_paid: "Đã thanh toán hóa đơn!"
+    bill_paid_failed: "Thanh toán hóa đơn thất bại!"
   menu:
     overview: "Tổng quan"
     room_list: "Danh sách phòng"
@@ -196,6 +199,8 @@ vi:
       total_service_price: "Tổng tiền dịch vụ"
       total_room_price: "Tổng tiền phòng"
       submit: "Gửi"
+    checkin:
+      deny: "Từ chối yêu cầu"
     deny:
       deny_request: "Từ chối yêu cầu đặt phòng"
       deny_reason: "Lí do từ chối"
@@ -208,6 +213,7 @@ vi:
       total_price: "Tổng tiền"
       room_total_price: "Tổng tiền phòng"
       total: "Tổng cộng"
+      user_paid: "Đã được thanh toán"
   room: "Phòng"
   rooms:
     room_management: "Quản lý phòng"
@@ -289,7 +295,6 @@ vi:
   day: "ngày"
   request_successfull: "Đặt phòng thành công!"
   request_error : "Lỗi đặt phòng"
-  request:
   details_title: "Chi tiết đặt phòng"
   checkin_date: "Ngày nhận phòng"
   checkout_date: "Ngày trả phòng"
@@ -329,6 +334,13 @@ vi:
   role:
     admin: "Quản trị viên"
     user: "Người dùng"
+  admin_reviews:
+    index:
+      reviews: "Đánh giá"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
+      filter: "Lọc"
+      no_reviews: "Không có đánh giá nào"
   request_mailer:
     checkin_request:
       subject: "Đã checkin đơn đặt phòng"
@@ -346,6 +358,8 @@ vi:
       reason: "Lí do từ chối"
   
   date:
+    order: ["day", "month", "year"]
+    month_names: [~, "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"]
     formats:
       default: "%d/%m/%Y"
   time:

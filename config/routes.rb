@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "sessions/destroy"
     scope "admin" do
       get "dashboard", to: "dashboard#index"
+      get "reviews", to: "admin_reviews#index"
       resources :room_types do
         delete "images/:image_id", to: "room_types#destroy_image", as: "image"
       end
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
           post "deny/submit", to: "requests#deny_submit"
           get "checkout"
           post "checkout/submit", to: "requests#checkout_submit"
+          patch "bill_pay", to: "requests#bill_pay"
         end
       end
       resources :services

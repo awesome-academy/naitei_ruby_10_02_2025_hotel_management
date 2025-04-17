@@ -36,5 +36,11 @@
         <%= t "admin.layouts.service" %>
       <% end %>
     </li>
+    <li>
+      <%= link_to reviews_path, class: sidebar_highlight_check("reviews") do %>
+        <%= bootstrap_icon "chat-dots-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
+        <%= t "admin.layouts.reviews" %>
+      <% end %>
+    </li>
   </ul>
 </aside>

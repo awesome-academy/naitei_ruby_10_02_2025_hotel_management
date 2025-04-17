@@ -1,0 +1,17 @@
+<% provide :title, t(".reviews") %>
+<div class="container">
+  <%= form_with url: reviews_path, method: :get, class: "filter" do |f| %>
+    <p><%= t ".start_date" %></p>
+    <%= f.date_field :start_date, value: @start_date, class: "form-control", max: @end_date %>
+    <p><%= t ".end_date" %></p>
+    <%= f.date_field :end_date, value: @end_date, class: "form-control", max: Date.today %>
+    <%= f.submit t(".filter"), class: "btn btn-primary" %>
+  <% end %>
+  <% if @reviews.any? %>
+    <%= render partial: "review", collection: @reviews %>
+  <% else %>
+    <div class="alert alert-info">
+      <%= t ".no_reviews" %>
+    </div>
+  <% end %>
+</div>

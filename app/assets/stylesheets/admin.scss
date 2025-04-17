@@ -73,6 +73,7 @@
 
 .header-nav:hover ul {
   display: block;
+  list-style-type: none;
 }
 
 .admin-sidebar {
@@ -348,4 +349,59 @@
       margin-top: 25px;
     }
   }
+}
+
+.filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+  input[type="date"] {
+    width: 150px;
+  }
+}
+
+.review {
+  border: 1px solid $table-border;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px $shadow-color;
+  background-color: $white-color;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-user {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.review-date {
+  font-size: 14px;
+  color: $text-light;
+}
+
+.review-score {
+  color: $score-color; 
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.review-content {
+  font-size: 16px;
+  color: $text-color;
+  margin: 0;
 }
