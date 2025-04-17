@@ -41,7 +41,8 @@ Rails.application.routes.draw do
       resources :requests, only: [:new, :create, :show, :index] do
         member do
           post "expire"           
-          get  "status_check"     
+          get  "status_check"   
+          get "confirm"
         end
 
         collection do

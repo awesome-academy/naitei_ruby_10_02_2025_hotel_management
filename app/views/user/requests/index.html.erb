@@ -2,6 +2,7 @@
 
 <% if @requests.any? %>
   <%= render partial: "request_card", collection: @requests, as: :request %>
+    <%== pagy_bootstrap_nav(@pagy) %>
 <% else %>
   <p class="text-gray-600"><%= t("request.no_booking") %></p>
 <% end %>

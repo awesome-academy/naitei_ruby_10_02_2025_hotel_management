@@ -351,3 +351,11 @@ en:
     star_label:
       one: "%{count} ★"
       other: "%{count} ★"
+  room_details:
+    price: "Price"
+    view: "View"
+    devices: "Devices"
+    image_list: "Image List"
+    no_image: "No images available"
+  confirm_denied: "❌ The link is invalid or expired."
+  confirm_success: "✔ Payment successful!"

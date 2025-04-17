@@ -363,3 +363,11 @@ vi:
     star_label:
       one: "%{count} ★"
       other: "%{count} ★"
+  room_details:
+    price: "Giá"
+    view: "View"
+    devices: "Thiết bị trong phòng"
+    image_list: "Danh sách ảnh"
+    no_image: "Không có ảnh"
+confirm_denied: "❌ Liên kết không hợp lệ hoặc đã hết hạn."
+confirm_success: "✔ Thanh toán thành công!"

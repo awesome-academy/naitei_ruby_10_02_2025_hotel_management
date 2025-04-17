@@ -8,7 +8,8 @@ class User::RoomTypesController < ApplicationController
 
   def show
     @room_type = RoomType.find_by(id: params[:id])
-    return if @room_type.present?
+
+    return if @room_type
 
     flash[:danger] = t("room_type_not_found")
     redirect_to user_room_types_path
@@ -21,9 +22,10 @@ class User::RoomTypesController < ApplicationController
   end
 
   def assign_reviews
-    @reviews = Review
-               .order(created_at: :desc)
-               .limit(Settings.limit)
+    @pagy, @reviews = pagy(
+      Review.order(created_at: :desc),
+      items: Settings.limit
+    )
     @review = Review.new
     @average_score = @reviews.average(:score) || 0
     @star_counts = Review.group(:score).count

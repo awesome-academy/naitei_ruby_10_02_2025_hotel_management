@@ -1,0 +1,31 @@
+<div class="room-details-container">
+  <h1 class="room-title"><%= @room_type.name %></h1>
+
+  <p class="room-description"><%= @room_type.description %></p>
+  <p class="room-price"><%= t("room_details.price") %>: <%= number_to_currency(@room_type.price, unit: "", format: "%n đ") %></p>
+  <p class="room-view"><%= t("room_details.view") %>: <%= @room_type.view %></p>
+
+  <% if @room_type.devices.any? %>
+    <div class="room-devices">
+      <p class="device-title"><%= t("room_details.devices") %>:</p>
+      <ul class="device-list">
+        <% @room_type.devices.each do |device| %>
+          <li><%= device.name %> (<%= device.quantity %>)</li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2 class="room-gallery-title"><%= t("room_details.image_list") %></h2>
+  <div class="room-image-grid">
+    <% if @room_type.images.attached? %>
+      <% @room_type.images.each do |img| %>
+        <div class="room-image-item">
+          <%= image_tag url_for(img), class: "room-thumbnail" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= t("room_details.no_image") %></p>
+    <% end %>
+  </div>
+</div>

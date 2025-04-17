@@ -6,7 +6,7 @@ document.addEventListener('turbo:load', function () {
     if (!requestId) return;
 
     const countdownKey = `countdown_start_${requestId}`;
-    const duration = 1 * 60 * 1000;
+    const duration = 10 * 60 * 1000;
 
     if (!localStorage.getItem(countdownKey)) {
         localStorage.setItem(countdownKey, Date.now().toString());

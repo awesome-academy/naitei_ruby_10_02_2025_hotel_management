@@ -31,6 +31,7 @@
 <h2 class="room-list-title"><%= t("room_list.title") %></h2>
 
 <div class="room-list-container">
+
   <% @room_types.each do |room_type| %>
     <div class="room-card">
       <div class="room-image-container">
@@ -44,8 +45,9 @@
       <div class="room-details">
         <div class="room-info">
           <p class="room-name"><%= room_type.name %></p>
-          <p class="room-size"><%= room_type.size %> m²</p>
-          <%= link_to t("room_list.view_details"), user_room_type_path(room_type), class: "room-link" %>
+      <%= link_to t("room_list.view_details"),
+            user_room_type_path(room_type),
+            class: "room-link text-blue-500" %>
         </div>
 
         <div class="room-devices">

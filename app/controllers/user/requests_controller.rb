@@ -1,10 +1,9 @@
 class User::RequestsController < ApplicationController
-  before_action :find_request, only: %i(show expire status_check)
+  before_action :find_request, only: %i(show expire status_check confirm)
   before_action :find_room_type, only: :show
 
   def new
     prepare_request_data
-
     @request = Request.new(
       checkin_date: @checkin_date,
       checkout_date: @checkout_date,
@@ -36,9 +35,30 @@ class User::RequestsController < ApplicationController
 
   def show
     @back_url = params[:back_url] || user_room_types_path
-    return unless @request.deposited?
 
-    redirect_to root_path, flash: {success: t("payment.deposit_success")}
+    if @request.deposited?
+      flash[:success] = t("payment.deposit_success") if params[:success]
+      redirect_to root_path
+    else
+      ngrok_base = Settings.ngrok
+      token_param = "?token=#{@request.token}"
+      @confirm_url =
+        "#{ngrok_base}/en/user/requests/#{@request.id}/confirm#{token_param}"
+      if @confirm_url.present?
+        qrcode = RQRCode::QRCode.new(@confirm_url)
+        @svg_qr = qrcode.as_svg(module_size: Settings.module_size)
+      end
+    end
+  end
+
+  def confirm
+    if @request.token == params[:token] && @request.pending?
+      @request.update(status: :deposited)
+      redirect_to user_request_path(@request, success: 1)
+    else
+      flash[:danger] = t "confirm_denied"
+      redirect_to user_requests_path
+    end
   end
 
   def expire
@@ -125,7 +145,6 @@ class User::RequestsController < ApplicationController
     @checkin_date = @request.checkin_date || Time.zone.today
     @checkout_date =
       safe_parse_date(source[:checkout_date]) || Time.zone.today + 1.day
-
     @stay_duration = (@checkout_date - @checkin_date).to_i
     @room_type = @request.room_type
     @quantity = @request.quantity || 1
