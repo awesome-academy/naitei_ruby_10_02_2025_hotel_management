@@ -1,7 +1,7 @@
 <aside class="admin-sidebar">
   <ul>
     <li>
-      <%= link_to "#" do %>
+      <%= link_to dashboard_url, class: sidebar_highlight_check("dashboard") do %>
         <%= bootstrap_icon "speedometer", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
         <%= t "admin.layouts.dashboard" %>
       <% end %>

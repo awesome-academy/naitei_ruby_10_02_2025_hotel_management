@@ -7,4 +7,17 @@ class Bill < ApplicationRecord
   belongs_to :user
 
   accepts_nested_attributes_for :bills_services, allow_destroy: true
+
+  scope :paid_in_month, lambda {|month, year|
+    if month.present? && year.present?
+      where(pay_at: Date.new(year, month, 1)..Date.new(year, month, -1))
+    end
+  }
+
+  scope :with_room_type, lambda {|room_type_id|
+    if room_type_id.present?
+      joins("INNER JOIN requests ON requests.id = bills.request_id")
+        .where(requests: {room_type_id: room_type_id})
+    end
+  }
 end

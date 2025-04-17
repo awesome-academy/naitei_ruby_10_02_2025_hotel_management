@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "sessions/create"
     get "sessions/destroy"
     scope "admin" do
+      get "dashboard", to: "dashboard#index"
       resources :room_types do
         delete "images/:image_id", to: "room_types#destroy_image", as: "image"
       end

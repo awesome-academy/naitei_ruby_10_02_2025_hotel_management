@@ -2,9 +2,12 @@
 vi:
   activerecord:
     models:
-      room_type: "Room type"
+      user: "Người dùng"
+      room_type: "Loại phòng"
       room: "Phòng"
       service: "Dịch vụ"
+      request: "Yêu cầu đặt phòng"
+      bill: "Hóa đơn"
     attributes:
       room_type:
         name: "Tên loại phòng"
@@ -272,6 +275,10 @@ vi:
       appointments_list: "Danh sách đơn đặt phòng"
       view_details: "Xem chi tiết"
       no_appointments: "Không có đơn đặt phòng"
+  dashboard:
+    index:
+      dashboard: "Thống kê"
+      view_all: "Xem tất cả"
   pending: "Chờ thanh toán"
   deposited: "Đã đặt cọc"
   checkined-in: "Đã checkin"

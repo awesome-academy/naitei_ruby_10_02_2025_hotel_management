@@ -4,6 +4,10 @@
     <%= f.text_field :query, placeholder: t("admin.layouts.search") %>
     <%= f.submit t("admin.layouts.search") %>
   <% end %>
+  <div class="language-select">
+    <%= link_to t("language.english"), locale:"en" %>
+    <%= link_to t("language.vietnamese"), locale:"vi" %>
+  </div>
   <div class="header-nav">
     <%= image_tag "https://robohash.org/10.png" %>
     <div>
@@ -13,7 +17,7 @@
     <ul>
       <li><%= link_to "Information", "#" %></li>
       <li><%= link_to "Settings", "#" %></li>
-      <li><%= link_to "Log out", "#" %></li>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
     </ul>
   </div>
 </header>
