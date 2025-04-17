@@ -31,16 +31,6 @@ class Request < ApplicationRecord
     with_room_type(room_type_id).active_statuses.overlapping_date(date)
   }
 
-  private
-
-  def set_deposit_amount_if_deposited
-    self.deposit_amount = deposited? ? total_price.to_f * 0.5 : 0
-  end
-
-  def room_total_price
-    quantity * room_type.price * (checkout_date - checkin_date).to_i
-  end
-
   def send_request_checkined_mail
     RequestMailer.checkin_request(self).deliver_now
   end
@@ -51,5 +41,14 @@ class Request < ApplicationRecord
 
   def generate_token
     self.token ||= SecureRandom.hex(10)
+  end
+  
+  def room_total_price
+    quantity * room_type.price * (checkout_date - checkin_date).to_i
+  end
+
+  private
+  def set_deposit_amount_if_deposited
+    self.deposit_amount = deposited? ? total_price.to_f * 0.5 : 0
   end
 end

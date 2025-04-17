@@ -5,6 +5,7 @@
     <h3>
       <%= bootstrap_icon "bookmark-dash-fill", height: Settings.default.view.sidebar.icon_size, class:"action-logo" %>
       <%= t ".bill_infor" %>
+      <span class="badge"><%= @request.bill.status %></span>
     </h3>
     <table class="table">
         <tr>
@@ -36,5 +37,6 @@
           </td>
         </tr>
     </table>
+    <%= link_to t(".user_paid"), bill_pay_request_path(@request), data: { turbo_method: :patch } %>
   <% end %>
 </div>

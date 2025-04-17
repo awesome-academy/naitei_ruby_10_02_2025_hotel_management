@@ -20,4 +20,8 @@ class Bill < ApplicationRecord
         .where(requests: {room_type_id: room_type_id})
     end
   }
+
+  def status
+    pay_at.present? ? :paid : :unpay
+  end
 end

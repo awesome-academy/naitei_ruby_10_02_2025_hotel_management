@@ -58,6 +58,7 @@ en:
       request: "Request"
       service: "Service"
       search: "Search"
+      reviews: "Reviews"
   room_types:
     index:
       room_type_management: "Room type managment"
@@ -121,6 +122,8 @@ en:
     user_deactivated_failed: "User deactivation failed!"
     checkout_success: "Checkout successful!"
     checkout_failed: "Checkout failed!"
+    bill_paid: "Bill paid successfully!"
+    bill_paid_failed: "Bill payment failed!"
   menu:
     overview: "Overview"
     room_list: "Room List"
@@ -161,6 +164,7 @@ en:
       phone: "Phone"
       Email: "Email"
       request_infor: "Request's information"
+      deny: "Deny"
     deny:
       deny_request: "Deny request"
       deny_reason: "Deny reason"
@@ -190,6 +194,7 @@ en:
       total_price: "Total price"
       room_total_price: "Room total price"
       total: "Total"
+      user_paid: "User paid"
   room: "Room"
   rooms:
     room_management: "Room Management"
@@ -325,6 +330,13 @@ en:
   time:
     formats:
       default: "%H:%M %d/%m/%Y"
+  admin_reviews:
+    index:
+      reviews: "Reviews"
+      start_date: "Start date"
+      end_date: "End date"
+      filter: "Filter"
+      no_reviews: "No reviews"
   request_mailer:
     checkin_request:
       subject: "Booking confirmation"

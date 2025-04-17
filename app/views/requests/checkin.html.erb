@@ -26,7 +26,7 @@
     </table>
     <div class="action">
         <%= submit_tag t("checkin"), class: "btn btn-primary" %>
-         <%= link_to "Deny", deny_request_url(@request), data: { turbo_stream: true } %>
+         <%= link_to t(".deny"), deny_request_url(@request), data: { turbo_stream: true } %>
     </div>
   <% end %>
 </div>
