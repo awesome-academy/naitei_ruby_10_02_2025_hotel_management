@@ -42,7 +42,7 @@ class Request < ApplicationRecord
   def generate_token
     self.token ||= SecureRandom.hex(10)
   end
-  
+
   def room_total_price
     quantity * room_type.price * (checkout_date - checkin_date).to_i
   end
