@@ -6,10 +6,11 @@ class User::ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.new(review_params)
     if @review.save
-      redirect_to user_room_types_path, notice: t("reviews.created")
+      flash[:success] = t("reviews.created")
     else
-      redirect_to user_room_types_path, alert: t("reviews.create_failed")
+      flash[:danger] = t("reviews.create_failed")
     end
+    redirect_to user_room_types_path
   end
 
   private

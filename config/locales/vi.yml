@@ -374,6 +374,8 @@ vi:
     anonymous: "Khách hàng ẩn danh"
     ago: "trước"
     stars_text: "%{count} đánh giá"
+    created: "Đánh giá thành công"
+    created_fail: "Đángh giá thất bại"
     star_label:
       one: "%{count} ★"
       other: "%{count} ★"

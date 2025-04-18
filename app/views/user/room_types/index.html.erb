@@ -6,13 +6,25 @@
 
   <div class="date-info">
     <span class="date-label"><%= t("date_selection.checkin") %></span>
-    <input type="date" id="check-in-date" name="checkin_date" class="date-picker" value="<%= params[:checkin_date] %>" />
+   <input type="date"
+       id="check-in-date"
+       name="checkin_date"
+       class="date-picker"
+       value="<%= params[:checkin_date] %>"
+       min="<%= Date.today.strftime('%Y-%m-%d') %>" />
     <input type="time" id="check-in-time" class="time-picker" value="14:00" disabled />
   </div>
 
   <div class="date-info">
     <span class="date-label"><%= t("date_selection.checkout") %></span>
-    <input type="date" id="check-out-date" name="checkout_date" class="date-picker" value="<%= params[:checkout_date] %>" />
+ 
+<input type="date"
+       id="check-out-date"
+       name="checkout_date"
+       class="date-picker"
+       value="<%= params[:checkout_date] %>"
+         min="<%= Date.tomorrow.strftime('%Y-%m-%d') %>" />
+
     <input type="time" id="check-out-time" class="time-picker" value="12:00" disabled />
   </div>
   <%= link_to t("date_selection.apply"), "#", id: "apply-dates", class: "update-btn", data: { turbolinks: false } %>

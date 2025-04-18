@@ -38,5 +38,4 @@ users:
   items_per_page: 10
 star_score: 1..5
 limit: 10
-ngrok: https://d0b1-42-112-114-236.ngrok-free.app
 module_size: 6
