@@ -30,7 +30,7 @@ vi:
   logo: "🏨 Đặt phòng khách sạn"
   hotel:
     name: "Lam Hotel"
-    rating: "⭐ 4.5 (132)"
+    rating: "⭐"
     address: "97 Phố Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội"
     promotion: "🎁 Giảm 50% tối đa 60K, đặt tối thiểu 200K"
     price:
@@ -387,3 +387,23 @@ vi:
     no_image: "Không có ảnh"
 confirm_denied: "❌ Liên kết không hợp lệ hoặc đã hết hạn."
 confirm_success: "✔ Thanh toán thành công!"
+enter_phone : "Nhập số điện thoại"
+enter_username: "Nhập tên người dùng"
+devise:
+  mailer:
+    confirmation_greeting: "Chào %{email}!"
+    confirmation_instruction: "Bạn có thể xác nhận email của mình thông qua tài khoản bên dưới:"
+    confirmation_cta: "Xác nhận tài khoản "
+    unlock_greeting: "Xin chào %{email}, tài khoản của bạn đã bị khóa"
+    unlock_message: "Bạn có thể mở khóa tài khoản bằng cách nhấp vào liên kết bên dưới:"
+    unlock_cta: "Mở khóa tài khoản"
+  unlocks:
+    new:
+      title: "Gửi lại hướng dẫn mở khóa"
+      email_label: "Email"
+      submit: "Gửi lại hướng dẫn"
+  sessions:
+      signed_in: "Đăng nhập thành công. Xin chào %{name}!"
+      signed_out: "Bạn đã đăng xuất."
+  registrations:
+    signed_up: "Chào mừng %{name} đến với hệ thống!"

@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable
+
+  PERMITTED_ATTRS = %i[usename email phone password password_confirmation].freeze
+  PERMITTED_UPDATE_ATTRS = (PERMITTED_ATTRS + [:current_password]).freeze
   before_create :set_last_activity
 
   has_many :reviews, dependent: :destroy
@@ -30,8 +36,6 @@ class User < ApplicationRecord
       where("activated = ?", ActiveModel::Type::Boolean.new.cast(status))
     end
   }
-
-  has_secure_password
 
   def update_last_activity
     update(last_activity: Time.current)

@@ -24,7 +24,7 @@ class User::RoomTypesController < ApplicationController
   def assign_reviews
     @pagy, @reviews = pagy(
       Review.order(created_at: :desc),
-      items: Settings.limit
+      limit: Settings.limit
     )
     @review = Review.new
     @average_score = @reviews.average(:score) || 0

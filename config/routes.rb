@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
-    get "static_pages/home"
-    get "login", to: "sessions#new"
-    post "login", to: "sessions#create"
-    get "/logout", to: "sessions#destroy"
-
-
-    get "sessions/new"
-    get "sessions/create"
-    get "sessions/destroy"
+    devise_for :user, controllers: {
+    registrations: "user/registrations",
+    sessions: "user/sessions"
+  }
     scope "admin" do
       get "dashboard", to: "dashboard#index"
       get "reviews", to: "admin_reviews#index"
@@ -29,7 +24,7 @@ Rails.application.routes.draw do
         end
       end
       resources :services
-      resources :users do
+      resources :user do
         member do
           put "activate"
           put "deactivate"

@@ -31,6 +31,8 @@ class Request < ApplicationRecord
     with_room_type(room_type_id).active_statuses.overlapping_date(date)
   }
 
+  scope :newest, ->{order(created_at: :desc)}
+
   def send_request_checkined_mail
     RequestMailer.checkin_request(self).deliver_now
   end

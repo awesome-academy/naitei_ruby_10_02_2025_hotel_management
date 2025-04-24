@@ -5,7 +5,8 @@ class RequestsController < BaseAdminController
   before_action :check_payable_request, only: %i(bill_pay)
 
   def index
-    @requests = Request.includes(:user, :room_type)
+    @pagy, @requests = pagy Request.includes(:user, :room_type).newest,
+                            limit: Settings.services.items_per_page
   end
 
   def show; end

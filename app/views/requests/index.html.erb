@@ -2,7 +2,6 @@
 <div class="request-management-page">
   <table class="table">
     <tr>
-      <th><%= t ".booking_id" %></th>
       <th><%= t ".guest_name" %></th>
       <th><%= t ".checkin_date" %></th>
       <th><%= t ".checkout_date" %></th>
@@ -12,4 +11,5 @@
     </tr>
     <%= render @requests %>
   </table>
+  <%== pagy_bootstrap_nav(@pagy) %>
 </div>
