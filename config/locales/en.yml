@@ -26,6 +26,7 @@ en:
     english: "English"
     vietnamese: "Vietnamese"
   login: "Login"
+  sign_up: "Sign up"
   logo: "🏨 Hotel Booking"
   hotel:
     name: "Lam Hotel"
@@ -371,5 +372,27 @@ en:
     devices: "Devices"
     image_list: "Image List"
     no_image: "No images available"
-  confirm_denied: "❌ The link is invalid or expired."
+  confirm_denied: "❌ The link is invalid <span class=&quot;translation_missing&quot; title=&quot;translation missing: en.enter_username&quot;>Enter Username</span>or expired."
   confirm_success: "✔ Payment successful!"
+  enter_phone : "Enter phone"
+  enter_username: "Enter username"
+devise:
+  mailer:
+    confirmation_greeting: "Welcome %{email}!"
+    confirmation_instruction: "You can confirm your account email through the link below:"
+    confirmation_cta: "Confirm my account"
+    unlock_greeting: "Hello %{email}, your account is locked"
+    unlock_message: "You can unlock your account by clicking the link below:"
+    unlock_cta: "Unlock account"
+  
+  unlocks:
+    new:
+      title: "Resend unlock instructions"
+      email_label: "Email"
+      submit: "Resend unlock instructions"
+
+  sessions:
+    signed_in: "Signed in successfully. Welcome %{name}!"
+    signed_out: "You have been signed out."
+  registrations:
+    signed_up: "Welcome %{name} to the system!"

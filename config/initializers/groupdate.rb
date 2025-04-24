@@ -1,1 +1,1 @@
-Groupdate.time_zone = "UTC"
+Groupdate.time_zone = false

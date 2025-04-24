@@ -10,5 +10,7 @@ module RailsTutorial
   class Application < Rails::Application
     config.load_defaults 7.0
     config.i18n.available_locales = %i[en vi]
+    config.time_zone = 'UTC'
+    config.active_record.default_timezone = :utc
   end
 end

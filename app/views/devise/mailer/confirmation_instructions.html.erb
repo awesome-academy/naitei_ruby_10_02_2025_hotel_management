@@ -1,0 +1,14 @@
+<div class="email-container">
+  <h2 class="email-heading">
+    <%= t("devise.mailer.confirmation_greeting", email: @email) %>
+  </h2>
+
+  <p class="email-paragraph">
+    <%= t("devise.mailer.confirmation_instruction") %>
+  </p>
+
+  <p>
+    <%= link_to t("devise.mailer.confirmation_cta"), confirmation_url(@resource, confirmation_token: @token),
+        class: "email-button" %>
+  </p>
+</div>

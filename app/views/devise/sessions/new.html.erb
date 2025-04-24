@@ -29,5 +29,11 @@
         </div>
       </div>
     <% end %>
+
+    <div class="mt-4 text-sm text-center">
+      <%= link_to t("forgot_your_password"), new_user_password_path, class: "text-blue-600 hover:underline" %><br />
+      <%= t("no_account_yet") %>
+      <%= link_to t("sign_up_now"), new_user_registration_path, class: "text-blue-600 hover:underline font-medium" %>
+    </div>
   </div>
 </div>
