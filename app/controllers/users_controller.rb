@@ -1,6 +1,5 @@
 class UsersController < BaseAdminController
-  before_action :get_user, except: %i(index)
-
+  load_and_authorize_resource
   def index
     @pagy, @users = pagy User.search_by_all(params[:search])
                              .filter_by_role(params[:admin])
@@ -25,15 +24,6 @@ class UsersController < BaseAdminController
     else
       flash[:error] = t "msg.user_deactivate_failed"
     end
-    redirect_to users_path
-  end
-
-  private
-  def get_user
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:error] = t "msg.user_not_found"
     redirect_to users_path
   end
 end

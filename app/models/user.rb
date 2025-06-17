@@ -3,7 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable
 
-  PERMITTED_ATTRS = %i[usename email phone password password_confirmation].freeze
+  PERMITTED_ATTRS = %i(usename email phone password
+password_confirmation).freeze
   PERMITTED_UPDATE_ATTRS = (PERMITTED_ATTRS + [:current_password]).freeze
   before_create :set_last_activity
 

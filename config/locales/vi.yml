@@ -407,3 +407,5 @@ devise:
       signed_out: "Bạn đã đăng xuất."
   registrations:
     signed_up: "Chào mừng %{name} đến với hệ thống!"
+  please_login: "Vui lòng đăng nhập"
+  access_denied: "Bạn không có quyền truy cập"

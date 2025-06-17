@@ -1,17 +1,7 @@
 module ApplicationHelper
-  include SessionsHelper
   include Pagy::Frontend
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "msg.please_log_in."
-    redirect_to login_url
-  end
-
   def admin_user
-    redirect_to login_url unless current_user.admin?
+    redirect_to new_user_session_path unless current_user.admin?
   end
 
   def pagy_index index, pagy

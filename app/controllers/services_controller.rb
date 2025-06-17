@@ -1,5 +1,5 @@
 class ServicesController < BaseAdminController
-  before_action :get_service, only: %i(destroy edit update)
+  load_and_authorize_resource
 
   def index
     @pagy, @services = pagy Service.searched(params[:search]),
@@ -46,13 +46,6 @@ class ServicesController < BaseAdminController
   end
 
   private
-  def get_service
-    @service = Service.find_by id: params[:id]
-    return if @service
-
-    flash[:error] = t "msg.service_not_found"
-    redirect_to services_path
-  end
 
   def service_params
     params.require(:service).permit(Service::PERMITTED_PARAMS)
