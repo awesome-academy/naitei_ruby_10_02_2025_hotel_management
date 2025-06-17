@@ -396,3 +396,5 @@ devise:
     signed_out: "You have been signed out."
   registrations:
     signed_up: "Welcome %{name} to the system!"
+  please_login: "Please login"
+  access_denied: "You do not have access"

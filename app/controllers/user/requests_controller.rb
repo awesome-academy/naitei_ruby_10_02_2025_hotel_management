@@ -1,8 +1,21 @@
 class User::RequestsController < ApplicationController
   before_action :find_request, only: %i(show expire status_check confirm)
   before_action :find_room_type, only: :show
+  before_action :authorize_request,
+                only: %i(index show create confirm expire status_check)
+  def authorize_request
+    case params[:action].to_sym
+    when :create, :new
+      authorize! :create, Request
+    when :index, :show, :status_check
+      authorize! :read, @request || Request
+    when :confirm, :expire
+      authorize! :update, @request
+    end
+  end
 
   def new
+    authorize! :create, Request
     prepare_request_data
     @request = Request.new(
       checkin_date: @checkin_date,
@@ -21,15 +34,18 @@ class User::RequestsController < ApplicationController
 
   def create
     prepare_request_data
-
     @request = build_request
 
-    if @request.save
-      redirect_to_success
+    if can? :create, Request
+      if @request.save
+        redirect_to_success
+      else
+        flash.now[:danger] = t("request_error")
+        handle_failed_create
+        render :new
+      end
     else
-      flash.now[:danger] = t("request_error")
-      handle_failed_create
-      render :new
+      redirect_to root_path, alert: t("msg.access_denied")
     end
   end
 

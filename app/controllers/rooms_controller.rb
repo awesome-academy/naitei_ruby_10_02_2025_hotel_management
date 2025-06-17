@@ -1,5 +1,5 @@
 class RoomsController < BaseAdminController
-  before_action :get_room, only: %i(show destroy)
+  load_and_authorize_resource except: %i(index create)
 
   def index
     @month = params[:month]&.to_i || Time.zone.today.month
@@ -9,9 +9,7 @@ class RoomsController < BaseAdminController
     @room_types = RoomType.includes(:rooms)
   end
 
-  def new
-    @room = Room.new
-  end
+  def new; end
 
   def create
     @room = Room.new room_params
@@ -44,13 +42,5 @@ class RoomsController < BaseAdminController
   private
   def room_params
     params.require(:room).permit(Room::PERMITTED_PARAMS)
-  end
-
-  def get_room
-    @room = Room.find_by id: params[:id]
-    return if @room
-
-    flash[:error] = t "msg.room_not_found"
-    redirect_to rooms_path
   end
 end

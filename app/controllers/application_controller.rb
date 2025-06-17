@@ -2,18 +2,23 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   include Pagy::Backend
   include DeviseHelper
+  include CanCan::ControllerAdditions
+  rescue_from CanCan::AccessDenied do |_exception|
+    if user_signed_in
+      redirect_to root_path
+      flash[:danger] = t("access_denied")
+    else
+      flash[:danger] = t("please_login")
+      redirect_to new_user_session_path
+
+    end
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def default_url_options
     {locale: I18n.locale}
-  end
-
-  def require_login
-    return if user_signed_in?
-
-    flash[:danger] = t("user.please_login")
-    redirect_to login_path
   end
 end

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
         end
       end
       resources :services
-      resources :user do
+      resources :users do
         member do
           put "activate"
           put "deactivate"

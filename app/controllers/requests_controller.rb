@@ -1,5 +1,5 @@
 class RequestsController < BaseAdminController
-  before_action :get_request, except: %i(index)
+  load_and_authorize_resource except: %i(index)
   before_action :check_checkinable, only: %i(checkin checkin_submit)
   before_action :check_checkoutable, only: %i(checkout checkout_submit)
   before_action :check_payable_request, only: %i(bill_pay)
@@ -92,15 +92,6 @@ class RequestsController < BaseAdminController
     params.require(:bill).permit(
       bills_services_attributes: Bill::PERMITTED_PARAMS
     )
-  end
-
-  def get_request
-    @request = Request.includes(:user, :room_type)
-                      .find_by id: params[:id]
-    return if @request
-
-    flash[:error] = t "msg.invalid_request"
-    redirect_to requests_path
   end
 
   def check_checkin_amount? room_count

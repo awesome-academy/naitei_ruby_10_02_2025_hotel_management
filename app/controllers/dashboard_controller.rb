@@ -1,7 +1,6 @@
 class DashboardController < BaseAdminController
   before_action :load_counts, only: :index
   before_action :set_date_params, only: :index
-
   def index
     @bills = Bill.paid_in_month(@month, @year)
                  .with_room_type(params[:room_type])

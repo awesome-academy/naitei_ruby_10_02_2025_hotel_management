@@ -6,6 +6,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "bootstrap-icons-helper"
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.6"
+gem "cancancan", "~> 3.0"
 gem "chartkick"
 gem "config", "~> 5.1"
 gem "devise"

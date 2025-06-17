@@ -1,6 +1,5 @@
 class RoomTypesController < BaseAdminController
-  before_action :get_room_type, only: %i(show edit update destroy)
-
+  load_and_authorize_resource class: RoomType, except: %i(destroy_image)
   def index
     @room_types = RoomType.without_deleted
   end
@@ -11,7 +10,6 @@ class RoomTypesController < BaseAdminController
   end
 
   def create
-    @room_type = RoomType.new(room_type_params)
     if @room_type.save
       flash[:success] = t "msg.room_type_created"
       redirect_to room_types_path
@@ -54,13 +52,5 @@ class RoomTypesController < BaseAdminController
   private
   def room_type_params
     params.require(:room_type).permit(*RoomType::PERMITTED_PARAMS)
-  end
-
-  def get_room_type
-    @room_type = RoomType.find_by id: params[:id]
-    return if @room_type
-
-    flash[:error] = t "msg.invalid_room_type"
-    redirect_to room_types_path
   end
 end

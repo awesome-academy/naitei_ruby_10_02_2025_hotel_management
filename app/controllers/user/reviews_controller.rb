@@ -1,10 +1,11 @@
 class User::ReviewsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource :review, through: :current_user
   helper User::ReviewHelper
 
   REVIEW_PARAMS = [:score, :content].freeze
 
   def create
-    @review = current_user.reviews.new(review_params)
     if @review.save
       flash[:success] = t("reviews.created")
     else
