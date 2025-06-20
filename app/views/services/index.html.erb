@@ -1,10 +1,10 @@
 <% provide :title, t("services.services_management") %>
 <div class="container">
   <h3><%= t ".services_list" %></h3>
-  <%= form_with url: services_path, method: :get, local: true do |f| %>
+  <%= search_form_for @q, url: services_path, method: :get, local: true do |f| %>
     <div class="row">
       <div class="col-md-6">
-        <%= f.text_field :search, value: params[:search], class: "form-control" %>
+        <%= f.text_field :name_or_price_cont, value: params.dig(:q, :name_or_price_cont), class: "form-control", placeholder: t(".search_placeholder") %>
       </div>
       <div class="col-md-6">
         <%= f.submit t(".search"), class: "btn btn-primary" %>
@@ -17,8 +17,8 @@
         <thead>
           <tr>
             <th>#</th>
-            <th><%= t ".service_name" %></th>
-            <th><%= t ".price" %></th>
+            <th><%= sort_link(@q, :name, t(".service_name")) %></th>
+            <th><%= sort_link(@q, :price, t(".price")) %></th>
             <th><%= t "actions" %></th>
           </tr>
         </thead>

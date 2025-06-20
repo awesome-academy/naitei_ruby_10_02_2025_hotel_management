@@ -23,20 +23,13 @@ password_confirmation).freeze
   validates :password, presence: true,
                        length: {minimum: Settings.user_password_min_length},
                        allow_nil: true
+  def self.ransackable_attributes _auth_object = nil
+    %w(usename email phone admin activated)
+  end
 
-  scope :search_by_all, lambda {|search|
-    where("email LIKE :q OR usename LIKE :q OR phone LIKE :q", q: "%#{search}%")
-  }
-  scope :filter_by_role, lambda {|admin|
-    if admin.present?
-      where("admin = ?", ActiveModel::Type::Boolean.new.cast(admin))
-    end
-  }
-  scope :filter_by_status, lambda {|status|
-    if status.present?
-      where("activated = ?", ActiveModel::Type::Boolean.new.cast(status))
-    end
-  }
+  def self.ransackable_associations _auth_object = nil
+    %w(requests reviews)
+  end
 
   def update_last_activity
     update(last_activity: Time.current)

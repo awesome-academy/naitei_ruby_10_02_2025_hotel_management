@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :initialize_search
   include Pagy::Backend
   include DeviseHelper
   include CanCan::ControllerAdditions
@@ -20,5 +21,11 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  private
+
+  def initialize_search
+    @q = RoomType.ransack(params[:q])
   end
 end

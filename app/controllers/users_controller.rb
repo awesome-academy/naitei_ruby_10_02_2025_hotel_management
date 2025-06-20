@@ -1,10 +1,9 @@
 class UsersController < BaseAdminController
   load_and_authorize_resource
   def index
-    @pagy, @users = pagy User.search_by_all(params[:search])
-                             .filter_by_role(params[:admin])
-                             .filter_by_status(params[:status]),
-                         limit: Settings.users.items_per_page
+    @q = User.ransack(params[:q])
+    @pagy, @users = pagy(@q.result(disinct: true),
+                         limit: Settings.users.items_per_page)
   end
 
   def show; end

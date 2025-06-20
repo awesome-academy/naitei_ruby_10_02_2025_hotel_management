@@ -231,12 +231,14 @@ en:
       price: "Price"
       add_service: "Add Service"
       search: "Search"
+      search_placeholder: "Search by service name , price"
     new:
       create_service: "Create service"
   users:
     activate: "Activate"
     deactivate: "Deactivate"
     user_management: "User Management"
+    search_placeholder: "Search by name, email, phone"
     index:
       users_list: "User list"
       search: "Search"

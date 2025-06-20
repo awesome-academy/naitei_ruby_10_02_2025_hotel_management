@@ -10,6 +10,7 @@ class RoomTypesController < BaseAdminController
   end
 
   def create
+    @room_type = RoomType.new(room_type_params)
     if @room_type.save
       flash[:success] = t "msg.room_type_created"
       redirect_to room_types_path

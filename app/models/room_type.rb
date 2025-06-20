@@ -20,6 +20,13 @@ class RoomType < ApplicationRecord
     greater_than_or_equal_to: Settings.zero,
     less_than: Settings.max_price_value
   }
+  def self.ransackable_attributes _auth_object = nil
+    %w(name description view)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(devices)
+  end
 
   def available_rooms checkin_date, checkout_date
     return 0 unless checkin_date.present? && checkout_date.present?

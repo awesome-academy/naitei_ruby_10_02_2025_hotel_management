@@ -7,44 +7,46 @@
       <span><%= t(".add_user") %></span>
     <% end %>
   </div>
-  <%= form_with url: users_path, method: :get, local: true do |f| %>
+
+  <%= search_form_for @q, url: users_path, method: :get, local: true do |f| %>
     <div class="row">
       <div class="col-md-6">
-        <%= f.text_field :search, value: params[:search], placeholder: t(".search_placeholder"), class: "form-control" %>
+        <%= f.text_field :usename_or_email_or_phone_cont, value: params.dig(:q, :usename_or_email_or_phone_cont), placeholder: t(".search_placeholder"), class: "form-control" %>
       </div>
       <%= f.submit t(".search"), class: "btn btn-primary" %>
     </div>
-    <div class="filter">
+    <div class="filter">  
       <div class="form-group mb-2 user-filter-group">
-        <%= f.radio_button :status, "true", checked: params[:status] == "true" %>
-        <%= f.label :status_activated, t("activated") %>
-        <%= f.radio_button :status, "false", checked: params[:status] == "false" %>
-        <%= f.label :status_deactivated, t("deactivated") %>
-        <%= f.radio_button :status, "", checked: params[:status].blank? %>
-        <%= f.label :status_deactivated, t(".all") %>
+        <%= f.radio_button :activated_eq, "true", checked: params.dig(:q, :activated_eq) == "true" %>
+        <%= f.label :activated_eq_true, t("activated") %>
+        <%= f.radio_button :activated_eq, "false", checked: params.dig(:q, :activated_eq) == "false" %>
+        <%= f.label :activated_eq_false, t("deactivated") %>
+        <%= f.radio_button :activated_eq, "", checked: params.dig(:q, :activated_eq).blank? %>
+        <%= f.label :activated_eq_, t(".all") %>
       </div>
 
       <div class="form-group mb-2 user-filter-group">
-        <%= f.radio_button :admin, "true", checked: params[:admin] == "true" %>
-        <%= f.label :role_admin, t(".admin") %>
-        <%= f.radio_button :admin, "false", checked: params[:admin] == "false" %>
-        <%= f.label :role_user, t(".user") %>
-        <%= f.radio_button :admin, "", checked: params[:admin].blank? %>
-        <%= f.label :role_user, t(".all") %>
+        <%= f.radio_button :admin_eq, "true", checked: params.dig(:q, :admin_eq) == "true" %>
+        <%= f.label :admin_eq_true, t(".admin") %>
+        <%= f.radio_button :admin_eq, "false", checked: params.dig(:q, :admin_eq) == "false" %>
+        <%= f.label :admin_eq_false, t(".user") %>
+        <%= f.radio_button :admin_eq, "", checked: params.dig(:q, :admin_eq).blank? %>
+        <%= f.label :admin_eq_, t(".all") %>
       </div>
     </div>
   <% end %>
+
   <p>
     <%= t ".total_users" %>: <%= @pagy.count %>
   </p>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th><%= t(".usename") %></th>
-        <th><%= t(".email") %></th>
-        <th><%= t(".phone") %></th>
-        <th><%= t(".role") %></th>
-        <th><%= t(".last_activity") %></th>
+        <th><%= sort_link(@q, :usename, t(".usename")) %></th>
+        <th><%= sort_link(@q, :email, t(".email")) %></th>
+        <th><%= sort_link(@q, :phone, t(".phone")) %></th>
+        <th><%= sort_link(@q, :admin, t(".role")) %></th>
+        <th><%= sort_link(@q, :last_activity, t(".last_activity")) %></th>
         <th><%= t(".status") %></th>
         <th><%= t(".actions") %></th>
       </tr>
