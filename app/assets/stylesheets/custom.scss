@@ -147,9 +147,9 @@
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    justify-content: space-between;
+    padding: 0 2rem;
   }
 
   .logo a {
@@ -157,9 +157,61 @@
     font-weight: bold;
     font-size: 1.6rem;
     color: $basic-black;
-    margin-right:600px;
   }
 
+  .center-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .search-input {
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 10px;
+        font-size: 1rem;
+        width: 300px;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+
+      .search-button {
+        background: $primary-color;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 10px;
+        cursor: pointer;
+        color: $white-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+
+        &:hover {
+          background: $primary-hover;
+        }
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  
+  #search-type-select {
+    padding: 5px;
+  }
+  .form-select {
+    cursor: pointer;
+  }
   .right-menu {
     display: flex;
     align-items: center;
@@ -271,6 +323,7 @@ h1 {
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .dropbtn {
@@ -305,6 +358,7 @@ h1 {
 
 .dropdown:hover .dropdown-content {
   display: block;
+  cursor: pointer;
 }
 
 .dropdown-content a {

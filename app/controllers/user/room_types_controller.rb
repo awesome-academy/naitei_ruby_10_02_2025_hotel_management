@@ -1,5 +1,6 @@
 class User::RoomTypesController < ApplicationController
   def index
+    @q = RoomType.ransack(build_ransack_params)
     assign_room_types
     assign_reviews
     assign_dates
@@ -18,7 +19,8 @@ class User::RoomTypesController < ApplicationController
   private
 
   def assign_room_types
-    @room_types = RoomType.all
+    @q = RoomType.ransack(build_ransack_params)
+    @room_types = @q.result(distinct: true)
   end
 
   def assign_reviews
@@ -63,5 +65,19 @@ class User::RoomTypesController < ApplicationController
     end
 
     min_available
+  end
+
+  def build_ransack_params
+    params[:q] ||= {}
+    search_params = params[:q].dup
+    if search_params[:search_type].present? &&
+       search_params[:search_value].present?
+      search_params[search_params[:search_type]] =
+        search_params.delete(:search_value)
+      search_params.delete(:search_type)
+    elsif search_params[:search_value].present?
+      search_params[:name_cont] = search_params.delete(:search_value)
+    end
+    search_params
   end
 end

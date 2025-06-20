@@ -8,5 +8,11 @@ class Service < ApplicationRecord
             numericality: {greater_than_or_equal_to: Settings.zero,
                            less_than: Settings.max_price_value}
 
-  scope :searched, ->(search){where("name LIKE ?", "%#{search}%")}
+  def self.ransackable_attributes _auth_object = nil
+    %w(name price)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    []
+  end
 end

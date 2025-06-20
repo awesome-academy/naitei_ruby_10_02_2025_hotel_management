@@ -2,8 +2,9 @@ class ServicesController < BaseAdminController
   load_and_authorize_resource
 
   def index
-    @pagy, @services = pagy Service.searched(params[:search]),
-                            limit: Settings.services.items_per_page
+    @q = Service.ransack(params[:q])
+    @pagy, @services = pagy(@q.result(disinct: true),
+                            limit: Settings.services.items_per_page)
   end
 
   def new
