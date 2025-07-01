@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: "user/sessions"
   }
+  require "sidekiq/web"
+    mount Sidekiq::Web => "/sidekiq"
     scope "admin" do
       get "dashboard", to: "dashboard#index"
+      get "dashboard/send_revenue_report", to: "dashboard#send_revenue_report", as: "send_revenue_report"
       get "reviews", to: "admin_reviews#index"
       resources :room_types do
         delete "images/:image_id", to: "room_types#destroy_image", as: "image"

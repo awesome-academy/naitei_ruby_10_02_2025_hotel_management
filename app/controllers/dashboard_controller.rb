@@ -6,6 +6,12 @@ class DashboardController < BaseAdminController
                  .with_room_type(params[:room_type])
   end
 
+  def send_revenue_report
+    SendRevenueReportJob.perform_later(@month, @year)
+    flash[:success] = t("dashboard.revenue_report_sent")
+    redirect_to dashboard_path
+  end
+
   private
   def load_counts
     @user_count = User.count

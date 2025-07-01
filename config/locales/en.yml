@@ -400,3 +400,11 @@ devise:
     signed_up: "Welcome %{name} to the system!"
   please_login: "Please login"
   access_denied: "You do not have access"
+  revenue_report:
+    title: "Daily Revenue Report"
+    greeting: "Dear Admin,"
+    total_revenue: "Total Revenue for %{month}/%{year}: %{amount}"
+    bill_count: "Number of Bills: %{count}"
+    closing: "Best regards,"
+    signature: "Your Application Team"
+    subject: "Daily Revenue Report for %{month}/%{year}"

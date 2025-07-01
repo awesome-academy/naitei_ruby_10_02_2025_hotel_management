@@ -410,3 +410,11 @@ devise:
     signed_up: "Chào mừng %{name} đến với hệ thống!"
   please_login: "Vui lòng đăng nhập"
   access_denied: "Bạn không có quyền truy cập"
+  revenue_report:
+    title: "Báo cáo Doanh thu Hàng ngày"
+    greeting: "Kính gửi Quản trị viên,"
+    total_revenue: "Tổng Doanh thu cho tháng %{month}/%{year}: %{amount}"
+    bill_count: "Số lượng Hóa đơn: %{count}"
+    closing: "Trân trọng,"
+    subject: "Báo cáo Doanh thu Hàng ngày cho tháng %{month}/%{year}"
+    signature: "Nhóm Ứng dụng của bạn"

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= t("revenue_report.title") %></h1>
+    <p><%= t("revenue_report.greeting") %></p>
+    <p><%= t("revenue_report.total_revenue", month: @month, year: @year, amount: number_to_currency(@total_revenue)) %></p>
+    <p><%= t("revenue_report.bill_count", count: @bill_count) %></p>
+    <p><%= t("revenue_report.closing") %><br />
+      <%= t("revenue_report.signature") %></p>
+  </body>
+</html>
