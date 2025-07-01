@@ -41,3 +41,5 @@ reviews:
 star_score: 1..5
 limit: 10
 module_size: 6
+revenue_report_time: "3:00 am"
+redis_url: "redis://localhost:6379/0" 

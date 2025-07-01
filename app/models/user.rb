@@ -3,9 +3,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable
 
-  PERMITTED_ATTRS = %i(usename email phone password
+  PERMITTED_ATTRS = %i(username email phone password
 password_confirmation).freeze
   PERMITTED_UPDATE_ATTRS = (PERMITTED_ATTRS + [:current_password]).freeze
+
   before_create :set_last_activity
 
   has_many :reviews, dependent: :destroy
@@ -15,16 +16,26 @@ password_confirmation).freeze
                     length: {maximum: Settings.user_email_max_length},
                     format: {with: Settings.valid_email_regex},
                     uniqueness: {case_sensitive: false}
+
   validates :phone, presence: true,
                     length: {is: Settings.phone_length},
                     format: {with: Settings.valid_phone_regex}
-  validates :usename,  presence: true,
-                    length: {maximum: Settings.user_name_max_length}
+
+  validates :username, presence: true,
+                       length: {maximum: Settings.user_name_max_length}
+
   validates :password, presence: true,
                        length: {minimum: Settings.user_password_min_length},
                        allow_nil: true
+
+  def self.admin_emails
+    where(admin: true)
+      .where.not(email: [nil, ""])
+      .pluck(:email)
+  end
+
   def self.ransackable_attributes _auth_object = nil
-    %w(usename email phone admin activated)
+    %w(username email phone admin activated)
   end
 
   def self.ransackable_associations _auth_object = nil
@@ -52,6 +63,7 @@ password_confirmation).freeze
   end
 
   private
+
   def set_last_activity
     self.last_activity = Time.current
   end
