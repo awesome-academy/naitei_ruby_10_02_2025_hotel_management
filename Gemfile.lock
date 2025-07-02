@@ -123,12 +123,18 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.6.0)
+    docile (1.4.1)
     dotenv (3.1.8)
     dotenv-rails (3.1.8)
       dotenv (= 3.1.8)
       railties (>= 6.1)
     erubi (1.12.0)
     execjs (2.10.0)
+    factory_bot (6.5.4)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.0)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.1-x86_64-linux-gnu)
@@ -221,6 +227,10 @@ GEM
       activesupport (= 7.0.7)
       bundler (>= 1.15.0)
       railties (= 7.0.7)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -309,6 +319,12 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -370,6 +386,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  factory_bot_rails
   faker
   figaro (~> 1.1, >= 1.1.1)
   font-awesome-sass
@@ -383,6 +400,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.5)
+  rails-controller-testing
   ransack
   redis (~> 4.0)
   rqrcode
@@ -393,6 +411,7 @@ DEPENDENCIES
   sassc
   selenium-webdriver
   sidekiq
+  simplecov
   sprockets-rails
   stimulus-rails
   tailwindcss-rails (~> 4.2)
