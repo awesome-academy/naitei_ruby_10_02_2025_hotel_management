@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_04_24_032047) do
+ActiveRecord::Schema[7.0].define(version: 2025_07_01_082137) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -152,7 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_24_032047) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "usename"
+    t.string "username"
     t.string "email"
     t.string "phone"
     t.boolean "admin", default: false

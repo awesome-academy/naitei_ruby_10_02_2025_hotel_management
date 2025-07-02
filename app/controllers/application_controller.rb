@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include DeviseHelper
   include CanCan::ControllerAdditions
   rescue_from CanCan::AccessDenied do |_exception|
-    if user_signed_in
+    if user_signed_in?
       redirect_to root_path
       flash[:danger] = t("access_denied")
     else

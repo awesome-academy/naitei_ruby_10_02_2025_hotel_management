@@ -244,7 +244,7 @@ en:
       search: "Search"
       search_placeholder: "Search by name, email, phone"
       total_users: "Total users"
-      usename: "User's name"
+      username: "User's name"
       email: "Email"
       phone: "Phone"
       last_activity: "Last activity"
@@ -408,3 +408,8 @@ devise:
     closing: "Best regards,"
     signature: "Your Application Team"
     subject: "Daily Revenue Report for %{month}/%{year}"
+  errors:
+    dates_required: "Please select both check-in and check-out dates."
+    checkin_date_in_past: "Check-in date cannot be before the current date."
+    checkout_date_invalid: "Check-out date must be after check-in date."
+    invalid_date_format: "Invalid date format."

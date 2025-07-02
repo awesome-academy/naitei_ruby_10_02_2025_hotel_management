@@ -3,7 +3,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       flash[:success] = t(
         "devise.registrations.signed_up",
-        name: resource.usename || resource.email
+        name: resource.username || resource.email
       )
     end
   end

@@ -1,7 +1,7 @@
 image_path = Rails.root.join("app/assets/images")
 
 User.create!(
-  usename: "Example User",
+  username: "Example User",
   email: "example@railstutorial.org",
   password: "foobar",
   password_confirmation: "foobar",
@@ -11,7 +11,7 @@ User.create!(
 
 10.times do |n|
   User.create!(
-    usename: Faker::Name.name,
+    username: Faker::Name.name,
     email: "example-#{n + 1}@gmail.com",
     password: "password",
     password_confirmation: "password",

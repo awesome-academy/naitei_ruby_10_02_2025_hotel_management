@@ -1,28 +1,28 @@
 <div>
-    <h3><%= t ".upcoming_booking" %></h3>
-    <% upcoming_bookings = room.upcoming_bookings %>
-    <% if upcoming_bookings.any? %>
-      <table class="table table-striped">
-        <thead>
+  <h3><%= t ".upcoming_booking" %></h3>
+  <% upcoming_bookings = room.upcoming_bookings %>
+  <% if upcoming_bookings.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".customer_name" %></th>
+          <th><%= t ".check_in" %></th>
+          <th><%= t ".check_out" %></th>
+          <th><%= t ".status" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% upcoming_bookings.each do |booking| %>
           <tr>
-            <th><%= t ".customer_name" %></th>
-            <th><%= t ".check_in" %></th>
-            <th><%= t ".check_out" %></th>
-            <th><%= t ".status" %></th>
+            <td><%= booking.user.username %></td>
+            <td><%= booking.checkin_date.strftime("%d/%m/%Y") %></td>
+            <td><%= booking.checkout_date.strftime("%d/%m/%Y") %></td>
+            <td><%= status_chip booking.status %></td>
           </tr>
-        </thead>
-        <tbody>
-          <% upcoming_bookings.each do |booking| %>
-            <tr>
-              <td><%= booking.user.usename %></td>
-              <td><%= booking.checkin_date.strftime("%d/%m/%Y") %></td>
-              <td><%= booking.checkout_date.strftime("%d/%m/%Y") %></td>
-              <td><%= status_chip booking.status %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p><%= t ".no_upcoming_bookings" %></p>
-    <% end %>
-  </div>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t ".no_upcoming_bookings" %></p>
+  <% end %>
+</div>

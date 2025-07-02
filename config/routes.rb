@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     root "static_pages#home"
     devise_for :user, controllers: {
     registrations: "user/registrations",
-    sessions: "user/sessions"
+    sessions: "user/sessions",
+    passwords: "user/passwords"
   }
   require "sidekiq/web"
     mount Sidekiq::Web => "/sidekiq"

@@ -1,12 +1,10 @@
 <section class="reviews-section">
   <h2 class="reviews-title"><%= t("reviews.title") %></h2>
-
   <div class="review-summary">
     <div class="summary-score">
       <div class="average-score"><%= number_with_precision(average_review_score(@reviews), precision: 1) %></div>
       <div class="stars-text"><%= t("hotel.rating") %> <%= pluralize(@reviews.count, t("reviews.review")) %></div>
     </div>
-
     <div class="score-breakdown">
       <% 5.downto(1) do |star| %>
         <div class="score-bar">
@@ -18,29 +16,25 @@
       <% end %>
     </div>
   </div>
-
   <div class="review-form">
     <%= form_with model: @review, url: user_reviews_path, local: true do |f| %>
       <div class="form-group">
         <%= f.label :score, t("reviews.score") %>
         <%= f.select :score, options_for_select(1..5), {}, class: "rating-select" %>
       </div>
-
       <div class="form-group">
         <%= f.label :content, t("reviews.content") %><br>
         <%= f.text_area :content, rows: 3, class: "form-control" %>
       </div>
-
       <%= f.submit t("reviews.submit"), class: "btn btn-submit" %>
     <% end %>
   </div>
-
   <div class="review-list">
     <% @reviews.each do |review| %>
       <div class="review-card">
         <div class="user-info">
           <div class="user-meta">
-            <strong><%= review.user&.usename || t("reviews.anonymous") %></strong>
+            <strong><%= review.user&.username || t("reviews.anonymous") %></strong>
             <small><%= time_ago_in_words(review.created_at) %> trước</small>
           </div>
           <div class="score-display"><%= review.score %><%= Settings.rating %></div>
@@ -48,8 +42,8 @@
         <div class="review-content"><%= review.content %></div>
       </div>
     <% end %>
-     <div class="pagination-controls mt-4">
+    <div class="pagination-controls mt-4">
       <%== pagy_bootstrap_nav(@pagy) %>
-  </div>
+    </div>
   </div>
 </section>
