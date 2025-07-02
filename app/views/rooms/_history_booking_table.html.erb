@@ -1,28 +1,29 @@
-  <div>
-    <h3><%= t ".history_booking" %></h3>
-    <% history_bookings = room.history_bookings %>
-    <% if history_bookings.any? %>
-      <table class="table table-striped">
-        <thead>
+  
+<div>
+  <h3><%= t ".history_booking" %></h3>
+  <% history_bookings = room.history_bookings %>
+  <% if history_bookings.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".customer_name" %></th>
+          <th><%= t ".check_in" %></th>
+          <th><%= t ".check_out" %></th>
+          <th><%= t ".status" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% history_bookings.each do |booking| %>
           <tr>
-            <th><%= t ".customer_name" %></th>
-            <th><%= t ".check_in" %></th>
-            <th><%= t ".check_out" %></th>
-            <th><%= t ".status" %></th>
+            <td><%= booking.user.username %></td>
+            <td><%= booking.checkin_date.strftime("%d/%m/%Y") %></td>
+            <td><%= booking.checkout_date.strftime("%d/%m/%Y") %></td>
+            <td><%= booking.status.humanize %></td>
           </tr>
-        </thead>
-        <tbody>
-          <% history_bookings.each do |booking| %>
-            <tr>
-              <td><%= booking.user.usename %></td>
-              <td><%= booking.checkin_date.strftime("%d/%m/%Y") %></td>
-              <td><%= booking.checkout_date.strftime("%d/%m/%Y") %></td>
-              <td><%= booking.status.humanize %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p><%= t ".no_history_bookings" %></p>
-    <% end %>
-  </div>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t ".no_history_bookings" %></p>
+  <% end %>
+</div>

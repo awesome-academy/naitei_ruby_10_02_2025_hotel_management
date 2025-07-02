@@ -13,6 +13,7 @@ class Ability
       if user.persisted?
         can :create, Request
         can :read, Request, user_id: user.id
+        can :update, Request, user_id: user.id
         can :read, Bill, request: {user_id: user.id}
         can :create, Review
       end

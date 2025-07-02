@@ -1,39 +1,31 @@
 <%= provide :title, t("sign_up") %>
-
 <h1><%= t("sign_up") %></h1>
-
 <div class="image-container">
   <%= image_tag("logo.jpg", alt: "Register Image", class: "login-image") %>
 </div>
-
 <div class="form-wrapper">
   <div class="login-form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-6", data: { turbo: false } }) do |f| %>
       <div class="form-group">
-        <%= f.label :usename, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_field :usename, placeholder: t("enter_username"), class: "input-field" %>
+        <%= f.label :username, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :username, placeholder: t("enter_username"), class: "input-field" %>
       </div>
-
       <div class="form-group">
         <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
         <%= f.email_field :email, placeholder: t("enter_email"), class: "input-field" %>
       </div>
-
       <div class="form-group">
         <%= f.label :phone, class: "block text-sm font-medium text-gray-700" %>
         <%= f.text_field :phone, placeholder: t("enter_phone"), class: "input-field" %>
       </div>
-
       <div class="form-group">
         <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
         <%= f.password_field :password, placeholder: "Password", class: "input-field" %>
       </div>
-
       <div class="form-group">
         <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
         <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "input-field" %>
       </div>
-
       <div class="flex items-center justify-between">
         <%= f.submit t("sign_up"), class: "submit-btn" %>
         <%= link_to t("login"), new_user_session_path(locale: I18n.locale), class: "text-sm text-blue-600" %>

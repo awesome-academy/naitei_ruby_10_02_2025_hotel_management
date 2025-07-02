@@ -20,7 +20,7 @@ Rails.application.configure do
 if Settings.ngrok.present?
   begin
     host = URI(Settings.ngrok).host
-    config.hosts << host if host.present?
+    config.hosts << /.*\.ngrok\-free\.app/
   rescue URI::InvalidURIError => e
     puts "#{e.message}"
   end

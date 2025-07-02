@@ -1,19 +1,20 @@
-document.addEventListener('turbo:load', function () {
+function initializeCountdown() {
     const timerElement = document.getElementById('countdown-timer');
-    if (!timerElement) return;
+    if (!timerElement) {
+        return;
+    }
 
     const requestId = timerElement.dataset.requestId;
-    if (!requestId) return;
+    if (!requestId) {
+        return;
+    }
 
     const countdownKey = `countdown_start_${requestId}`;
     const duration = 10 * 60 * 1000;
 
-    if (!localStorage.getItem(countdownKey)) {
-        localStorage.setItem(countdownKey, Date.now().toString());
-    }
-
-    const startTime = parseInt(localStorage.getItem(countdownKey), 10);
-
+    localStorage.removeItem(countdownKey);
+    const startTime = Date.now();
+    localStorage.setItem(countdownKey, startTime.toString());
     const updateCountdown = () => {
         const now = Date.now();
         const elapsed = now - startTime;
@@ -26,17 +27,25 @@ document.addEventListener('turbo:load', function () {
             localStorage.removeItem(countdownKey);
 
             const url = `/user/requests/${requestId}/expire`;
-            const csrfToken = document.querySelector(`[name='csrf-token']`)?.content;
+            const csrfToken = document.querySelector('[name="csrf-token"]')?.content;
+
+            if (!csrfToken) {
+                window.location.href = '/';
+                return;
+            }
 
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'X-CSRF-Token': csrfToken,
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 credentials: 'same-origin'
             })
-                .then(response => response.json())
+                .then(response => {
+                    return response.json();
+                })
                 .then(data => {
                     if (data.flash?.danger) {
                         sessionStorage.setItem('flash_danger', data.flash.danger);
@@ -46,9 +55,13 @@ document.addEventListener('turbo:load', function () {
                     }
                     if (data.redirect) {
                         window.location.href = data.redirect;
+                    } else {
+                        window.location.href = '/';
                     }
                 })
-                .catch(() => window.location.href = '/');
+                .catch(error => {
+                    window.location.href = '/';
+                });
 
             return;
         }
@@ -59,21 +72,25 @@ document.addEventListener('turbo:load', function () {
         timerElement.textContent = `${minutes}:${seconds}`;
     };
 
-
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
     const pollingInterval = setInterval(() => {
         fetch(`/user/requests/${requestId}/status_check`, {
             method: 'GET',
-            headers: { 'Accept': 'application/json' },
+            headers: {
+                'Accept': 'application/json'
+            },
             credentials: 'same-origin'
         })
-            .then(response => response.json())
+            .then(response => {
+                return response.json();
+            })
             .then(data => {
                 if (data.deposited) {
                     clearInterval(countdownInterval);
                     clearInterval(pollingInterval);
+                    localStorage.removeItem(countdownKey);
                     if (data.flash?.success) {
                         sessionStorage.setItem('flash_success', data.flash.success);
                     }
@@ -81,7 +98,19 @@ document.addEventListener('turbo:load', function () {
                 }
             })
             .catch(error => {
-                console.error('Polling error:', error);
+                console.error(error);
             });
     }, 7000);
-});
+}
+
+function setupEventListeners() {
+    document.addEventListener('turbo:load', () => {
+        initializeCountdown();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeCountdown();
+    });
+}
+
+setupEventListeners();

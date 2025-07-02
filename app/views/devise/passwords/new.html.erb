@@ -1,16 +1,36 @@
-<h2><%= t("devise.passwords.new.title") %></h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email, t("devise.passwords.new.email_label") %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="password-reset-container">
+  <div class="password-reset-card">
+    <h2><%= t("devise.passwords.new.title") %></h2>
+    <p class="subtitle">
+      <%= t("devise.passwords.new.description", default: "Provide the email address associated with your account to recover your password.") %>
+    </p>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-group">
+        <%= f.label :email, t("devise.passwords.new.email_label") %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit t("devise.passwords.new.submit"), class: "btn-reset" %>
+      </div>
+    <% end %>
+    <div class="form-links">
+      <%= link_to "Login", new_session_path(resource_name) %> |
+      <%= link_to "Register", new_registration_path(resource_name) %>
+    </div>
+    <div class="social-signin">
+      <p>Or sign in with</p>
+      <div class="social-buttons">
+        <%= link_to "#", class: "btn-social google" do %>
+          <i class="fab fa-google"></i> Google
+        <% end %>
+        <%= link_to "#", class: "btn-social facebook" do %>
+          <i class="fab fa-facebook-f"></i> Facebook
+        <% end %>
+        <%= link_to "#", class: "btn-social twitter" do %>
+          <i class="fab fa-twitter"></i> Twitter
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit t("devise.passwords.new.submit") %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

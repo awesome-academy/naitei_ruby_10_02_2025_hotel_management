@@ -9,5 +9,5 @@ default: &default
 test:
   <<: *default
   database: db-test
-  usename: user-test
+  username: user-test
   password: password-test

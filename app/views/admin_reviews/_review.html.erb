@@ -1,11 +1,9 @@
 <div class="review">
   <div class="review-header">
-    <h3 class="review-user"><%= review.user.usename %></h3>
+    <h3 class="review-user"><%= review.user.username %></h3>
     <span class="review-date"><%= review.created_at.strftime("%B %d, %Y") %></span>
   </div>
-
   <%= render_review_stars review.score %>
-
   <p class="review-content">
     <%= review.content %>
   </p>

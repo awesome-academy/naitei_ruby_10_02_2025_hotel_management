@@ -1,6 +1,5 @@
 <%= t ".subject" %>
-
-<%= t ".greeting", name: @request.user.usename %>
+<%= t ".greeting", name: @request.user.username %>
 <%= t ".body" %>
 <%= t ".checkin_date" %>: <%= @request.checkin_date %>
 <%= t ".checkout_date" %>: <%= @request.checkout_date %>
@@ -8,5 +7,5 @@
 <%= t ".quantity" %>: <%= @request.quantity %>
 <%= t ".stay_at" %>:
 <% @request.rooms.each do |room| %>
-    <%= room.room_number %>
+  <%= room.room_number %>
 <% end %>
