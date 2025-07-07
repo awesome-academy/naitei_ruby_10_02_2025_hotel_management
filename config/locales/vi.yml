@@ -315,6 +315,7 @@ vi:
    quantity: "Số phòng"
    status: "Trạng thái"
    all_requests: "Đơn của tôi"
+   not_found: "Không tìm thầy reuqest"
    no_booking: "Bạn chưa có đặt phòng nào."
   statuses:
    pending: "Đang chờ xác nhận"

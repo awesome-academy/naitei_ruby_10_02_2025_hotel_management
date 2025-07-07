@@ -300,6 +300,7 @@ en:
     status: "Status"
     no booking: "You do not have any bookings."
     all_requests: "My Bookings"
+    not_found: "Not found request"
     statuses:
       pending: "Waiting for confirmation"
       deposited: "Deposit paid"
