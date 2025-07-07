@@ -3,6 +3,7 @@ class User::RequestsController < ApplicationController
   before_action :find_room_type, only: :show
   before_action :authorize_request,
                 only: %i(index show create confirm expire status_check)
+
   def authorize_request
     case params[:action].to_sym
     when :create, :new
@@ -33,9 +34,12 @@ class User::RequestsController < ApplicationController
   end
 
   def create
-    prepare_request_data
-    @request = build_request
+    unless prepare_request_data
+      redirect_to user_room_types_path, alert: t("room_type.not_found")
+      return
+    end
 
+    @request = build_request
     if can? :create, Request
       if @request.save
         redirect_to_success
@@ -46,6 +50,7 @@ class User::RequestsController < ApplicationController
       end
     else
       redirect_to root_path, alert: t("msg.access_denied")
+      nil
     end
   end
 
@@ -70,7 +75,6 @@ class User::RequestsController < ApplicationController
   def confirm
     if @request.token == params[:token] && @request.pending?
       @request.update(status: :deposited)
-
       flash[:success] = t("payment.deposit_success")
       redirect_to root_path
     else
@@ -86,7 +90,7 @@ class User::RequestsController < ApplicationController
     end
 
     render json: {
-      redirect: user_requests_path,
+      redirect: user_room_types_path,
       flash: {danger: flash[:danger]}
     }
   end
@@ -107,8 +111,10 @@ class User::RequestsController < ApplicationController
 
   def prepare_request_data
     assign_dates
-    load_room_type_and_quantity
+    return false unless load_room_type_and_quantity
+
     calculate_total_price
+    true
   end
 
   def safe_parse_date date_string
@@ -120,21 +126,18 @@ class User::RequestsController < ApplicationController
   def assign_dates
     source = params[:request] || params
     @checkin_date = safe_parse_date(source[:checkin_date]) || Time.zone.today
-    @checkout_date =
-      safe_parse_date(source[:checkout_date]) || Time.zone.today + 1.day
+    @checkout_date = safe_parse_date(source[:checkout_date]) ||
+                     Time.zone.today + 1.day
     @stay_duration = (@checkout_date - @checkin_date).to_i
   end
 
   def load_room_type_and_quantity
     source = params[:request] || params
     @room_type = RoomType.find_by(id: source[:room_type_id])
-
-    unless @room_type
-      flash[:danger] = t("room_type.not_found")
-      redirect_to user_room_types_path and return
-    end
+    return false unless @room_type
 
     @quantity = (source[:quantity] || 1).to_i
+    true
   end
 
   def calculate_total_price
@@ -161,8 +164,8 @@ class User::RequestsController < ApplicationController
 
   def handle_failed_create
     @checkin_date = @request.checkin_date || Time.zone.today
-    @checkout_date =
-      safe_parse_date(source[:checkout_date]) || Time.zone.today + 1.day
+    @checkout_date = safe_parse_date(source[:checkout_date]) ||
+                     Time.zone.today + 1.day
     @stay_duration = (@checkout_date - @checkin_date).to_i
     @room_type = @request.room_type
     @quantity = @request.quantity || 1

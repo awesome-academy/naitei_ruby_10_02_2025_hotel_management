@@ -42,4 +42,17 @@ star_score: 1..5
 limit: 10
 module_size: 6
 revenue_report_time: "3:00 am"
-redis_url: "redis://localhost:6379/0" 
+redis_url: "redis://localhost:6379/0"   
+test_email_domain: "mailtrap.io"
+default_password: "password123"
+phone_prefix: "09"
+phone_number_digits: 8
+test_email_domain: "mailtrap.io"
+default_password: "password123"
+phone_prefix: "09"
+request_checkin_days: 1
+request_checkout_days: 2
+request_default_quantity: 1
+request_default_status: "deposited"
+request_token_length: 10
+request_pending_status: "pending"
