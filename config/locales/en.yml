@@ -1,4 +1,5 @@
 en:
+  access_denied: "You do not have access"
   activerecord:
     models:
       user: "User"
@@ -400,7 +401,6 @@ devise:
   registrations:
     signed_up: "Welcome %{name} to the system!"
   please_login: "Please login"
-  access_denied: "You do not have access"
   revenue_report:
     title: "Daily Revenue Report"
     greeting: "Dear Admin,"

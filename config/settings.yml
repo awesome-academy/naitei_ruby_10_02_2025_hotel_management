@@ -56,3 +56,7 @@ request_default_quantity: 1
 request_default_status: "deposited"
 request_token_length: 10
 request_pending_status: "pending"
+reviews_content: "Great stay!"
+reviews_score: 5
+room_type: "Deluxe Room"
+access_denied: "You do not have access"
