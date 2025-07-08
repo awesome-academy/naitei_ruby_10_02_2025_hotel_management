@@ -56,7 +56,11 @@ request_default_quantity: 1
 request_default_status: "deposited"
 request_token_length: 10
 request_pending_status: "pending"
-reviews_content: "Great stay!"
-reviews_score: 5
-room_type: "Deluxe Room"
-access_denied: "You do not have access"
+zero: 0
+max_price_value: 1000000
+services:
+  name_max_length: 100
+  items_per_page: 10
+  name: "Spa"
+  description: "Relaxing spa service"
+  price: 200_000
