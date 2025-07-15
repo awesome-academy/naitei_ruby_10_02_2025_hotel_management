@@ -53,4 +53,19 @@ Rails.application.routes.draw do
       resources :reviews, only: [:index, :new, :create]
     end
   end
+  namespace :api do
+    namespace :v1 do
+      resources :auth ,only: [] do
+        collection do
+          post :register
+          post :login
+          delete :logout
+          post :request_password_reset
+          put :reset_password
+          get :confirm
+          post :refresh_token
+        end
+      end
+    end
+  end
 end
