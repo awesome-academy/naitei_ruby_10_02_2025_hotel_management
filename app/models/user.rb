@@ -62,6 +62,9 @@ password_confirmation).freeze
     update(activated: false)
   end
 
+  def jwt_payload
+    {user_id: id, email: email, role: role}
+  end
   private
 
   def set_last_activity

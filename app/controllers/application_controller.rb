@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale
+  before_action :set_locale, unless: :api_request
   before_action :initialize_search
   include Pagy::Backend
   include DeviseHelper
@@ -27,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def initialize_search
     @q = RoomType.ransack(params[:q])
+  end
+
+  def api_request
+    request.path.start_with?("/api")
   end
 end

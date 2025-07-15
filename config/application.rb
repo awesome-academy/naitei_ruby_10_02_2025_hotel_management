@@ -13,5 +13,6 @@ module RailsTutorial
     config.time_zone = "UTC"
     config.active_record.default_timezone = :utc
     config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths << Rails.root.join('app/lib')
   end
 end

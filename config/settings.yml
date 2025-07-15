@@ -64,3 +64,21 @@ services:
   name: "Spa"
   description: "Relaxing spa service"
   price: 200_000
+messages:
+  login:
+    success: "Login successful"
+    failure: "Invalid email, password, or account not confirmed"
+  logout: "Logged out successfully"
+  register:
+    success: "Registration successful"
+  password:
+    reset_sent: "Password reset email sent"
+    reset_success: "Password updated successfully"
+    email_not_found: "Email not found"
+  token:
+    invalid_or_expired: "Invalid or expired refresh token"
+    unauthorized: "Unauthorized"
+access_token_time: 24
+access_token_time_limit: 15
+refresh_token_time_limit: 30
+cache: 86400
