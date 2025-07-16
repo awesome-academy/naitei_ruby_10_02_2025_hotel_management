@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :auth ,only: [] do
+      resources :auth, only: [] do  
         collection do
           post :register
           post :login
@@ -64,6 +64,13 @@ Rails.application.routes.draw do
           put :reset_password
           get :confirm
           post :refresh_token
+        end
+      end
+      
+      resources :users do
+        member do
+          put :activate
+          put :deactivate
         end
       end
     end

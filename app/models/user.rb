@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   PERMITTED_ATTRS = %i(username email phone password
 password_confirmation).freeze
-  PERMITTED_UPDATE_ATTRS = (PERMITTED_ATTRS + [:current_password]).freeze
+  PERMITTED_UPDATE_ATTRS = %i(username phone).freeze
 
   before_create :set_last_activity
 
@@ -64,6 +64,10 @@ password_confirmation).freeze
 
   def jwt_payload
     {user_id: id, email: email, role: role}
+  end
+
+  def as_json options = {}
+    super(options.merge(except: [:remember_digest, :password_digest]))
   end
   private
 
