@@ -4,6 +4,10 @@ module Api
       skip_before_action :verify_authenticity_token
       rescue_from StandardError, with: :handle_api_error
       before_action :authenticate_user
+
+      rescue_from CanCan::AccessDenied do |exception|
+        render json: {errors: [exception.message]}, status: :forbidden
+      end
       private
 
       def handle_api_error _exception

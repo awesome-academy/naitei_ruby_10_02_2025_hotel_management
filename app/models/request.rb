@@ -3,7 +3,7 @@ class Request < ApplicationRecord
   before_save :set_deposit_amount_if_deposited
   enum status: {pending: 0, deposited: 1, checkined: 2, checkouted: 3,
                 finished: 4, denied: 5}
-
+  PERMITTED_ATTRS = %i(room_type_id checkin_date checkout_date quantity).freeze
   belongs_to :user
   belongs_to :room_type
 

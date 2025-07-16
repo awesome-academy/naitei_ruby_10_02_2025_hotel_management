@@ -82,7 +82,14 @@ messages:
     internal_server: "Internal server error"
     user_not_found: "User not found"
     cannot_delete_user: "Cannot delete this user"
+    room_type_not_found: "Room type not found"
+    checkin_after_checkout: "Check-in date must be before check-out date"
+    invalid_quantity: "Quantity must be greater than zero"
+    quantity_too_large: "Quantity cannot be greater than %{max_quantity}"
+    duration_too_long: "Stay duration cannot exceed %{max_days} days"
+    invalid_date_format: "Invalid date format" 
   user_deleted: "User has been deleted successfully"
+  invalid_date_format: "Invalid date format"
 access_token_time: 24
 access_token_time_limit: 15
 refresh_token_time_limit: 30

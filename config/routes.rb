@@ -73,6 +73,12 @@ Rails.application.routes.draw do
           put :deactivate
         end
       end
+      resources :room_types,only: [] do
+        collection do
+          get :check
+        end
+      end 
+      resources :requests, only: [:create]
     end
   end
 end
