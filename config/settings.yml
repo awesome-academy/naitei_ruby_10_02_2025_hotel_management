@@ -78,6 +78,11 @@ messages:
   token:
     invalid_or_expired: "Invalid or expired refresh token"
     unauthorized: "Unauthorized"
+  error:
+    internal_server: "Internal server error"
+    user_not_found: "User not found"
+    cannot_delete_user: "Cannot delete this user"
+  user_deleted: "User has been deleted successfully"
 access_token_time: 24
 access_token_time_limit: 15
 refresh_token_time_limit: 30
